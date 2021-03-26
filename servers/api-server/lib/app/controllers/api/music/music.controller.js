@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
+var _a, _b, _c, _d, _e, _f;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MusicController = void 0;
 const core_1 = require("@foal/core");
@@ -66,11 +67,11 @@ let MusicController = class MusicController {
 };
 __decorate([
     core_1.dependency,
-    __metadata("design:type", music_pkg_1.Music)
+    __metadata("design:type", typeof (_a = typeof music_pkg_1.Music !== "undefined" && music_pkg_1.Music) === "function" ? _a : Object)
 ], MusicController.prototype, "music", void 0);
 __decorate([
     core_1.dependency,
-    __metadata("design:type", playlist_pkg_1.Playlist)
+    __metadata("design:type", typeof (_b = typeof playlist_pkg_1.Playlist !== "undefined" && playlist_pkg_1.Playlist) === "function" ? _b : Object)
 ], MusicController.prototype, "playlist", void 0);
 __decorate([
     core_1.Get('/'),
@@ -88,8 +89,8 @@ __decorate([
         }
     }),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [core_1.Context]),
-    __metadata("design:returntype", Promise)
+    __metadata("design:paramtypes", [typeof (_c = typeof core_1.Context !== "undefined" && core_1.Context) === "function" ? _c : Object]),
+    __metadata("design:returntype", typeof (_d = typeof Promise !== "undefined" && Promise) === "function" ? _d : Object)
 ], MusicController.prototype, "find", null);
 __decorate([
     core_1.Post('/')
@@ -107,8 +108,8 @@ __decorate([
         },
     }),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [core_1.Context]),
-    __metadata("design:returntype", Promise)
+    __metadata("design:paramtypes", [typeof (_e = typeof core_1.Context !== "undefined" && core_1.Context) === "function" ? _e : Object]),
+    __metadata("design:returntype", typeof (_f = typeof Promise !== "undefined" && Promise) === "function" ? _f : Object)
 ], MusicController.prototype, "add", null);
 MusicController = __decorate([
     core_1.Log('MusicController', { body: true, params: true, query: true })

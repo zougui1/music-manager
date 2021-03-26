@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var _a, _b, _c;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserController = void 0;
 const core_1 = require("@foal/core");
@@ -20,7 +21,7 @@ let UserController = class UserController {
 };
 __decorate([
     core_1.dependency,
-    __metadata("design:type", user_pkg_1.User)
+    __metadata("design:type", typeof (_a = typeof user_pkg_1.User !== "undefined" && user_pkg_1.User) === "function" ? _a : Object)
 ], UserController.prototype, "user", void 0);
 __decorate([
     core_1.Get('/'),
@@ -38,8 +39,8 @@ __decorate([
         }
     }),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [core_1.Context]),
-    __metadata("design:returntype", Promise)
+    __metadata("design:paramtypes", [typeof (_b = typeof core_1.Context !== "undefined" && core_1.Context) === "function" ? _b : Object]),
+    __metadata("design:returntype", typeof (_c = typeof Promise !== "undefined" && Promise) === "function" ? _c : Object)
 ], UserController.prototype, "find", null);
 UserController = __decorate([
     core_1.Log('UseController', { body: true, params: true, query: true })

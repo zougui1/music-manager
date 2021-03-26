@@ -1,6 +1,4 @@
-declare const NonexistentTranslationError_base: import("error-pkg").ApiError<{
-    translationKey: string;
-}>;
+declare const NonexistentTranslationError_base: any;
 export declare class NonexistentTranslationError extends NonexistentTranslationError_base {
 }
 export {};
