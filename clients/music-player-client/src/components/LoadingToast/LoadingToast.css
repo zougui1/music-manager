@@ -1,0 +1,12 @@
+.loading-toast {
+  width: 100%;
+  max-width: 100%;
+  min-height: 28px;
+}
+
+.loading-toast .spinner-col,
+.loading-toast .label-col {
+  display: flex;
+  align-items: center;
+  padding: 0;
+}

@@ -1,0 +1,7 @@
+{
+  "name": "music-player-client-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}

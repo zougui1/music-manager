@@ -1,0 +1,1 @@
+{"version":3,"file":"music-playing.entity.js","sourceRoot":"","sources":["../../src/entities/music-playing.entity.ts"],"names":[],"mappings":";;;AAAA,MAAa,CAAC;IAAd;QACS,MAAC,GAAW,QAAQ,CAAC;IAC9B,CAAC;CAAA;AAFD,cAEC;AAAA,CAAC","sourcesContent":["export class T {\n  public t: string = 'string';\n};\n"]}

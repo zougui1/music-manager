@@ -1,0 +1,1 @@
+{"version":3,"file":"types.js","sourceRoot":"","sources":["../src/types.ts"],"names":[],"mappings":"","sourcesContent":["import fs from 'fs-extra';\n\nexport interface WriteStream extends fs.WriteStream {\n  waitFinish(listener: (filePath: string) => void): void;\n}\n\nexport interface PathData {\n  fileName?: string;\n  extension?: string;\n}\n"]}

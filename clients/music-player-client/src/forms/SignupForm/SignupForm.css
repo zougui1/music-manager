@@ -1,0 +1,12 @@
+.signup-form .form-row {
+  justify-content: center;
+}
+
+.signup-form .signup-button-row {
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.signup-form input[type="submit"] {
+  display: none;
+}

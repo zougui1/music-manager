@@ -1,0 +1,59 @@
+{
+  "name": "api-server",
+  "version": "0.0.0",
+  "description": "description of the application",
+  "license": "MIT",
+  "repository": {},
+  "scripts": {
+    "build": "concurrently \"heft build --clean\" \"tsc -p tsconfig.json --outDir build\"",
+    "start": "nodemon ./lib",
+    "dev": "concurrently \"npm run build:watch\" \"npm start\"",
+    "test": "heft jest",
+    "e2e": "npm run build:e2e && concurrently \"tsc -p tsconfig.e2e.json -w\" \"jest --file ./lib/e2e.js -w \\\"./lib/e2e/**/*.js\\\"\"",
+    "migrations:make": "foal rmdir lib && tsc -p tsconfig.app.json && npx typeorm migration:generate --name migration && tsc -p tsconfig.app.json",
+    "migrations": "npx typeorm migration:run",
+    "migration:revert": "npx typeorm migration:revert"
+  },
+  "engines": {
+    "node": ">=10"
+  },
+  "dependencies": {
+    "@foal/core": "^2.0.0",
+    "@foal/jwt": "^2.2.0",
+    "@foal/storage": "^2.2.0",
+    "@foal/swagger": "^2.2.0",
+    "@foal/typeorm": "^2.0.0",
+    "@foal/typestack": "^2.2.0",
+    "class-transformer": "^0.3.1",
+    "class-validator": "^0.13.1",
+    "class-validator-jsonschema": "^3.0.0",
+    "flat": "^5.0.2",
+    "jsonwebtoken": "^8.5.1",
+    "source-map-support": "^0.5.19",
+    "music-pkg": "~1.0.0",
+    "playlist-pkg": "~1.0.0",
+    "database-pkg": "~1.0.0",
+    "error-pkg": "~1.0.0",
+    "types-pkg": "~1.0.0",
+    "openapi3-ts": "~2.0.1",
+    "user-pkg": "~1.0.0",
+    "downloader-pkg": "~1.0.0",
+    "typeorm": "^0.2.31",
+    "@types/supertest": "~2.0.10"
+  },
+  "devDependencies": {
+    "@types/flat": "^5.0.1",
+    "@types/jest": "^26.0.21",
+    "@types/jsonwebtoken": "^8.5.1",
+    "@types/node": "^14.14.30",
+    "concurrently": "~5.3.0",
+    "@rushstack/eslint-config": "~2.3.2",
+    "@rushstack/heft": "~0.25.3",
+    "@types/heft-jest": "~1.0.2",
+    "eslint": "~7.22.0",
+    "jest-date-mock": "^1.0.8",
+    "jest-extended": "^0.11.5",
+    "supertest": "~6.0.0",
+    "typescript": "^4.1.5"
+  }
+}

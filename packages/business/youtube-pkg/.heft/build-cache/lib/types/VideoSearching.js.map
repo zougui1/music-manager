@@ -1,0 +1,1 @@
+{"version":3,"file":"VideoSearching.js","sourceRoot":"","sources":["../../src/types/VideoSearching.ts"],"names":[],"mappings":"","sourcesContent":["export interface SearchCriterias {\n  artists: {\n    name: string,\n    altNames: string[],\n  }[];\n  album: string;\n  title: string;\n  duration: number;\n}\n"]}

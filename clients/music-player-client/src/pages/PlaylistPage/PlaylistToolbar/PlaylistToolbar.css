@@ -1,0 +1,4 @@
+.playlist-toolbar .button-col {
+  display: flex;
+  justify-content: flex-end;
+}

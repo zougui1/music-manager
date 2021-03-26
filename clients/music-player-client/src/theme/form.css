@@ -1,0 +1,12 @@
+.form input[type="submit"] {
+  display: none !important;
+}
+
+.form .form-row {
+  margin-top: 1rem;
+}
+
+.form-error {
+  display: flex;
+  justify-content: center;
+}

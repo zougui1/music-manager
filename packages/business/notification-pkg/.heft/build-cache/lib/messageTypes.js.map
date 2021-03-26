@@ -1,0 +1,1 @@
+{"version":3,"file":"messageTypes.js","sourceRoot":"","sources":["../src/messageTypes.ts"],"names":[],"mappings":";;;AAAa,QAAA,8BAA8B,GAAG,gCAAgC,CAAC","sourcesContent":["export const NOTIFY_MUSIC_DOWNLOAD_PROGRESS = 'NOTIFY_MUSIC_DOWNLOAD_PROGRESS';\n"]}

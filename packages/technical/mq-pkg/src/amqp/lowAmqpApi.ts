@@ -1,0 +1,91 @@
+import amqp, { Connection, ConsumeMessage } from 'amqplib';
+import { EventEmitter } from 'events';
+
+import { disconnectOnProcessExit } from '../utils';
+import { ObjectLiteral, MessageHandler } from '../types';
+
+let connection: Connection | undefined;
+export const connectionEvent = new EventEmitter();
+
+const disconnect = (signal: string) => {
+  return async () => {
+    console.log(`[AMQP] ${signal} signal received.`);
+
+    if (!connection) {
+      console.log('[AMQP] No subscription to close.');
+      return;
+    }
+
+    console.log('[AMQP] Closing subscription.');
+    await connection.close();
+    connectionEvent.emit('disconnect', signal);
+    console.log('[AMQP] Subscription closed.');
+  }
+}
+
+export const isConnected = (): boolean => {
+  return !!connection;
+}
+
+const handleMessage = (listener: MessageHandler, ack: (message: amqp.Message, allUpTo?: boolean | undefined) => void) => (message: ConsumeMessage | null): void => {
+  if (!message) {
+    return;
+  }
+
+  const acknowledge = (allUpTo?: boolean | undefined) => {
+    ack(message, allUpTo);
+  }
+
+  listener({
+    body: JSON.parse(message.content.toString()).payload,
+    headers: message.properties.headers,
+    ack: acknowledge,
+  });
+}
+
+export const listenQueue = async (queueName: string, listener: MessageHandler): Promise<void> => {
+  if (!connection) {
+    return;
+  }
+
+  const channel = await connection.createChannel();
+  await channel.assertQueue(queueName, { durable: true });
+  await channel.consume(queueName, handleMessage(listener, channel.ack.bind(channel)), { noAck: false });
+}
+
+const connect = async (): Promise<Connection> => {
+  if (!process.env.RABBITMQ_SERVER_URL) {
+    throw new Error('The environment variable \'RABBITMQ_SERVER_URL\' is missing');
+  }
+
+  return await amqp.connect(process.env.RABBITMQ_SERVER_URL);
+}
+
+export const start = async (): Promise<Connection> => {
+  if (connection) {
+    return connection;
+  }
+
+  connection = await connect();
+  disconnectOnProcessExit(disconnect);
+  connectionEvent.emit('connection', connection);
+  return connection;
+}
+
+export const publish = async (queueName: string, content: any, headers?: ObjectLiteral | null | undefined): Promise<void> => {
+  const connection = await connect();
+  const body = { payload: content };
+  const bodyString = JSON.stringify(body);
+
+  try {
+    const channel = await connection.createChannel();
+    await channel.assertQueue(queueName, { durable: true });
+    await channel.sendToQueue(queueName, Buffer.from(bodyString), { headers, persistent: true });
+
+    console.log(`[AMQP] Sent \'${bodyString}\' with the headers \'${JSON.stringify(headers)}\'`);
+
+    await channel.close();
+  } finally {
+    await connection.close();
+  }
+}

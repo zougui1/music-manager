@@ -1,0 +1,12 @@
+.login-form .form-row {
+  justify-content: center;
+}
+
+.login-form .login-button-row {
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.login-form input[type="submit"] {
+  display: none;
+}

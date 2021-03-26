@@ -1,0 +1,1 @@
+{"version":3,"file":"Downloader.js","sourceRoot":"","sources":["../src/Downloader.ts"],"names":[],"mappings":"","sourcesContent":["import { DownloadedAudio } from './DownloadedAudio';\n\nexport interface Downloader {\n  downloadAudio(link: string): Promise<DownloadedAudio | DownloadedAudio[]>;\n}\n"]}

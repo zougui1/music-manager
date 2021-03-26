@@ -1,0 +1,1 @@
+{"version":3,"file":"mergeMetadata.d.ts","sourceRoot":"","sources":["../src/mergeMetadata.ts"],"names":[],"mappings":"AAmBA,eAAO,MAAM,kBAAkB,WAAkB,MAAM,aAAa,SAAS,KAAG,QAAQ,MAAM,CAsB7F,CAAA;AAED,MAAM,WAAW,SAAS;IACxB,QAAQ,EAAE,MAAM,CAAC;IACjB,OAAO,EAAE,MAAM,EAAE,CAAC;IAClB,SAAS,EAAE,MAAM,CAAC;IAClB,IAAI,EAAE,MAAM,CAAC;IACb,WAAW,EAAE,MAAM,CAAC;CACrB"}

@@ -1,0 +1,14 @@
+{
+  "appId": "com.zougui.music_player",
+  "appName": "music-player-client-app",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "build",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
+  "cordova": {},
+  "linuxAndroidStudioPath": "/run/media/zougui/Manjaro_Data/zougui/Programs/android-studio/bin/studio.sh"
+}

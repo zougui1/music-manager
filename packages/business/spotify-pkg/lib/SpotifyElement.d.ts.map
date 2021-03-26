@@ -1,0 +1,1 @@
+{"version":3,"file":"SpotifyElement.d.ts","sourceRoot":"","sources":["../src/SpotifyElement.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,eAAe,EAAE,UAAU,EAAE,MAAM,WAAW,CAAC;AAMxD,OAAO,EAAE,gBAAgB,EAAE,MAAM,SAAS,CAAC;AAE3C,qBAAa,cAAe,YAAW,UAAU;IAE/C,OAAO,EAAE,UAAU,CAAC;gBAER,IAAI,EAAE,gBAAgB;IAc5B,aAAa,IAAI,OAAO,CAAC,eAAe,GAAG,eAAe,EAAE,CAAC;CAGpE"}

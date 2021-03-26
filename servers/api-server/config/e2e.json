@@ -1,0 +1,10 @@
+{
+  "settings": {
+    "loggerFormat": "none"
+  },
+  "database": {
+    "database": "e2e.music_manager",
+    "dropSchema": true,
+    "synchronize": true
+  }
+}

@@ -1,0 +1,6 @@
+.playlist .link {
+  display: flex;
+  width: 100%;
+  color: unset;
+  text-decoration: unset;
+}

@@ -1,0 +1,43 @@
+{
+  "name": "youtube-pkg",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "build": "heft build --clean",
+    "build:watch": "heft build",
+    "start": "nodemon lib",
+    "test": "heft test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^14.14.30",
+    "source-map-support": "^0.5.19",
+    "typescript": "^4.1.5",
+    "@types/heft-jest": "~1.0.2",
+    "@rushstack/eslint-config": "~2.3.2",
+    "@rushstack/heft": "~0.25.3",
+    "@types/url-parse": "^1.4.3",
+    "@types/yt-search": "^2.3.0",
+    "eslint": "~7.22.0",
+    "@types/progress-stream": "~2.0.1"
+  },
+  "dependencies": {
+    "error-pkg": "~1.0.0",
+    "ffmpeg-pkg": "~1.0.0",
+    "filesystem-pkg": "~1.0.0",
+    "got": "~11.8.2",
+    "music-metadata-pkg": "~1.0.0",
+    "querystring": "~0.2.1",
+    "url-parse": "^1.5.1",
+    "yt-search": "~2.7.3",
+    "ytdl-core": "~4.5.0",
+    "progress-stream": "~2.0.0",
+    "types-pkg": "~1.0.0",
+    "notification-pkg": "~1.0.0",
+    "utils-pkg": "~1.0.0"
+  }
+}

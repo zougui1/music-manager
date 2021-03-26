@@ -1,0 +1,15 @@
+.playlist-list {
+  --ion-grid-columns: 24;
+}
+
+.playlist-list .number-col {
+  width: 30px;
+  max-width: 30px;
+  min-width: 30px;
+  text-align: right;
+}
+
+.playlist-list .duration-col {
+  display: flex;
+  flex-direction: row-reverse;
+}

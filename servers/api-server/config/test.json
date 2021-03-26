@@ -1,0 +1,7 @@
+{
+  "database": {
+    "database": "test.music_manager",
+    "dropSchema": true,
+    "synchronize": true
+  }
+}

@@ -1,0 +1,1 @@
+{"version":3,"file":"data.js","sourceRoot":"","sources":["../src/data.ts"],"names":[],"mappings":";;;AAAA,IAAY,OAGX;AAHD,WAAY,OAAO;IACjB,gCAAqB,CAAA;IACrB,0BAAe,CAAA;AACjB,CAAC,EAHW,OAAO,GAAP,eAAO,KAAP,eAAO,QAGlB","sourcesContent":["export enum UrlType {\n  playlist = 'playlist',\n  track = 'track',\n}\n"]}
