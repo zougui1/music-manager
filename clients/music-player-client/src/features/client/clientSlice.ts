@@ -21,14 +21,19 @@ export const clientSlice = createSlice({
       state.accessToken = action.payload.token;
       state.user = action.payload.user;
     },
-    updateAccessToken: (state, action: PayloadAction<string>) => {
+    authorizedRequestIntercepted: (state, action: PayloadAction<string>) => {
       state.accessToken = action.payload;
+    },
+    unauthorizedRequestIntercepted: (state) => {
+      state.user = null;
+      state.accessToken = null;
     },
   },
 });
 
 export const {
-  updateAccessToken,
+  authorizedRequestIntercepted,
+  unauthorizedRequestIntercepted,
   login,
 } = clientSlice.actions;
 

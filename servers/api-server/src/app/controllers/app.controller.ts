@@ -10,14 +10,14 @@ import { OpenApiController } from './openApi.controller';
 import { getMessage } from '../translations';
 import { PublicError } from '../types';
 import { convertErrorDescriptionToCode } from '../utils';
-import { HandleOptionsRequest, Cors, HandleBadRequestResponse } from '../hooks';
+import { HandleOptionsRequest, Cors, HandleErrorResponses } from '../hooks';
 
 // it is important that Cors gets called
 // before HandleOptionsRequest since it
 // ends the request
 @Cors()
 @HandleOptionsRequest()
-@HandleBadRequestResponse()
+@HandleErrorResponses()
 export class AppController implements IAppController {
   subControllers = [
     controller('/files', FileController),
@@ -59,7 +59,7 @@ export class AppController implements IAppController {
     if (error instanceof HttpResponse) {
       const body = error.body as { description: string };
 
-      error = <ApiErrorObject>{
+      error = {
         ...convertErrorDescriptionToCode(body.description),
         status: error.statusCode,
       };

@@ -13,7 +13,7 @@
     "jwt": {
       "secret": "env(JWT_SECRET)",
       "secretEncoding": "env(JWT_SECRET_ENCODING)",
-      "tokenExpirationInterval": "15m"
+      "tokenExpirationInterval": "10s"
     }
   },
   "database": {

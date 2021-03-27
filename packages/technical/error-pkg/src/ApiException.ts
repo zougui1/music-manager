@@ -60,14 +60,7 @@ export class ApiException extends Exception {
   }
 
   private static fromErrorData(value: any): ApiException {
-    if (value.status || value.code) {
-      if(value.messageCode) {
-        value.message = value.messageCode;
-      }
-
-      return new ApiException(value);
-    }
-
+    value.message = value.messageCode;
     return new ApiException(value);
   }
   //#endregion

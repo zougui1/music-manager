@@ -89,7 +89,7 @@ let AppController = class AppController {
 AppController = __decorate([
     hooks_1.Cors(),
     hooks_1.HandleOptionsRequest(),
-    hooks_1.HandleBadRequestResponse()
+    hooks_1.HandleErrorResponses()
 ], AppController);
 exports.AppController = AppController;
 class Response extends core_1.HttpResponse {

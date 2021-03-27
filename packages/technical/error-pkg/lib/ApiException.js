@@ -43,12 +43,7 @@ class ApiException extends utils_1.Exception {
         return new ApiException(value.message);
     }
     static fromErrorData(value) {
-        if (value.status || value.code) {
-            if (value.messageCode) {
-                value.message = value.messageCode;
-            }
-            return new ApiException(value);
-        }
+        value.message = value.messageCode;
         return new ApiException(value);
     }
     //#endregion

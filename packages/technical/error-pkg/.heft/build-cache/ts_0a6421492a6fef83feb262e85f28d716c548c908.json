@@ -294,7 +294,7 @@
         "affectsGlobalScope": false
       },
       "../../src/ApiException.ts": {
-        "version": "dc6b581a342471ed0accce5ee67ec6a8225f6e2de0936e84c228408c342c20d7",
+        "version": "0e884f3583a197b312678c8a514c05aab3075bc236b76059994be0f5143799ac",
         "affectsGlobalScope": false
       },
       "../../src/createError.ts": {

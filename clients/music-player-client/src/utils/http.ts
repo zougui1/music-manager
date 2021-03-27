@@ -1,7 +1,7 @@
-import _axios, { AxiosRequestConfig } from 'axios';
+import _axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
 
 import { store } from '../store';
-import { updateAccessToken } from '../features/client';
+import { authorizedRequestIntercepted, unauthorizedRequestIntercepted } from '../features/client';
 import { env } from '../env';
 
 export const axios = _axios.create({
@@ -29,12 +29,22 @@ axios.interceptors.request.use(config => {
   return config;
 });
 
-axios.interceptors.response.use(response => {
+const interceptResponseSuccess = (response: AxiosResponse) => {
   const newAccessToken = response.headers['access-token'];
 
   if (newAccessToken) {
-    store.dispatch(updateAccessToken(newAccessToken));
+    store.dispatch(authorizedRequestIntercepted(newAccessToken));
   }
 
   return response;
-});
+}
+
+const interceptResponseFailure = async (error: AxiosError): Promise<void> => {
+  if (error) {
+    store.dispatch(unauthorizedRequestIntercepted());
+  }
+
+  throw error;
+}
+
+axios.interceptors.response.use(interceptResponseSuccess, interceptResponseFailure);
