@@ -1,1 +1,0 @@
-{"version":3,"file":"index.js","sourceRoot":"","sources":["../../src/amqp/index.ts"],"names":[],"mappings":";;;;;;;;;;;;;AAAA,yCAAuB;AACvB,2CAAuC;AAA9B,qGAAA,OAAO,OAAA;AAChB,6CAA2B","sourcesContent":["export * from './amqp';\nexport { publish } from './lowAmqpApi';\nexport * from './external';\n"]}
