@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
+var _a, _b;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MusicController = void 0;
 const core_1 = require("@foal/core");
@@ -76,11 +77,11 @@ class MusicController {
 }
 __decorate([
     core_1.dependency,
-    __metadata("design:type", music_pkg_1.Music)
+    __metadata("design:type", typeof (_a = typeof music_pkg_1.Music !== "undefined" && music_pkg_1.Music) === "function" ? _a : Object)
 ], MusicController.prototype, "music", void 0);
 __decorate([
     core_1.dependency,
-    __metadata("design:type", playlist_pkg_1.Playlist)
+    __metadata("design:type", typeof (_b = typeof playlist_pkg_1.Playlist !== "undefined" && playlist_pkg_1.Playlist) === "function" ? _b : Object)
 ], MusicController.prototype, "playlist", void 0);
 __decorate([
     core_1.Get('/'),
