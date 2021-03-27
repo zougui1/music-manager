@@ -1,1 +1,0 @@
-{"version":3,"file":"BaseTable.js","sourceRoot":"","sources":["../../src/tables/BaseTable.ts"],"names":[],"mappings":"","sourcesContent":["export interface BaseTable {\n  id: number;\n  createdAt: Date;\n  updatedAt: Date;\n  deletedAt: Date | null;\n  version: number;\n}\n"]}

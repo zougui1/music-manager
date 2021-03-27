@@ -1,1 +1,0 @@
-{"version":3,"file":"object.js","sourceRoot":"","sources":["../src/object.ts"],"names":[],"mappings":"","sourcesContent":["export interface ObjectOf<T> {\n  [key: string]: T;\n}\n\nexport type ObjectLiteral = ObjectOf<any>;\n"]}
