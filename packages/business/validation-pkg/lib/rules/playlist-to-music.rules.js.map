@@ -1,1 +1,0 @@
-{"version":3,"file":"playlist-to-music.rules.js","sourceRoot":"","sources":["../../src/rules/playlist-to-music.rules.ts"],"names":[],"mappings":";;;AAAa,QAAA,eAAe,GAAG;IAC7B,KAAK,EAAE;QACL,GAAG,EAAE,CAAC;KACP;CACF,CAAC","sourcesContent":["export const playlistToMusic = {\n  order: {\n    min: 0,\n  },\n};\n"]}
