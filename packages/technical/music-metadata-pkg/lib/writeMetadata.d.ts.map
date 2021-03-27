@@ -1,1 +1,0 @@
-{"version":3,"file":"writeMetadata.d.ts","sourceRoot":"","sources":["../src/writeMetadata.ts"],"names":[],"mappings":"AAEA,eAAO,MAAM,aAAa,SAAU,MAAM,QAAQ,aAAa,KAAG,QAAQ,IAAI,CAU7E,CAAA;AAED,MAAM,WAAW,aAAa;IAC5B,MAAM,EAAE,MAAM,CAAC;IACf,KAAK,EAAE,MAAM,CAAC;IACd,KAAK,EAAE,MAAM,CAAC;IACd,IAAI,EAAE,MAAM,CAAC;IACb,WAAW,EAAE,MAAM,EAAE,CAAC;CACvB"}
