@@ -12,9 +12,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.PlaylistController = void 0;
 const core_1 = require("@foal/core");
 const playlist_pkg_1 = require("playlist-pkg");
-let PlaylistController = class PlaylistController {
+class PlaylistController {
     async find(ctx) {
-        const playlists = await this.playlist.findMany();
+        const playlists = await this.playlist.findMany({ user: ctx.user });
         return new core_1.HttpResponseOK(playlists);
     }
     async findOne(ctx, { id }) {
@@ -26,16 +26,16 @@ let PlaylistController = class PlaylistController {
     }
     async add(ctx) {
         const playlist = ctx.request.body;
-        await this.playlist.create(playlist);
+        await this.playlist.create(Object.assign({ user: ctx.user }, playlist));
         return new core_1.HttpResponseOK(playlist);
     }
     async opt() { return new core_1.HttpResponseOK(); }
     async update(ctx, { id }, body) {
-        await this.playlist.update(id, body);
+        await this.playlist.update({ id, user: ctx.user }, body);
         return new core_1.HttpResponseOK();
     }
     async optById() { return new core_1.HttpResponseOK(); }
-};
+}
 __decorate([
     core_1.dependency,
     __metadata("design:type", playlist_pkg_1.Playlist)
@@ -89,8 +89,5 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
 ], PlaylistController.prototype, "optById", null);
-PlaylistController = __decorate([
-    core_1.Log('PlaylistController', { body: true, params: true, query: true })
-], PlaylistController);
 exports.PlaylistController = PlaylistController;
 //# sourceMappingURL=playlist.controller.js.map

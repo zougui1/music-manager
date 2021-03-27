@@ -1,4 +1,4 @@
-import { RepositoryAccessor, UserEntity, UserRepository } from 'database-pkg';
+import { RepositoryAccessor, UserEntity, UserRepository, DeepPartial } from 'database-pkg';
 import * as hash from 'hash-pkg';
 
 import { IncorrectCredentialsError } from './errors';
@@ -29,6 +29,15 @@ export class User extends RepositoryAccessor<UserRepository> {
     }
 
     return user;
+  }
+
+  public async signup(user: { password: string, name: string, email: string }): Promise<UserEntity> {
+    user = {
+      ...user,
+      password: await hash.hash(user.password),
+    };
+
+    return await this.repo.create(user).save();
   }
 
   public async clear(): Promise<void> {

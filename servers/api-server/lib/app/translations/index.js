@@ -13,8 +13,6 @@ const translations = {
 };
 const getMessage = (language, key, values = {}) => {
     const translation = translations[language !== null && language !== void 0 ? language : defaultLanguage] || translations[defaultLanguage];
-    console.log(translation);
-    console.log(key);
     if (!(key in translation)) {
         throw new errors_1.NonexistentTranslationError(null, { translationKey: key });
     }

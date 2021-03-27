@@ -10,8 +10,20 @@
       "84e6d42ec36f0295c423505e2916e24cfffcd8458688509be2c2ffaa973949b5"
     ],
     [
+      "/run/media/zougui/Manjaro_Data/zougui/Code/javascript/internal/music-manager/servers/api-server/src/app/types/error.ts",
+      "7e80095b475831a822ace459c5f16ba27fb605960947a7322ef137cbc5726d94"
+    ],
+    [
+      "/run/media/zougui/Manjaro_Data/zougui/Code/javascript/internal/music-manager/servers/api-server/src/app/types/UserContext.ts",
+      "1275f2ef27472107f04498548073b01bd32b6aba5d270bb90d60a59e34382567"
+    ],
+    [
+      "/run/media/zougui/Manjaro_Data/zougui/Code/javascript/internal/music-manager/servers/api-server/src/app/types/index.ts",
+      "d6d7a097d949a1613a9537e513e94e157d0937144a447d3602c26d7e3d505c8e"
+    ],
+    [
       "/run/media/zougui/Manjaro_Data/zougui/Code/javascript/internal/music-manager/servers/api-server/src/app/controllers/api/music/music.controller.ts",
-      "22af6ad4086eae7217bff698ef7397df832cec946b1449309ee48dcd579d9e4c"
+      "3d3e625baf7604da5f52409081dca19aa479c5ea162ab56780c2c22099809464"
     ],
     [
       "/run/media/zougui/Manjaro_Data/zougui/Code/javascript/internal/music-manager/servers/api-server/src/app/controllers/api/music/index.ts",
@@ -19,7 +31,7 @@
     ],
     [
       "/run/media/zougui/Manjaro_Data/zougui/Code/javascript/internal/music-manager/servers/api-server/src/app/controllers/api/playlist/playlist.controller.ts",
-      "6985171dadf85a370378882a52c17146b536ae1e3fdfb8b3eb3373adeabf00f6"
+      "65a728b691c1346d4d098ab6f78324dff086482db3a077b1095bc86459fe2e78"
     ],
     [
       "/run/media/zougui/Manjaro_Data/zougui/Code/javascript/internal/music-manager/servers/api-server/src/app/controllers/api/playlist/index.ts",
@@ -27,7 +39,7 @@
     ],
     [
       "/run/media/zougui/Manjaro_Data/zougui/Code/javascript/internal/music-manager/servers/api-server/src/app/controllers/api/user/user.controller.ts",
-      "8d9ce84fe19b3a9d3861a3ce891ac26ff8663ab6827495b7199d176cedaa1b31"
+      "fa51151bd3f5bf22363c7c85758f5065418b97d47a181cc9fa0f780bdb9a4e83"
     ],
     [
       "/run/media/zougui/Manjaro_Data/zougui/Code/javascript/internal/music-manager/servers/api-server/src/app/controllers/api/user/index.ts",
@@ -35,27 +47,55 @@
     ],
     [
       "/run/media/zougui/Manjaro_Data/zougui/Code/javascript/internal/music-manager/servers/api-server/src/app/utils/auth.ts",
-      "5565efb29ee9187550af1e6ada2df2ff66be84c7dcbee1d44f2b364e14339fca"
+      "c075632cf96eeb140baf19aee36d29080741525a3f48d380b18ba55b136344fe"
+    ],
+    [
+      "/run/media/zougui/Manjaro_Data/zougui/Code/javascript/internal/music-manager/servers/api-server/src/app/utils/cors.ts",
+      "705f66a2a64a96928c2f55d8fa76271ebded570e5031bb9e4d0b80dccba87eed"
+    ],
+    [
+      "/run/media/zougui/Manjaro_Data/zougui/Code/javascript/internal/music-manager/servers/api-server/src/app/utils/errors.ts",
+      "0c0e887b74f6cff81ff45b9ffe9bb7e8f1f3d9f1e510e55ca02887b4dcf2ade8"
     ],
     [
       "/run/media/zougui/Manjaro_Data/zougui/Code/javascript/internal/music-manager/servers/api-server/src/app/utils/index.ts",
-      "0d1e9013237428428f2c4b8c4c64e3b5fce66d8140bc75629c0cc320c85c4925"
+      "8288be20e2bd856abb46d82bcaeb9ff47f62090e383e5d875e9a5cd590862859"
     ],
     [
-      "/run/media/zougui/Manjaro_Data/zougui/Code/javascript/internal/music-manager/servers/api-server/src/app/controllers/api/auth/auth.controller.ts",
-      "93c59a982437e6341b8db334a17374c00e0535b64e6f07e7e854c0c69d9c8459"
+      "/run/media/zougui/Manjaro_Data/zougui/Code/javascript/internal/music-manager/servers/api-server/src/app/hooks/Cors.ts",
+      "b18bddfff7dd03ca30e59edcaf75ec7af084c62adb6c5bab12510aa3495f45d1"
     ],
     [
-      "/run/media/zougui/Manjaro_Data/zougui/Code/javascript/internal/music-manager/servers/api-server/src/app/controllers/api/auth/index.ts",
-      "cc3895cfac6942ba9a83e0e93d7ba3d2dc0a7495ec3beb16ac41867a2a04825c"
+      "/run/media/zougui/Manjaro_Data/zougui/Code/javascript/internal/music-manager/servers/api-server/src/app/hooks/HandleBadRequestResponse.ts",
+      "f038e9e21a963da6feecc08242cd0b13c7f97e8bcc91450e62a4c7165af96742"
+    ],
+    [
+      "/run/media/zougui/Manjaro_Data/zougui/Code/javascript/internal/music-manager/servers/api-server/src/app/hooks/HandleOptionsRequest.ts",
+      "24fee99bc6ae1292e4c23ec211389dc3a2c7d4e72562f78013792ef96f7fc0fa"
+    ],
+    [
+      "/run/media/zougui/Manjaro_Data/zougui/Code/javascript/internal/music-manager/servers/api-server/src/app/hooks/RefreshJWT.ts",
+      "9854758b6c0ca6cf13929b50bfff13f1d32d7d33ff2be9670bb7628a57991387"
+    ],
+    [
+      "/run/media/zougui/Manjaro_Data/zougui/Code/javascript/internal/music-manager/servers/api-server/src/app/hooks/index.ts",
+      "61e85fac54c254f04e9834c3b786ba5c5d1fd47e547623ba0df2fb1081df6e19"
     ],
     [
       "/run/media/zougui/Manjaro_Data/zougui/Code/javascript/internal/music-manager/servers/api-server/src/app/controllers/api/api.controller.ts",
-      "f6cd79aa26a05979186e8e140a3707587cad016e312d8fe2168221c40a44f1ca"
+      "ba39fa54143b05e9738f906278de0687567ffbbadeac8ae6fe61dc60c6f2002d"
     ],
     [
       "/run/media/zougui/Manjaro_Data/zougui/Code/javascript/internal/music-manager/servers/api-server/src/app/controllers/api/index.ts",
       "6c3aa4e7c1b8e948e286766b765bcddc2290d6ef0bb62b0123642b1a322051ed"
+    ],
+    [
+      "/run/media/zougui/Manjaro_Data/zougui/Code/javascript/internal/music-manager/servers/api-server/src/app/controllers/auth/auth.controller.ts",
+      "0c2c0d30b0d6853b1bf00c53ca85e8892aab4c6267c25b44bb7ed451eed28f56"
+    ],
+    [
+      "/run/media/zougui/Manjaro_Data/zougui/Code/javascript/internal/music-manager/servers/api-server/src/app/controllers/auth/index.ts",
+      "cc3895cfac6942ba9a83e0e93d7ba3d2dc0a7495ec3beb16ac41867a2a04825c"
     ],
     [
       "/run/media/zougui/Manjaro_Data/zougui/Code/javascript/internal/music-manager/servers/api-server/src/app/controllers/file.controller.ts",
@@ -67,7 +107,7 @@
     ],
     [
       "/run/media/zougui/Manjaro_Data/zougui/Code/javascript/internal/music-manager/servers/api-server/src/app/translations/en/errors.ts",
-      "8bd6a46e07a227ca8e1bff3da1485235cbdeaa8fd7a71a02fc7992f8c4e1fb8b"
+      "be714407e1ffa68c228f01e1d5e8e7c298f86b862b5ad196703f99878aa3d5f9"
     ],
     [
       "/run/media/zougui/Manjaro_Data/zougui/Code/javascript/internal/music-manager/servers/api-server/src/app/translations/en/index.ts",
@@ -79,19 +119,11 @@
     ],
     [
       "/run/media/zougui/Manjaro_Data/zougui/Code/javascript/internal/music-manager/servers/api-server/src/app/translations/index.ts",
-      "1722bb9c017165cefc96a4ff9b91c8b06505f6e07491f13f60057e07f222bd07"
-    ],
-    [
-      "/run/media/zougui/Manjaro_Data/zougui/Code/javascript/internal/music-manager/servers/api-server/src/app/types/error.ts",
-      "7e80095b475831a822ace459c5f16ba27fb605960947a7322ef137cbc5726d94"
-    ],
-    [
-      "/run/media/zougui/Manjaro_Data/zougui/Code/javascript/internal/music-manager/servers/api-server/src/app/types/index.ts",
-      "039cd54028eb988297e189275764df06c18f9299b14c063e93bd3f30c046fee6"
+      "1ea63f17298bb3fdf6bba7c1283c70e3eb32b1ada68b5b44babb84036445b7b5"
     ],
     [
       "/run/media/zougui/Manjaro_Data/zougui/Code/javascript/internal/music-manager/servers/api-server/src/app/controllers/app.controller.ts",
-      "168d5ebd7dda7d67deeb8b53018e6891a8c7f7bd199b16f82782ed6e87c852f8"
+      "5dfd31386041f7ebbe7b5cfb0d0c1ace95e3c704e191e455d7990523aa7be3a8"
     ],
     [
       "/run/media/zougui/Manjaro_Data/zougui/Code/javascript/internal/music-manager/servers/api-server/src/app/controllers/index.ts",
@@ -106,20 +138,12 @@
       "7992a39d6cde5e050eb78461a8bf9ad986175a94826e835c110b3967290bd249"
     ],
     [
-      "/run/media/zougui/Manjaro_Data/zougui/Code/javascript/internal/music-manager/servers/api-server/src/app/hooks/RefreshJWT.ts",
-      "384722a0d4fd41f7eb1daaa4c3f4eaf3202744f4c0b880cc075a1da9b9bddc95"
-    ],
-    [
-      "/run/media/zougui/Manjaro_Data/zougui/Code/javascript/internal/music-manager/servers/api-server/src/app/hooks/index.ts",
-      "e9056abcfbaea3a51373c6568b70ca7998d439ba2f0f7a691be7372591cc076e"
-    ],
-    [
       "/run/media/zougui/Manjaro_Data/zougui/Code/javascript/internal/music-manager/servers/api-server/src/app/services/index.ts",
       "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     ],
     [
-      "/run/media/zougui/Manjaro_Data/zougui/Code/javascript/internal/music-manager/servers/api-server/src/scripts/populate.ts",
-      "ba8483954519426d4c98f637a3b06d18c1aa8bc6948397a44965d3325fa6e40c"
+      "/run/media/zougui/Manjaro_Data/zougui/Code/javascript/internal/music-manager/servers/api-server/src/scripts/create-user.ts",
+      "06dd6e8aabbca5cfbe2fb375da5b948638bbf419ee34dbbb443719c0c853bf7c"
     ]
   ]
 }

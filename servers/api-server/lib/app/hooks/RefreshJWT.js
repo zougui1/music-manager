@@ -8,12 +8,19 @@ const RefreshJWT = () => {
         if (!ctx.user) {
             return;
         }
-        return (response) => {
+        return async (response) => {
             if (core_1.isHttpResponseServerError(response)) {
                 return;
             }
             const newToken = utils_1.generateToken(ctx.user);
-            response.setHeader('Authorization', newToken);
+            let exposedHeaders = ['Access-Token'];
+            const originalExposedHeaders = response.getHeader('Access-Control.Expose-Headers');
+            if (originalExposedHeaders) {
+                exposedHeaders = exposedHeaders.concat(originalExposedHeaders.split(','));
+            }
+            response
+                .setHeader('Access-Token', newToken)
+                .setHeader('Access-Control-Expose-Headers', exposedHeaders.join(', '));
         };
     });
 };

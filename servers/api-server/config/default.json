@@ -19,7 +19,7 @@
   "database": {
     "type": "mysql",
     "host": "env(MYSQL_HOST)",
-    "database": "env(MYSQL_DB_NAME)",
+    "database": "env(MYSQL_DATABASE)",
     "username": "env(MYSQL_USER)",
     "password": "env(MYSQL_PASSWORD)",
     "synchronize": true
@@ -28,7 +28,7 @@
     "driver": "argon2",
     "variant": "argon2id",
     "timeCost": 3,
-    "memoryCost": 4096,
+    "memoryCost": 64,
     "parallelism": 1,
     "hashLength": 16
   },

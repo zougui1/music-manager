@@ -4,7 +4,7 @@ import { ObjectLiteral } from 'types-pkg';
 import { convertMessage } from './convertMessage';
 
 export class ApiException extends Exception {
-  static readonly defaultMessage = 'E_UNKNOWN_ERROR';
+  static readonly defaultMessage = 'errors.unknown';
   static readonly defaultStatus = 500;
   static readonly defaultCode = 'E_UNKNOWN_ERROR';
 
@@ -61,11 +61,14 @@ export class ApiException extends Exception {
 
   private static fromErrorData(value: any): ApiException {
     if (value.status || value.code) {
-      value.message = value.messageCode;
+      if(value.messageCode) {
+        value.message = value.messageCode;
+      }
+
       return new ApiException(value);
     }
 
-    return new ApiException(value.messageCode);
+    return new ApiException(value);
   }
   //#endregion
 

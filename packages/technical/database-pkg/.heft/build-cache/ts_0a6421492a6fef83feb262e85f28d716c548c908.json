@@ -1469,6 +1469,110 @@
         "version": "997b23b0a4dfc09111b68a023487b39614af28638def47abb5860932a2cefe0c",
         "affectsGlobalScope": false
       },
+      "../../src/entities/playlist-to-music.entity.ts": {
+        "version": "c89c3e09b8f1742e6ae8e699bcabbd35346c2eda00a804b39ccdb84380d880ad",
+        "affectsGlobalScope": false
+      },
+      "../../src/entities/playlist.entity.ts": {
+        "version": "1da56cfdd5401a363ef39e1c499ab82f0db71d064288a87aa30db24809a4f7b2",
+        "affectsGlobalScope": false
+      },
+      "../../src/entities/user.entity.ts": {
+        "version": "a4184d45ab87d6ebf7e9f1c06da1e7b4362e45bf3b057101c50fd998ade20924",
+        "affectsGlobalScope": false
+      },
+      "../../src/entities/music.entity.ts": {
+        "version": "47b1e47cda4b52ee942563034b88ea8a65c86bae67c54e970e1c7c6a9150cf8d",
+        "affectsGlobalScope": false
+      },
+      "../../src/entities/music-playing.entity.ts": {
+        "version": "448a141b6284a96c7fd8d5108abddaacf9bfb4fe15cacd82a3af3cfdf2b09cb3",
+        "affectsGlobalScope": false
+      },
+      "../../src/entities/index.ts": {
+        "version": "5ff0c759287e50636909ff2079157361c5ed45ac590578bb3bcaba4354f6af22",
+        "affectsGlobalScope": false
+      },
+      "../../src/repositories/base.repository.ts": {
+        "version": "b9da0c7e4b51b0c4b5d370b6fb95f54d3aae8c6f4342b080bbb927e602c20504",
+        "affectsGlobalScope": false
+      },
+      "../../src/repositories/user.repository.ts": {
+        "version": "65326f962010efa667a9598eff6e415d87137bf23d321315bd99ac364a0a930b",
+        "affectsGlobalScope": false
+      },
+      "../../src/repositories/music.repository.ts": {
+        "version": "ba36bc11fbc0e4e4f2c46906e7f0b92f3e4c0f10a167b1de6196f5557463224e",
+        "affectsGlobalScope": false
+      },
+      "../../src/repositories/playlist.repository.ts": {
+        "version": "a5ddd93beca776a8fdd8469a9996629be5a6155e7305db555304036b38aa6713",
+        "affectsGlobalScope": false
+      },
+      "../../src/repositories/playlist-to-music.repository.ts": {
+        "version": "441f8d6035e52d9445f827cb4377edb0a786a31b09d92d9779455e0f34eaaec8",
+        "affectsGlobalScope": false
+      },
+      "../../src/repositories/music-playing.repository.ts": {
+        "version": "c9394e866f8197e1995fcbe45c1593ba2bcee38713154b36d789f39882ee42a4",
+        "affectsGlobalScope": false
+      },
+      "../../src/repositories/index.ts": {
+        "version": "156efa0483e3bbf158b97906c87d22c116f695cb559f94a6500ff81e9c411d31",
+        "affectsGlobalScope": false
+      },
+      "../../src/typeorm.ts": {
+        "version": "cb0c8c6d271b3aeda7602ea011d869c45c5e2f41a3d9fa38c88478ef36d073e7",
+        "affectsGlobalScope": false
+      },
+      "../../src/RepositoryAccessor.ts": {
+        "version": "48f1aa56477d5d3735e259d243881e628b244d21e423bcecb9ffa9b77319d6ae",
+        "affectsGlobalScope": false
+      },
+      "../../src/index.ts": {
+        "version": "75fa5c949b0ef7300d6043bea80c1343cf1fd3867813712f77ca08a08e79d94b",
+        "affectsGlobalScope": false
+      },
+      "../../../../../common/temp/node_modules/.pnpm/@types/heft-jest@1.0.2/node_modules/@types/heft-jest/mocked.d.ts": {
+        "version": "ef948381fb93e21b69bb6581851b1c1c15c9a9d59752fc3b30d223cb16539534",
+        "affectsGlobalScope": true
+      },
+      "../../../../../common/temp/node_modules/.pnpm/jest-diff@26.6.2/node_modules/jest-diff/build/cleanupSemantic.d.ts": {
+        "version": "d8aab31ba8e618cc3eea10b0945de81cb93b7e8150a013a482332263b9305322",
+        "affectsGlobalScope": false
+      },
+      "../../../../../common/temp/node_modules/.pnpm/jest-diff@26.6.2/node_modules/jest-diff/build/types.d.ts": {
+        "version": "69da61a7b5093dac77fa3bec8be95dcf9a74c95a0e9161edb98bb24e30e439d2",
+        "affectsGlobalScope": false
+      },
+      "../../../../../common/temp/node_modules/.pnpm/jest-diff@26.6.2/node_modules/jest-diff/build/diffLines.d.ts": {
+        "version": "561eca7a381b96d6ccac6e4061e6d2ae53f5bc44203f3fd9f5b26864c32ae6e9",
+        "affectsGlobalScope": false
+      },
+      "../../../../../common/temp/node_modules/.pnpm/jest-diff@26.6.2/node_modules/jest-diff/build/printDiffs.d.ts": {
+        "version": "62ea38627e3ebab429f7616812a9394d327c2bc271003dfba985de9b4137369f",
+        "affectsGlobalScope": false
+      },
+      "../../../../../common/temp/node_modules/.pnpm/jest-diff@26.6.2/node_modules/jest-diff/build/index.d.ts": {
+        "version": "b4439890c168d646357928431100daac5cbdee1d345a34e6bf6eca9f3abe22bc",
+        "affectsGlobalScope": false
+      },
+      "../../../../../common/temp/node_modules/.pnpm/pretty-format@26.6.2/node_modules/pretty-format/build/types.d.ts": {
+        "version": "5d72971a459517c44c1379dab9ed248e87a61ba0a1e0f25c9d67e1e640cd9a09",
+        "affectsGlobalScope": false
+      },
+      "../../../../../common/temp/node_modules/.pnpm/pretty-format@26.6.2/node_modules/pretty-format/build/index.d.ts": {
+        "version": "02d734976af36f4273d930bea88b3e62adf6b078cf120c1c63d49aa8d8427c5c",
+        "affectsGlobalScope": false
+      },
+      "../../../../../common/temp/node_modules/.pnpm/@types/jest@26.0.21/node_modules/@types/jest/index.d.ts": {
+        "version": "650f66071a829bfef85d892b6c41abeb6ffda45956c0c38ebf564e543dcc371c",
+        "affectsGlobalScope": true
+      },
+      "../../../../../common/temp/node_modules/.pnpm/@types/heft-jest@1.0.2/node_modules/@types/heft-jest/index.d.ts": {
+        "version": "12c7d70cb3997716b5c9bf1a9e5e0f57da29ecba19b69f882d99b09955ff1fae",
+        "affectsGlobalScope": true
+      },
       "../../../../../common/temp/node_modules/.pnpm/@types/node@14.14.35/node_modules/@types/node/globals.d.ts": {
         "version": "25b4a0c4fab47c373ee49df4c239826ee3430019fc0c1b5e59edc3e398b7468d",
         "affectsGlobalScope": true
@@ -1652,122 +1756,6 @@
       "../../../../../common/temp/node_modules/.pnpm/@types/node@14.14.35/node_modules/@types/node/index.d.ts": {
         "version": "9c4c395e927045b324877acdc4bfb95f128f36bc9f073266a2f0342495075a4f",
         "affectsGlobalScope": false
-      },
-      "../../../../../common/temp/node_modules/.pnpm/argon2@0.27.1/node_modules/argon2/argon2.d.ts": {
-        "version": "daedf662f5c12939c9e2098b24dfee1cb9726cfa2a872f2b0963655c434ad546",
-        "affectsGlobalScope": false
-      },
-      "../../../hash-pkg/lib/argon2.d.ts": {
-        "version": "0a99d9ad0e575f5ac8c61343a11ac5054195b802cd42c14c1bad5f34c59be690",
-        "affectsGlobalScope": false
-      },
-      "../../../hash-pkg/lib/index.d.ts": {
-        "version": "3d055bfe855243cb346ef81496626448b41fa91e84dd69d1edf1dffab8ce2809",
-        "affectsGlobalScope": false
-      },
-      "../../src/entities/playlist-to-music.entity.ts": {
-        "version": "c89c3e09b8f1742e6ae8e699bcabbd35346c2eda00a804b39ccdb84380d880ad",
-        "affectsGlobalScope": false
-      },
-      "../../src/entities/playlist.entity.ts": {
-        "version": "1da56cfdd5401a363ef39e1c499ab82f0db71d064288a87aa30db24809a4f7b2",
-        "affectsGlobalScope": false
-      },
-      "../../src/entities/user.entity.ts": {
-        "version": "493ec7da8e3e5d51931cdcd698f381bfaed500cf194eee451b918b31bae4e60a",
-        "affectsGlobalScope": false
-      },
-      "../../src/entities/music.entity.ts": {
-        "version": "47b1e47cda4b52ee942563034b88ea8a65c86bae67c54e970e1c7c6a9150cf8d",
-        "affectsGlobalScope": false
-      },
-      "../../src/entities/music-playing.entity.ts": {
-        "version": "448a141b6284a96c7fd8d5108abddaacf9bfb4fe15cacd82a3af3cfdf2b09cb3",
-        "affectsGlobalScope": false
-      },
-      "../../src/entities/index.ts": {
-        "version": "5ff0c759287e50636909ff2079157361c5ed45ac590578bb3bcaba4354f6af22",
-        "affectsGlobalScope": false
-      },
-      "../../src/repositories/base.repository.ts": {
-        "version": "b9da0c7e4b51b0c4b5d370b6fb95f54d3aae8c6f4342b080bbb927e602c20504",
-        "affectsGlobalScope": false
-      },
-      "../../src/repositories/user.repository.ts": {
-        "version": "65326f962010efa667a9598eff6e415d87137bf23d321315bd99ac364a0a930b",
-        "affectsGlobalScope": false
-      },
-      "../../src/repositories/music.repository.ts": {
-        "version": "ba36bc11fbc0e4e4f2c46906e7f0b92f3e4c0f10a167b1de6196f5557463224e",
-        "affectsGlobalScope": false
-      },
-      "../../src/repositories/playlist.repository.ts": {
-        "version": "a5ddd93beca776a8fdd8469a9996629be5a6155e7305db555304036b38aa6713",
-        "affectsGlobalScope": false
-      },
-      "../../src/repositories/playlist-to-music.repository.ts": {
-        "version": "441f8d6035e52d9445f827cb4377edb0a786a31b09d92d9779455e0f34eaaec8",
-        "affectsGlobalScope": false
-      },
-      "../../src/repositories/music-playing.repository.ts": {
-        "version": "c9394e866f8197e1995fcbe45c1593ba2bcee38713154b36d789f39882ee42a4",
-        "affectsGlobalScope": false
-      },
-      "../../src/repositories/index.ts": {
-        "version": "156efa0483e3bbf158b97906c87d22c116f695cb559f94a6500ff81e9c411d31",
-        "affectsGlobalScope": false
-      },
-      "../../src/typeorm.ts": {
-        "version": "cb0c8c6d271b3aeda7602ea011d869c45c5e2f41a3d9fa38c88478ef36d073e7",
-        "affectsGlobalScope": false
-      },
-      "../../src/RepositoryAccessor.ts": {
-        "version": "48f1aa56477d5d3735e259d243881e628b244d21e423bcecb9ffa9b77319d6ae",
-        "affectsGlobalScope": false
-      },
-      "../../src/index.ts": {
-        "version": "75fa5c949b0ef7300d6043bea80c1343cf1fd3867813712f77ca08a08e79d94b",
-        "affectsGlobalScope": false
-      },
-      "../../../../../common/temp/node_modules/.pnpm/@types/heft-jest@1.0.2/node_modules/@types/heft-jest/mocked.d.ts": {
-        "version": "ef948381fb93e21b69bb6581851b1c1c15c9a9d59752fc3b30d223cb16539534",
-        "affectsGlobalScope": true
-      },
-      "../../../../../common/temp/node_modules/.pnpm/jest-diff@26.6.2/node_modules/jest-diff/build/cleanupSemantic.d.ts": {
-        "version": "d8aab31ba8e618cc3eea10b0945de81cb93b7e8150a013a482332263b9305322",
-        "affectsGlobalScope": false
-      },
-      "../../../../../common/temp/node_modules/.pnpm/jest-diff@26.6.2/node_modules/jest-diff/build/types.d.ts": {
-        "version": "69da61a7b5093dac77fa3bec8be95dcf9a74c95a0e9161edb98bb24e30e439d2",
-        "affectsGlobalScope": false
-      },
-      "../../../../../common/temp/node_modules/.pnpm/jest-diff@26.6.2/node_modules/jest-diff/build/diffLines.d.ts": {
-        "version": "561eca7a381b96d6ccac6e4061e6d2ae53f5bc44203f3fd9f5b26864c32ae6e9",
-        "affectsGlobalScope": false
-      },
-      "../../../../../common/temp/node_modules/.pnpm/jest-diff@26.6.2/node_modules/jest-diff/build/printDiffs.d.ts": {
-        "version": "62ea38627e3ebab429f7616812a9394d327c2bc271003dfba985de9b4137369f",
-        "affectsGlobalScope": false
-      },
-      "../../../../../common/temp/node_modules/.pnpm/jest-diff@26.6.2/node_modules/jest-diff/build/index.d.ts": {
-        "version": "b4439890c168d646357928431100daac5cbdee1d345a34e6bf6eca9f3abe22bc",
-        "affectsGlobalScope": false
-      },
-      "../../../../../common/temp/node_modules/.pnpm/pretty-format@26.6.2/node_modules/pretty-format/build/types.d.ts": {
-        "version": "5d72971a459517c44c1379dab9ed248e87a61ba0a1e0f25c9d67e1e640cd9a09",
-        "affectsGlobalScope": false
-      },
-      "../../../../../common/temp/node_modules/.pnpm/pretty-format@26.6.2/node_modules/pretty-format/build/index.d.ts": {
-        "version": "02d734976af36f4273d930bea88b3e62adf6b078cf120c1c63d49aa8d8427c5c",
-        "affectsGlobalScope": false
-      },
-      "../../../../../common/temp/node_modules/.pnpm/@types/jest@26.0.21/node_modules/@types/jest/index.d.ts": {
-        "version": "650f66071a829bfef85d892b6c41abeb6ffda45956c0c38ebf564e543dcc371c",
-        "affectsGlobalScope": true
-      },
-      "../../../../../common/temp/node_modules/.pnpm/@types/heft-jest@1.0.2/node_modules/@types/heft-jest/index.d.ts": {
-        "version": "12c7d70cb3997716b5c9bf1a9e5e0f57da29ecba19b69f882d99b09955ff1fae",
-        "affectsGlobalScope": true
       }
     },
     "options": {
@@ -2038,9 +2026,6 @@
       "../../../../../common/temp/node_modules/.pnpm/@types/node@14.14.35/node_modules/@types/node/zlib.d.ts": [
         "../../../../../common/temp/node_modules/.pnpm/@types/node@14.14.35/node_modules/@types/node/stream.d.ts",
         "../../../../../common/temp/node_modules/.pnpm/@types/node@14.14.35/node_modules/@types/node/zlib.d.ts"
-      ],
-      "../../../../../common/temp/node_modules/.pnpm/argon2@0.27.1/node_modules/argon2/argon2.d.ts": [
-        "../../../../../common/temp/node_modules/.pnpm/@types/node@14.14.35/node_modules/@types/node/index.d.ts"
       ],
       "../../../../../common/temp/node_modules/.pnpm/jest-diff@26.6.2/node_modules/jest-diff/build/diffLines.d.ts": [
         "../../../../../common/temp/node_modules/.pnpm/jest-diff@26.6.2/node_modules/jest-diff/build/cleanupSemantic.d.ts",
@@ -3343,7 +3328,6 @@
       "../../src/entities/user.entity.ts": [
         "../../../../../common/temp/node_modules/.pnpm/typeorm@0.2.31/node_modules/typeorm/index.d.ts",
         "../../../../business/validation-pkg/lib/index.d.ts",
-        "../../../hash-pkg/lib/index.d.ts",
         "../../src/entities/base.entity.ts",
         "../../src/entities/music.entity.ts",
         "../../src/entities/playlist.entity.ts"
@@ -3396,12 +3380,6 @@
         "../../../../../common/temp/node_modules/.pnpm/typeorm@0.2.31/node_modules/typeorm/index.d.ts",
         "../../src/entities/index.ts",
         "../../src/repositories/index.ts"
-      ],
-      "../../../hash-pkg/lib/argon2.d.ts": [
-        "../../../../../common/temp/node_modules/.pnpm/argon2@0.27.1/node_modules/argon2/argon2.d.ts"
-      ],
-      "../../../hash-pkg/lib/index.d.ts": [
-        "../../../hash-pkg/lib/argon2.d.ts"
       ],
       "../../../types-pkg/lib/Downloader.d.ts": [
         "../../../types-pkg/lib/DownloadedAudio.d.ts"

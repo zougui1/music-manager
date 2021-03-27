@@ -1,1 +1,1 @@
-{"version":3,"file":"music.dto.d.ts","sourceRoot":"","sources":["../../../../../src/app/controllers/api/music/music.dto.ts"],"names":[],"mappings":"AAIA,qBAAa,eAAe;IAI1B,IAAI,CAAC,EAAE,MAAM,CAAC;IAId,UAAU,CAAC,EAAE,MAAM,CAAC;CACrB;AAED,eAAO,MACY,kBAAkB,KACoB,CAAC"}
+{"version":3,"file":"music.dto.d.ts","sourceRoot":"","sources":["../../../../../src/app/controllers/api/music/music.dto.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,YAAY,EAAE,MAAM,aAAa,CAAA;AAI1C,qBAAa,eAAe;IAI1B,IAAI,CAAC,EAAE,MAAM,CAAC;IAId,UAAU,CAAC,EAAE,MAAM,CAAC;CACrB;AAED,eAAO,MACY,kBAAkB,cACoB,CAAC"}

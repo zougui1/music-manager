@@ -64,6 +64,9 @@ common/deploy/
 common/temp/
 common/autoinstallers/*/.npmrc
 **/.rush/temp/
-**/.heft/build-cache
+.heft/
 
-**/lib/
+lib/
+build/
+
+self-signed cert/

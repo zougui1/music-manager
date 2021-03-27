@@ -1,6 +1,5 @@
-import { Column, Entity, OneToMany, BeforeInsert, BeforeUpdate } from 'typeorm';
+import { Column, Entity, OneToMany } from 'typeorm';
 import { rules } from 'validation-pkg';
-import { hash } from 'hash-pkg';
 
 import { BaseEntity } from './base.entity';
 import { MusicEntity } from './music.entity';
@@ -23,12 +22,4 @@ export class UserEntity extends BaseEntity {
 
   @OneToMany(() => MusicEntity, music => music.user)
   public musics!: MusicEntity[];
-
-  @BeforeInsert()
-  @BeforeUpdate()
-  public async hashPassword(): Promise<void> {
-    if (this.password && !this.password.startsWith('$argon2')) {
-      this.password = await hash(this.password);
-    }
-  }
 }

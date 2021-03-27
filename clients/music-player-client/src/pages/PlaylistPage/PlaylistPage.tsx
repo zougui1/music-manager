@@ -15,7 +15,7 @@ import { axios } from '../../utils';
 
 export const PlaylistPage: React.FC<PlaylistPageProps> = ({ match }) => {
   const [showAddSongDialog, setShowAddSongDialog] = useState(false);
-  const playlist = useQuery<any>('playlist', `/playlists/${match.params.id}`);
+  const playlist = useQuery<any>('playlist', `/api/playlists/${match.params.id}`);
 
   const handleReorder = (e: CustomEvent<ItemReorderEventDetail>) => {
     e.detail.complete();
@@ -27,7 +27,7 @@ export const PlaylistPage: React.FC<PlaylistPageProps> = ({ match }) => {
     setShowAddSongDialog(false);
 
     try {
-      await axios.post('/musics', { playlistId: playlist.data?.id, video: data.link });
+      await axios.post('/api/musics', { playlistId: playlist.data?.id, video: data.link });
     } catch (error) {
       toast.update(toastId, {
         type: toast.TYPE.ERROR,

@@ -1,5 +1,6 @@
 declare const _default: {
     errors: {
+        unknown: string;
         route: {
             notFound: string;
         };

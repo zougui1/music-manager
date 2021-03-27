@@ -11,15 +11,22 @@ const core_1 = require("@foal/core");
 const database_pkg_1 = require("database-pkg");
 const error_pkg_1 = require("error-pkg");
 const api_1 = require("./api");
+const auth_1 = require("./auth");
 const file_controller_1 = require("./file.controller");
 const openApi_controller_1 = require("./openApi.controller");
 const translations_1 = require("../translations");
+const utils_1 = require("../utils");
+const hooks_1 = require("../hooks");
+// it is important that Cors gets called
+// before HandleOptionsRequest since it
+// ends the request
 let AppController = class AppController {
     constructor() {
         this.subControllers = [
             core_1.controller('/files', file_controller_1.FileController),
             core_1.controller('/api', api_1.ApiController),
             core_1.controller('/swagger', openApi_controller_1.OpenApiController),
+            core_1.controller('/auth', auth_1.AuthController),
         ];
         this.translationFailed = false;
         //#endregion
@@ -42,11 +49,15 @@ let AppController = class AppController {
             return this.handleError(translation.error, ctx, sourceError);
         }
         const data = { message: translation.message, path };
-        const publicError = this.getPublicError(error, data, sourceError);
+        const publicError = this.getPublicError(errorData, data, sourceError);
         return new Response(publicError);
     }
     //#region private
     getInternalError(error, errorValues) {
+        if (error instanceof core_1.HttpResponse) {
+            const body = error.body;
+            error = Object.assign(Object.assign({}, utils_1.convertErrorDescriptionToCode(body.description)), { status: error.statusCode });
+        }
         const apiError = error_pkg_1.ApiException.from(error, errorValues);
         return apiError.toObject();
     }
@@ -68,7 +79,6 @@ let AppController = class AppController {
             if (this.translationFailed) {
                 throw originalError;
             }
-            console.log('Translation error:', error);
             this.translationFailed = true;
             return { error };
         }
@@ -77,12 +87,9 @@ let AppController = class AppController {
     }
 };
 AppController = __decorate([
-    core_1.Hook(() => response => {
-        response.setHeader('Access-Control-Allow-Origin', '*');
-        response.setHeader('Access-Control-Allow-Methods', '*');
-        response.setHeader('Access-Control-Allow-Headers', '*');
-        console.log('app hook');
-    })
+    hooks_1.Cors(),
+    hooks_1.HandleOptionsRequest(),
+    hooks_1.HandleBadRequestResponse()
 ], AppController);
 exports.AppController = AppController;
 class Response extends core_1.HttpResponse {

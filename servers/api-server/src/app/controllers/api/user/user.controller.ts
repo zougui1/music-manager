@@ -1,7 +1,6 @@
-import { Context, dependency, Get, HttpResponse, HttpResponseOK, Log, ApiResponse } from '@foal/core';
+import { Context, dependency, Get, HttpResponse, HttpResponseOK, ApiResponse } from '@foal/core';
 import { User } from 'user-pkg';
 
-@Log('UseController', { body: true, params: true, query: true })
 export class UserController {
 
   @dependency

@@ -1,4 +1,4 @@
-import { RepositoryAccessor, MusicEntity, MusicRepository, MusicPlayingRepository, DeepPartial } from 'database-pkg';
+import { RepositoryAccessor, MusicEntity, MusicRepository, MusicPlayingRepository, PlaylistToMusicEntity, DeepPartial } from 'database-pkg';
 
 export class Music extends RepositoryAccessor<MusicRepository> {
 
@@ -7,8 +7,8 @@ export class Music extends RepositoryAccessor<MusicRepository> {
   }
 
   //#region public
-  public async findMany(): Promise<MusicEntity[]> {
-    return this.repo.find();
+  public async findMany(criteria: IFindManyCriteria): Promise<MusicEntity[]> {
+    return this.repo.find({ where: { user: { id: criteria.user.id } } });
   }
 
   public async findById(id: number): Promise<MusicEntity | undefined> {
@@ -24,4 +24,10 @@ export class Music extends RepositoryAccessor<MusicRepository> {
     await this.repo.deleteAll();
   }
   //#endregion
+}
+
+export interface IFindManyCriteria {
+  user: {
+    id: number;
+  };
 }

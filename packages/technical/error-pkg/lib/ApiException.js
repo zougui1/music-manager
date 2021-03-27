@@ -44,10 +44,12 @@ class ApiException extends utils_1.Exception {
     }
     static fromErrorData(value) {
         if (value.status || value.code) {
-            value.message = value.messageCode;
+            if (value.messageCode) {
+                value.message = value.messageCode;
+            }
             return new ApiException(value);
         }
-        return new ApiException(value.messageCode);
+        return new ApiException(value);
     }
     //#endregion
     //#region public
@@ -62,7 +64,7 @@ class ApiException extends utils_1.Exception {
     }
 }
 exports.ApiException = ApiException;
-ApiException.defaultMessage = 'E_UNKNOWN_ERROR';
+ApiException.defaultMessage = 'errors.unknown';
 ApiException.defaultStatus = 500;
 ApiException.defaultCode = 'E_UNKNOWN_ERROR';
 //# sourceMappingURL=ApiException.js.map

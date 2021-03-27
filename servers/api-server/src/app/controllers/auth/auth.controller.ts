@@ -1,9 +1,9 @@
 import { Context, dependency, Post, Options, HttpResponse, HttpResponseOK, Log } from '@foal/core';
 import { User } from 'user-pkg';
 
-import { generateToken } from '../../../utils';
+import { generateToken } from '../../utils';
 
-@Log('AuthController', { body: true, params: true, query: true })
+@Log('Auth', { body: true, params: true, query: true })
 export class AuthController {
 
   @dependency
@@ -13,8 +13,9 @@ export class AuthController {
   async login(ctx: Context, params: Record<string, unknown>, { email, password }: { email: string, password: string }): Promise<HttpResponse> {
     const user = await this.user.login(email, password);
     const token = generateToken(user);
+    const response = new HttpResponseOK({ user, token });
 
-    return new HttpResponseOK({ user, token });
+    return response;
   }
 
   @Options('/login')

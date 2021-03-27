@@ -1,7 +1,7 @@
 import { Exception } from '@poppinss/utils';
 import { ObjectLiteral } from 'types-pkg';
 export declare class ApiException extends Exception {
-    static readonly defaultMessage = "E_UNKNOWN_ERROR";
+    static readonly defaultMessage = "errors.unknown";
     static readonly defaultStatus = 500;
     static readonly defaultCode = "E_UNKNOWN_ERROR";
     values: ObjectLiteral;

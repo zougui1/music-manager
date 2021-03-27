@@ -1,4 +1,4 @@
-import { RepositoryAccessor, PlaylistEntity, PlaylistRepository, MusicEntity, PlaylistToMusicEntity, PlaylistToMusicRepository } from 'database-pkg';
+import { RepositoryAccessor, PlaylistEntity, PlaylistRepository, MusicEntity, PlaylistToMusicEntity } from 'database-pkg';
 import { range } from 'utils-pkg';
 
 import { PlaylistNotFoundError } from './errors';
@@ -10,25 +10,36 @@ export class Playlist extends RepositoryAccessor<PlaylistRepository> {
   }
 
   //#region public
-  public async findMany(): Promise<PlaylistEntity[]> {
-    return this.repo.find();
+  public async findMany(options: IFindManyOptions): Promise<PlaylistEntity[]> {
+    return this.repo.find({
+      where: { user: { id: options.user.id } },
+      relations: ['playlistToMusics', 'playlistToMusics.music'],
+      /*join: {
+        alias: 'playlist',
+        leftJoinAndSelect: {
+          playlistToMusics: 'playlist.playlistToMusics',
+          musics: 'playlistToMusics.music',
+        },
+      },*/
+    });
   }
 
   public async findById(id: number): Promise<PlaylistEntity | undefined> {
     return this.repo.findOne(id);
   }
 
-  public async update(id: number, options: UpdateOptions): Promise<void> {
-    await this.updateManyOrder(options);
+  public async update(target: IUpdateTarget, options: UpdateOptions): Promise<void> {
+    await this.updateManyOrder(target, options);
   }
 
-  public async create(playlist: { name: string }): Promise<PlaylistEntity> {
+  public async create(playlist: { name: string, user: { id: number } }): Promise<PlaylistEntity> {
     const lastPlaylist = await this.repo.findOne({ order: { order: 'DESC' } });
 
     const lastOrder = lastPlaylist?.order ?? 0;
     const playlistData = {
       ...playlist,
       order: lastOrder + 1,
+      userId: playlist.user.id,
     };
 
     return await this.repo.create(playlistData).save();
@@ -41,7 +52,11 @@ export class Playlist extends RepositoryAccessor<PlaylistRepository> {
       throw new PlaylistNotFoundError();
     }
 
-    const lastOrder = Math.max(...playlist.playlistToMusics.map(p => p.order));
+    const orders = playlist.playlistToMusics
+      .map(p => p.order)
+      // enforce 0 to be the default value if `playlistToMusics` is empty
+      .concat([0]);
+    const lastOrder = Math.max(...orders);
     const playlistToMusic = await PlaylistToMusicEntity
       .create({
         playlist,
@@ -55,25 +70,27 @@ export class Playlist extends RepositoryAccessor<PlaylistRepository> {
   }
 
   public async clear(): Promise<void> {
-    await this.getRepo(PlaylistToMusicRepository).deleteAll();
+    //await this.getRepo(PlaylistToMusicRepository).deleteAll();
     await this.repo.deleteAll();
   }
   //#endregion
 
   //#region private
   //#region update order
-  private async updateManyOrder({ from, to }: IUpdateOrdersOptions): Promise<void> {
-    const playlist = await this.findOneByOrder(from);
+  private async updateManyOrder(target: IUpdateTarget, { from, to }: IUpdateOrdersOptions): Promise<void> {
+    const playlist = await this.repo.findOne({ id: target.id, user: { id: target.user.id } });
 
     if (!playlist) {
       throw new PlaylistNotFoundError();
     }
 
     if (from < to) {
-      const playlists = await this.findManyByOrder(range(from + 1, to));
+      const orders = range(from + 1, to);
+      const playlists = await this.findManyByOrder(orders);
       await this.decrementOrders(playlists);
     } else {
-      const playlists = await this.findManyByOrder(range(from + 1, to - 1));
+      const orders = range(to, from);
+      const playlists = await this.findManyByOrder(orders);
       await this.incrementOrders(playlists);
     }
 
@@ -116,6 +133,18 @@ export class Playlist extends RepositoryAccessor<PlaylistRepository> {
   //#endregion
 }
 
+export interface IFindManyOptions {
+  user: {
+    id: number,
+  };
+}
+
+export interface IUpdateTarget {
+  id: number;
+  user: {
+    id: number,
+  };
+}
 export type UpdateOptions = IUpdateOrdersOptions;
 export interface IUpdateOrdersOptions {
   from: number;

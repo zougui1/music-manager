@@ -7,6 +7,5 @@ export declare class UserEntity extends BaseEntity {
     password?: string | undefined;
     playlists: PlaylistEntity[];
     musics: MusicEntity[];
-    hashPassword(): Promise<void>;
 }
 //# sourceMappingURL=user.entity.d.ts.map

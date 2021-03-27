@@ -1986,7 +1986,7 @@
         "affectsGlobalScope": false
       },
       "../../../../packages/technical/database-pkg/lib/entities/user.entity.d.ts": {
-        "version": "ec39ee800f7880c97766dbba89b1b3df1d8d383a131bebe87c3913bd0721c0ea",
+        "version": "b45541533d1e8b21b071b6e516478f3f7d4aa12787c6e6dbd2e71ef3ad3da21c",
         "affectsGlobalScope": false
       },
       "../../../../packages/technical/database-pkg/lib/entities/music.entity.d.ts": {
@@ -2178,7 +2178,7 @@
         "affectsGlobalScope": false
       },
       "../../../../packages/technical/error-pkg/lib/ApiException.d.ts": {
-        "version": "298bccc75e076e0ad781d09721a08b92e2113126a9bb4676a185ee339e5cdedb",
+        "version": "3ef2c31bb955992ba565999447fcc7fc806efdf97e74b85f186f29fe27aa349f",
         "affectsGlobalScope": false
       },
       "../../../../packages/technical/error-pkg/lib/createError.d.ts": {
@@ -2189,8 +2189,44 @@
         "version": "f0d5acbde284165b27d6bbdcb2d74dc9e6c81f5e07a6d6cf380d3f59f672330c",
         "affectsGlobalScope": false
       },
+      "../../../../common/temp/node_modules/.pnpm/@foal/jwt@2.2.0/node_modules/@foal/jwt/lib/get-secret-or-private-key.util.d.ts": {
+        "version": "0b79f183122f5f0dd56baa740c509ff8953a6aa8c64d8be5b5d71f512fade347",
+        "affectsGlobalScope": false
+      },
+      "../../../../common/temp/node_modules/.pnpm/@foal/jwt@2.2.0/node_modules/@foal/jwt/lib/get-secret-or-public-key.util.d.ts": {
+        "version": "eb034bcd07ed363d4c8d50b76160e7cbb49ff1f7aca32a858f52765a948dddf2",
+        "affectsGlobalScope": false
+      },
+      "../../../../common/temp/node_modules/.pnpm/@foal/jwt@2.2.0/node_modules/@foal/jwt/lib/invalid-token.error.d.ts": {
+        "version": "23b1a1ae6e95c10f1a3e36b19ea3618570536084ecfc95c2d1dbf183d1d02683",
+        "affectsGlobalScope": false
+      },
+      "../../../../common/temp/node_modules/.pnpm/@foal/jwt@2.2.0/node_modules/@foal/jwt/lib/jwt.hook.d.ts": {
+        "version": "d5618482271f1a03259a9b0c725f058cd21720cc585eb950ce2c5f6aa7e57c99",
+        "affectsGlobalScope": false
+      },
+      "../../../../common/temp/node_modules/.pnpm/@foal/jwt@2.2.0/node_modules/@foal/jwt/lib/jwt-optional.hook.d.ts": {
+        "version": "8da6882ed0d1aa2aed08487bd6dadda95e594d64fc9a030b386d7bb96fe49944",
+        "affectsGlobalScope": false
+      },
+      "../../../../common/temp/node_modules/.pnpm/@foal/jwt@2.2.0/node_modules/@foal/jwt/lib/jwt-required.hook.d.ts": {
+        "version": "b9a76cacfd7be2c04debd7024a5aef5b039bbf51d0d865ac806110dab56a414c",
+        "affectsGlobalScope": false
+      },
+      "../../../../common/temp/node_modules/.pnpm/@foal/jwt@2.2.0/node_modules/@foal/jwt/lib/remove-auth-cookie.d.ts": {
+        "version": "dde9d097f01b24431b83a8cdeedc667db8f5cbddba8bbc6caf6a8ef9e841b82d",
+        "affectsGlobalScope": false
+      },
+      "../../../../common/temp/node_modules/.pnpm/@foal/jwt@2.2.0/node_modules/@foal/jwt/lib/set-auth-cookie.d.ts": {
+        "version": "5fc79ff6ebe68e70fa47a91430e3f4b690c4a03e78bcc68ff405dbdd3c747b76",
+        "affectsGlobalScope": false
+      },
+      "../../../../common/temp/node_modules/.pnpm/@foal/jwt@2.2.0/node_modules/@foal/jwt/lib/index.d.ts": {
+        "version": "20d2205d3fc84493871babd09da3a6ff42bbb1a3c04e68394ff7824b53e40418",
+        "affectsGlobalScope": false
+      },
       "../../../../packages/business/music-pkg/lib/Music.d.ts": {
-        "version": "fe73cca5954f9b1900d56fe83ffeed3d44e261103efe0279eb464a94bb8fa5a5",
+        "version": "19cbd5cb3a97767d0038cd40f92fb95cd1b8f65d1495d5923af50ec4d6009c13",
         "affectsGlobalScope": false
       },
       "../../../../packages/business/music-pkg/lib/index.d.ts": {
@@ -2198,7 +2234,7 @@
         "affectsGlobalScope": false
       },
       "../../../../packages/business/playlist-pkg/lib/Playlist.d.ts": {
-        "version": "c805a3cd7dd3cc371dff6248622d70199ec99e4b6671b70a1e68f881999c8a25",
+        "version": "cec470226479dc70e98888d245fa7e1e91ef9785b05eaf2a770fc72f62a2a830",
         "affectsGlobalScope": false
       },
       "../../../../packages/business/playlist-pkg/lib/index.d.ts": {
@@ -2761,8 +2797,20 @@
         "version": "84e6d42ec36f0295c423505e2916e24cfffcd8458688509be2c2ffaa973949b5",
         "affectsGlobalScope": false
       },
+      "../../src/app/types/error.ts": {
+        "version": "7e80095b475831a822ace459c5f16ba27fb605960947a7322ef137cbc5726d94",
+        "affectsGlobalScope": false
+      },
+      "../../src/app/types/UserContext.ts": {
+        "version": "1275f2ef27472107f04498548073b01bd32b6aba5d270bb90d60a59e34382567",
+        "affectsGlobalScope": false
+      },
+      "../../src/app/types/index.ts": {
+        "version": "d6d7a097d949a1613a9537e513e94e157d0937144a447d3602c26d7e3d505c8e",
+        "affectsGlobalScope": false
+      },
       "../../src/app/controllers/api/music/music.controller.ts": {
-        "version": "22af6ad4086eae7217bff698ef7397df832cec946b1449309ee48dcd579d9e4c",
+        "version": "3d3e625baf7604da5f52409081dca19aa479c5ea162ab56780c2c22099809464",
         "affectsGlobalScope": false
       },
       "../../src/app/controllers/api/music/index.ts": {
@@ -2770,7 +2818,7 @@
         "affectsGlobalScope": false
       },
       "../../src/app/controllers/api/playlist/playlist.controller.ts": {
-        "version": "6985171dadf85a370378882a52c17146b536ae1e3fdfb8b3eb3373adeabf00f6",
+        "version": "65a728b691c1346d4d098ab6f78324dff086482db3a077b1095bc86459fe2e78",
         "affectsGlobalScope": false
       },
       "../../src/app/controllers/api/playlist/index.ts": {
@@ -2778,7 +2826,7 @@
         "affectsGlobalScope": false
       },
       "../../../../packages/business/user-pkg/lib/User.d.ts": {
-        "version": "0af73b3fd44e0be42e4caa7859616bc9165c513cae2f1c8244b72fb5936c0f9d",
+        "version": "e066f8d3445aeda65f366f95681644fb762df482733aeb06e355af76d2ac1dbe",
         "affectsGlobalScope": false
       },
       "../../../../packages/business/user-pkg/lib/index.d.ts": {
@@ -2786,47 +2834,11 @@
         "affectsGlobalScope": false
       },
       "../../src/app/controllers/api/user/user.controller.ts": {
-        "version": "8d9ce84fe19b3a9d3861a3ce891ac26ff8663ab6827495b7199d176cedaa1b31",
+        "version": "fa51151bd3f5bf22363c7c85758f5065418b97d47a181cc9fa0f780bdb9a4e83",
         "affectsGlobalScope": false
       },
       "../../src/app/controllers/api/user/index.ts": {
         "version": "eef425e7ae73f64b3e2adae59bdad38fad7adc77a7e8f8ea2b2db322b5c937c2",
-        "affectsGlobalScope": false
-      },
-      "../../../../common/temp/node_modules/.pnpm/@foal/jwt@2.2.0/node_modules/@foal/jwt/lib/get-secret-or-private-key.util.d.ts": {
-        "version": "0b79f183122f5f0dd56baa740c509ff8953a6aa8c64d8be5b5d71f512fade347",
-        "affectsGlobalScope": false
-      },
-      "../../../../common/temp/node_modules/.pnpm/@foal/jwt@2.2.0/node_modules/@foal/jwt/lib/get-secret-or-public-key.util.d.ts": {
-        "version": "eb034bcd07ed363d4c8d50b76160e7cbb49ff1f7aca32a858f52765a948dddf2",
-        "affectsGlobalScope": false
-      },
-      "../../../../common/temp/node_modules/.pnpm/@foal/jwt@2.2.0/node_modules/@foal/jwt/lib/invalid-token.error.d.ts": {
-        "version": "23b1a1ae6e95c10f1a3e36b19ea3618570536084ecfc95c2d1dbf183d1d02683",
-        "affectsGlobalScope": false
-      },
-      "../../../../common/temp/node_modules/.pnpm/@foal/jwt@2.2.0/node_modules/@foal/jwt/lib/jwt.hook.d.ts": {
-        "version": "d5618482271f1a03259a9b0c725f058cd21720cc585eb950ce2c5f6aa7e57c99",
-        "affectsGlobalScope": false
-      },
-      "../../../../common/temp/node_modules/.pnpm/@foal/jwt@2.2.0/node_modules/@foal/jwt/lib/jwt-optional.hook.d.ts": {
-        "version": "8da6882ed0d1aa2aed08487bd6dadda95e594d64fc9a030b386d7bb96fe49944",
-        "affectsGlobalScope": false
-      },
-      "../../../../common/temp/node_modules/.pnpm/@foal/jwt@2.2.0/node_modules/@foal/jwt/lib/jwt-required.hook.d.ts": {
-        "version": "b9a76cacfd7be2c04debd7024a5aef5b039bbf51d0d865ac806110dab56a414c",
-        "affectsGlobalScope": false
-      },
-      "../../../../common/temp/node_modules/.pnpm/@foal/jwt@2.2.0/node_modules/@foal/jwt/lib/remove-auth-cookie.d.ts": {
-        "version": "dde9d097f01b24431b83a8cdeedc667db8f5cbddba8bbc6caf6a8ef9e841b82d",
-        "affectsGlobalScope": false
-      },
-      "../../../../common/temp/node_modules/.pnpm/@foal/jwt@2.2.0/node_modules/@foal/jwt/lib/set-auth-cookie.d.ts": {
-        "version": "5fc79ff6ebe68e70fa47a91430e3f4b690c4a03e78bcc68ff405dbdd3c747b76",
-        "affectsGlobalScope": false
-      },
-      "../../../../common/temp/node_modules/.pnpm/@foal/jwt@2.2.0/node_modules/@foal/jwt/lib/index.d.ts": {
-        "version": "20d2205d3fc84493871babd09da3a6ff42bbb1a3c04e68394ff7824b53e40418",
         "affectsGlobalScope": false
       },
       "../../../../common/temp/node_modules/.pnpm/@types/jsonwebtoken@8.5.1/node_modules/@types/jsonwebtoken/index.d.ts": {
@@ -2834,27 +2846,55 @@
         "affectsGlobalScope": false
       },
       "../../src/app/utils/auth.ts": {
-        "version": "5565efb29ee9187550af1e6ada2df2ff66be84c7dcbee1d44f2b364e14339fca",
+        "version": "c075632cf96eeb140baf19aee36d29080741525a3f48d380b18ba55b136344fe",
+        "affectsGlobalScope": false
+      },
+      "../../src/app/utils/cors.ts": {
+        "version": "705f66a2a64a96928c2f55d8fa76271ebded570e5031bb9e4d0b80dccba87eed",
+        "affectsGlobalScope": false
+      },
+      "../../src/app/utils/errors.ts": {
+        "version": "0c0e887b74f6cff81ff45b9ffe9bb7e8f1f3d9f1e510e55ca02887b4dcf2ade8",
         "affectsGlobalScope": false
       },
       "../../src/app/utils/index.ts": {
-        "version": "0d1e9013237428428f2c4b8c4c64e3b5fce66d8140bc75629c0cc320c85c4925",
+        "version": "8288be20e2bd856abb46d82bcaeb9ff47f62090e383e5d875e9a5cd590862859",
         "affectsGlobalScope": false
       },
-      "../../src/app/controllers/api/auth/auth.controller.ts": {
-        "version": "93c59a982437e6341b8db334a17374c00e0535b64e6f07e7e854c0c69d9c8459",
+      "../../src/app/hooks/Cors.ts": {
+        "version": "b18bddfff7dd03ca30e59edcaf75ec7af084c62adb6c5bab12510aa3495f45d1",
         "affectsGlobalScope": false
       },
-      "../../src/app/controllers/api/auth/index.ts": {
-        "version": "cc3895cfac6942ba9a83e0e93d7ba3d2dc0a7495ec3beb16ac41867a2a04825c",
+      "../../src/app/hooks/HandleBadRequestResponse.ts": {
+        "version": "f038e9e21a963da6feecc08242cd0b13c7f97e8bcc91450e62a4c7165af96742",
+        "affectsGlobalScope": false
+      },
+      "../../src/app/hooks/HandleOptionsRequest.ts": {
+        "version": "24fee99bc6ae1292e4c23ec211389dc3a2c7d4e72562f78013792ef96f7fc0fa",
+        "affectsGlobalScope": false
+      },
+      "../../src/app/hooks/RefreshJWT.ts": {
+        "version": "9854758b6c0ca6cf13929b50bfff13f1d32d7d33ff2be9670bb7628a57991387",
+        "affectsGlobalScope": false
+      },
+      "../../src/app/hooks/index.ts": {
+        "version": "61e85fac54c254f04e9834c3b786ba5c5d1fd47e547623ba0df2fb1081df6e19",
         "affectsGlobalScope": false
       },
       "../../src/app/controllers/api/api.controller.ts": {
-        "version": "f6cd79aa26a05979186e8e140a3707587cad016e312d8fe2168221c40a44f1ca",
+        "version": "ba39fa54143b05e9738f906278de0687567ffbbadeac8ae6fe61dc60c6f2002d",
         "affectsGlobalScope": false
       },
       "../../src/app/controllers/api/index.ts": {
         "version": "6c3aa4e7c1b8e948e286766b765bcddc2290d6ef0bb62b0123642b1a322051ed",
+        "affectsGlobalScope": false
+      },
+      "../../src/app/controllers/auth/auth.controller.ts": {
+        "version": "0c2c0d30b0d6853b1bf00c53ca85e8892aab4c6267c25b44bb7ed451eed28f56",
+        "affectsGlobalScope": false
+      },
+      "../../src/app/controllers/auth/index.ts": {
+        "version": "cc3895cfac6942ba9a83e0e93d7ba3d2dc0a7495ec3beb16ac41867a2a04825c",
         "affectsGlobalScope": false
       },
       "../../../../common/temp/node_modules/.pnpm/@foal/storage@2.2.0/node_modules/@foal/storage/lib/disk.service.d.ts": {
@@ -2898,7 +2938,7 @@
         "affectsGlobalScope": false
       },
       "../../src/app/translations/en/errors.ts": {
-        "version": "8bd6a46e07a227ca8e1bff3da1485235cbdeaa8fd7a71a02fc7992f8c4e1fb8b",
+        "version": "be714407e1ffa68c228f01e1d5e8e7c298f86b862b5ad196703f99878aa3d5f9",
         "affectsGlobalScope": false
       },
       "../../src/app/translations/en/index.ts": {
@@ -2910,19 +2950,11 @@
         "affectsGlobalScope": false
       },
       "../../src/app/translations/index.ts": {
-        "version": "1722bb9c017165cefc96a4ff9b91c8b06505f6e07491f13f60057e07f222bd07",
-        "affectsGlobalScope": false
-      },
-      "../../src/app/types/error.ts": {
-        "version": "7e80095b475831a822ace459c5f16ba27fb605960947a7322ef137cbc5726d94",
-        "affectsGlobalScope": false
-      },
-      "../../src/app/types/index.ts": {
-        "version": "039cd54028eb988297e189275764df06c18f9299b14c063e93bd3f30c046fee6",
+        "version": "1ea63f17298bb3fdf6bba7c1283c70e3eb32b1ada68b5b44babb84036445b7b5",
         "affectsGlobalScope": false
       },
       "../../src/app/controllers/app.controller.ts": {
-        "version": "168d5ebd7dda7d67deeb8b53018e6891a8c7f7bd199b16f82782ed6e87c852f8",
+        "version": "5dfd31386041f7ebbe7b5cfb0d0c1ace95e3c704e191e455d7990523aa7be3a8",
         "affectsGlobalScope": false
       },
       "../../src/app/controllers/index.ts": {
@@ -2937,14 +2969,6 @@
         "version": "7992a39d6cde5e050eb78461a8bf9ad986175a94826e835c110b3967290bd249",
         "affectsGlobalScope": false
       },
-      "../../src/app/hooks/RefreshJWT.ts": {
-        "version": "384722a0d4fd41f7eb1daaa4c3f4eaf3202744f4c0b880cc075a1da9b9bddc95",
-        "affectsGlobalScope": false
-      },
-      "../../src/app/hooks/index.ts": {
-        "version": "e9056abcfbaea3a51373c6568b70ca7998d439ba2f0f7a691be7372591cc076e",
-        "affectsGlobalScope": false
-      },
       "../../src/app/services/index.ts": {
         "version": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
         "affectsGlobalScope": false
@@ -2953,8 +2977,12 @@
         "version": "d07cb4681425f5b1f6bc3abe3884936de8da836c828f9cc497881032418994c4",
         "affectsGlobalScope": false
       },
+      "../../src/scripts/create-user.ts": {
+        "version": "06dd6e8aabbca5cfbe2fb375da5b948638bbf419ee34dbbb443719c0c853bf7c",
+        "affectsGlobalScope": false
+      },
       "../../src/scripts/populate.ts": {
-        "version": "ba8483954519426d4c98f637a3b06d18c1aa8bc6948397a44965d3325fa6e40c",
+        "version": "4dd7e6707c1aad55ddb2b822b6ad85fd85d824e0e654bea2c313512ea70814e7",
         "affectsGlobalScope": false
       },
       "../../../../common/temp/node_modules/.pnpm/@types/heft-jest@1.0.2/node_modules/@types/heft-jest/mocked.d.ts": {
@@ -5783,18 +5811,11 @@
       ],
       "../../src/app/controllers/api/api.controller.ts": [
         "../../../../common/temp/node_modules/.pnpm/@foal/core@2.2.0/node_modules/@foal/core/lib/index.d.ts",
-        "../../src/app/controllers/api/auth/index.ts",
+        "../../../../common/temp/node_modules/.pnpm/@foal/jwt@2.2.0/node_modules/@foal/jwt/lib/index.d.ts",
         "../../src/app/controllers/api/music/index.ts",
         "../../src/app/controllers/api/playlist/index.ts",
-        "../../src/app/controllers/api/user/index.ts"
-      ],
-      "../../src/app/controllers/api/auth/auth.controller.ts": [
-        "../../../../common/temp/node_modules/.pnpm/@foal/core@2.2.0/node_modules/@foal/core/lib/index.d.ts",
-        "../../../../packages/business/user-pkg/lib/index.d.ts",
-        "../../src/app/utils/index.ts"
-      ],
-      "../../src/app/controllers/api/auth/index.ts": [
-        "../../src/app/controllers/api/auth/auth.controller.ts"
+        "../../src/app/controllers/api/user/index.ts",
+        "../../src/app/hooks/index.ts"
       ],
       "../../src/app/controllers/api/index.ts": [
         "../../src/app/controllers/api/api.controller.ts"
@@ -5808,7 +5829,8 @@
         "../../../../packages/business/downloader-pkg/lib/index.d.ts",
         "../../../../packages/business/music-pkg/lib/index.d.ts",
         "../../../../packages/business/playlist-pkg/lib/index.d.ts",
-        "../../src/app/controllers/api/music/music.dto.ts"
+        "../../src/app/controllers/api/music/music.dto.ts",
+        "../../src/app/types/index.ts"
       ],
       "../../src/app/controllers/api/music/music.dto.ts": [
         "../../../../common/temp/node_modules/.pnpm/class-validator-jsonschema@3.0.0_e55adea42dd62e7eaa7e4f283d6f41a1/node_modules/class-validator-jsonschema/build/index.d.ts",
@@ -5820,7 +5842,8 @@
       ],
       "../../src/app/controllers/api/playlist/playlist.controller.ts": [
         "../../../../common/temp/node_modules/.pnpm/@foal/core@2.2.0/node_modules/@foal/core/lib/index.d.ts",
-        "../../../../packages/business/playlist-pkg/lib/index.d.ts"
+        "../../../../packages/business/playlist-pkg/lib/index.d.ts",
+        "../../src/app/types/index.ts"
       ],
       "../../src/app/controllers/api/user/index.ts": [
         "../../src/app/controllers/api/user/user.controller.ts"
@@ -5835,10 +5858,21 @@
         "../../../../packages/technical/error-pkg/lib/index.d.ts",
         "../../../../packages/technical/types-pkg/lib/index.d.ts",
         "../../src/app/controllers/api/index.ts",
+        "../../src/app/controllers/auth/index.ts",
         "../../src/app/controllers/file.controller.ts",
         "../../src/app/controllers/openApi.controller.ts",
+        "../../src/app/hooks/index.ts",
         "../../src/app/translations/index.ts",
-        "../../src/app/types/index.ts"
+        "../../src/app/types/index.ts",
+        "../../src/app/utils/index.ts"
+      ],
+      "../../src/app/controllers/auth/auth.controller.ts": [
+        "../../../../common/temp/node_modules/.pnpm/@foal/core@2.2.0/node_modules/@foal/core/lib/index.d.ts",
+        "../../../../packages/business/user-pkg/lib/index.d.ts",
+        "../../src/app/utils/index.ts"
+      ],
+      "../../src/app/controllers/auth/index.ts": [
+        "../../src/app/controllers/auth/auth.controller.ts"
       ],
       "../../src/app/controllers/file.controller.ts": [
         "../../../../common/temp/node_modules/.pnpm/@foal/core@2.2.0/node_modules/@foal/core/lib/index.d.ts",
@@ -5851,11 +5885,25 @@
         "../../../../common/temp/node_modules/.pnpm/@foal/swagger@2.2.0/node_modules/@foal/swagger/lib/index.d.ts",
         "../../src/app/controllers/api/index.ts"
       ],
+      "../../src/app/hooks/Cors.ts": [
+        "../../../../common/temp/node_modules/.pnpm/@foal/core@2.2.0/node_modules/@foal/core/lib/index.d.ts",
+        "../../src/app/utils/index.ts"
+      ],
+      "../../src/app/hooks/HandleBadRequestResponse.ts": [
+        "../../../../common/temp/node_modules/.pnpm/@foal/core@2.2.0/node_modules/@foal/core/lib/index.d.ts"
+      ],
+      "../../src/app/hooks/HandleOptionsRequest.ts": [
+        "../../../../common/temp/node_modules/.pnpm/@foal/core@2.2.0/node_modules/@foal/core/lib/index.d.ts",
+        "../../src/app/utils/index.ts"
+      ],
       "../../src/app/hooks/RefreshJWT.ts": [
         "../../../../common/temp/node_modules/.pnpm/@foal/core@2.2.0/node_modules/@foal/core/lib/index.d.ts",
         "../../src/app/utils/index.ts"
       ],
       "../../src/app/hooks/index.ts": [
+        "../../src/app/hooks/Cors.ts",
+        "../../src/app/hooks/HandleBadRequestResponse.ts",
+        "../../src/app/hooks/HandleOptionsRequest.ts",
         "../../src/app/hooks/RefreshJWT.ts"
       ],
       "../../src/app/translations/en/index.ts": [
@@ -5871,15 +5919,25 @@
         "../../src/app/translations/errors.ts"
       ],
       "../../src/app/types/index.ts": [
+        "../../src/app/types/UserContext.ts",
         "../../src/app/types/error.ts"
       ],
       "../../src/app/utils/auth.ts": [
         "../../../../common/temp/node_modules/.pnpm/@foal/core@2.2.0/node_modules/@foal/core/lib/index.d.ts",
         "../../../../common/temp/node_modules/.pnpm/@foal/jwt@2.2.0/node_modules/@foal/jwt/lib/index.d.ts",
-        "../../../../common/temp/node_modules/.pnpm/@types/jsonwebtoken@8.5.1/node_modules/@types/jsonwebtoken/index.d.ts"
+        "../../../../common/temp/node_modules/.pnpm/@types/jsonwebtoken@8.5.1/node_modules/@types/jsonwebtoken/index.d.ts",
+        "../../src/app/types/index.ts"
+      ],
+      "../../src/app/utils/cors.ts": [
+        "../../../../common/temp/node_modules/.pnpm/@foal/core@2.2.0/node_modules/@foal/core/lib/index.d.ts"
+      ],
+      "../../src/app/utils/errors.ts": [
+        "../../../../packages/technical/types-pkg/lib/index.d.ts"
       ],
       "../../src/app/utils/index.ts": [
-        "../../src/app/utils/auth.ts"
+        "../../src/app/utils/auth.ts",
+        "../../src/app/utils/cors.ts",
+        "../../src/app/utils/errors.ts"
       ],
       "../../src/index.ts": [
         "../../../../common/temp/node_modules/.pnpm/@foal/core@2.2.0/node_modules/@foal/core/lib/index.d.ts",
@@ -5890,9 +5948,15 @@
       "../../src/migrations/1616264614250-migration.ts": [
         "../../../../common/temp/node_modules/.pnpm/typeorm@0.2.31/node_modules/typeorm/index.d.ts"
       ],
+      "../../src/scripts/create-user.ts": [
+        "../../../../packages/business/user-pkg/lib/index.d.ts",
+        "../../../../packages/technical/database-pkg/lib/index.d.ts",
+        "../../src/setup.ts"
+      ],
       "../../src/scripts/populate.ts": [
         "../../../../packages/business/music-pkg/lib/index.d.ts",
         "../../../../packages/business/playlist-pkg/lib/index.d.ts",
+        "../../../../packages/business/user-pkg/lib/index.d.ts",
         "../../../../packages/technical/database-pkg/lib/index.d.ts",
         "../../src/setup.ts"
       ],

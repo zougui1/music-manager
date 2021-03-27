@@ -6,6 +6,7 @@
   "repository": {},
   "scripts": {
     "build": "concurrently \"heft build --clean\" \"tsc -p tsconfig.json --outDir build\"",
+    "build-watch": "heft build --watch",
     "start": "nodemon ./lib",
     "dev": "concurrently \"npm run build:watch\" \"npm start\"",
     "test": "heft jest",

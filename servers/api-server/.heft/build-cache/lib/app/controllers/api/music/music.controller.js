@@ -19,10 +19,13 @@ const playlist_pkg_1 = require("playlist-pkg");
 const downloader_pkg_1 = require("downloader-pkg");
 const path_1 = __importDefault(require("path"));
 const music_dto_1 = require("./music.dto");
-let MusicController = class MusicController {
+class MusicController {
     async find(ctx) {
-        const musics = await this.music.findMany();
+        const musics = await this.music.findMany({ user: { id: ctx.user.id } });
         return new core_1.HttpResponseOK(musics);
+    }
+    async findOptions(ctx) {
+        return new core_1.HttpResponseOK();
     }
     /**
      * TODO rewrite it with TypeORM
@@ -56,6 +59,7 @@ let MusicController = class MusicController {
                 thumbnail: thumbnailFileName
                     ? `http://localhost:3333/files/${thumbnailFileName}`
                     : undefined,
+                user: ctx.user,
             });
             if (playlistId) {
                 await this.playlist.addMusic(playlistId, music);
@@ -63,7 +67,7 @@ let MusicController = class MusicController {
         }
         return new core_1.HttpResponseOK();
     }
-};
+}
 __decorate([
     core_1.dependency,
     __metadata("design:type", music_pkg_1.Music)
@@ -92,6 +96,12 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], MusicController.prototype, "find", null);
 __decorate([
+    core_1.Options('/'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [core_1.Context]),
+    __metadata("design:returntype", Promise)
+], MusicController.prototype, "findOptions", null);
+__decorate([
     core_1.Post('/')
     //@ValidateBody(AddMusicBody)
     ,
@@ -110,8 +120,5 @@ __decorate([
     __metadata("design:paramtypes", [core_1.Context]),
     __metadata("design:returntype", Promise)
 ], MusicController.prototype, "add", null);
-MusicController = __decorate([
-    core_1.Log('MusicController', { body: true, params: true, query: true })
-], MusicController);
 exports.MusicController = MusicController;
 //# sourceMappingURL=music.controller.js.map

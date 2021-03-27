@@ -12,8 +12,6 @@ const translations: ObjectOf<ObjectOf<string>> = {
 export const getMessage = (language: string | undefined, key: string, values: ObjectLiteral = {}): string => {
   const translation = translations[language ?? defaultLanguage] || translations[defaultLanguage];
 
-  console.log(translation);
-  console.log(key);
   if (!(key in translation)) {
     throw new NonexistentTranslationError(null, { translationKey: key });
   }

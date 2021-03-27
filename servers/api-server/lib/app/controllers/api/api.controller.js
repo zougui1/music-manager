@@ -8,17 +8,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ApiController = void 0;
 const core_1 = require("@foal/core");
+const jwt_1 = require("@foal/jwt");
 const music_1 = require("./music");
 const playlist_1 = require("./playlist");
 const user_1 = require("./user");
-const auth_1 = require("./auth");
+const hooks_1 = require("../../hooks");
 let ApiController = class ApiController {
     constructor() {
         this.subControllers = [
             core_1.controller('/musics', music_1.MusicController),
             core_1.controller('/playlists', playlist_1.PlaylistController),
             core_1.controller('/users', user_1.UserController),
-            core_1.controller('/', auth_1.AuthController),
         ];
     }
 };
@@ -29,7 +29,10 @@ ApiController = __decorate([
     }),
     core_1.ApiServer({
         url: '/api',
-    })
+    }),
+    core_1.Log('API', { body: true, params: true, query: true }),
+    jwt_1.JWTRequired(),
+    hooks_1.RefreshJWT()
 ], ApiController);
 exports.ApiController = ApiController;
 //# sourceMappingURL=api.controller.js.map

@@ -12,16 +12,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserEntity = void 0;
 const typeorm_1 = require("typeorm");
 const validation_pkg_1 = require("validation-pkg");
-const hash_pkg_1 = require("hash-pkg");
 const base_entity_1 = require("./base.entity");
 const music_entity_1 = require("./music.entity");
 const playlist_entity_1 = require("./playlist.entity");
 let UserEntity = class UserEntity extends base_entity_1.BaseEntity {
-    async hashPassword() {
-        if (this.password && !this.password.startsWith('$argon2')) {
-            this.password = await hash_pkg_1.hash(this.password);
-        }
-    }
 };
 __decorate([
     typeorm_1.Column('varchar', { length: validation_pkg_1.rules.user.name.maxLength }),
@@ -43,13 +37,6 @@ __decorate([
     typeorm_1.OneToMany(() => music_entity_1.MusicEntity, music => music.user),
     __metadata("design:type", Array)
 ], UserEntity.prototype, "musics", void 0);
-__decorate([
-    typeorm_1.BeforeInsert(),
-    typeorm_1.BeforeUpdate(),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", Promise)
-], UserEntity.prototype, "hashPassword", null);
 UserEntity = __decorate([
     typeorm_1.Entity({ name: 'users' })
 ], UserEntity);

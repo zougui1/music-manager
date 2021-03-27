@@ -6,7 +6,7 @@ const jwt_1 = require("@foal/jwt");
 const jsonwebtoken_1 = require("jsonwebtoken");
 const tokenExpirationInterval = core_1.Config.getOrThrow('settings.jwt.tokenExpirationInterval', 'string');
 const generateToken = (user) => {
-    return jsonwebtoken_1.sign({ email: user.email }, jwt_1.getSecretOrPrivateKey(), { expiresIn: tokenExpirationInterval });
+    return jsonwebtoken_1.sign({ id: user.id }, jwt_1.getSecretOrPrivateKey(), { expiresIn: tokenExpirationInterval });
 };
 exports.generateToken = generateToken;
 //# sourceMappingURL=auth.js.map

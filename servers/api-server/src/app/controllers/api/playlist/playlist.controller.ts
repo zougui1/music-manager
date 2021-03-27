@@ -1,7 +1,8 @@
-import { Context, dependency, Get, Post, Patch, Options, HttpResponse, HttpResponseOK, Log, ApiResponse, HttpResponseNotFound } from '@foal/core';
+import { Context, dependency, Get, Post, Patch, Options, HttpResponse, HttpResponseOK, ApiResponse, HttpResponseNotFound } from '@foal/core';
 import { Playlist, UpdateOptions } from 'playlist-pkg';
 
-@Log('PlaylistController', { body: true, params: true, query: true })
+import { UserContext } from '../../../types';
+
 export class PlaylistController {
 
   @dependency
@@ -21,8 +22,8 @@ export class PlaylistController {
       }
     }
   })
-  async find(ctx: Context): Promise<HttpResponse> {
-    const playlists = await this.playlist.findMany();
+  async find(ctx: Context<UserContext>): Promise<HttpResponse> {
+    const playlists = await this.playlist.findMany({ user: ctx.user });
     return new HttpResponseOK(playlists);
   }
 
@@ -38,9 +39,9 @@ export class PlaylistController {
   }
 
   @Post('/')
-  async add(ctx: Context): Promise<HttpResponse> {
+  async add(ctx: Context<UserContext>): Promise<HttpResponse> {
     const playlist = ctx.request.body;
-    await this.playlist.create(playlist);
+    await this.playlist.create({ user: ctx.user, ...playlist });
     return new HttpResponseOK(playlist);
   }
 
@@ -49,7 +50,7 @@ export class PlaylistController {
 
   @Patch('/:id')
   async update(ctx: Context, { id }: { id: number }, body: UpdateOptions): Promise<HttpResponse> {
-    await this.playlist.update(id, body);
+    await this.playlist.update({ id, user: ctx.user }, body);
     return new HttpResponseOK();
   }
 

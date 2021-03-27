@@ -1,6 +1,7 @@
 import { IonSpinner } from '@ionic/react';
 
 import './ConsumeQuery.css';
+import { QueryResult } from '../../hooks';
 
 export const ConsumeQuery: React.FC<ConsumeQueryProps> = ({ query, children }) => {
   if (query.isLoading) {
@@ -11,12 +12,10 @@ export const ConsumeQuery: React.FC<ConsumeQueryProps> = ({ query, children }) =
     );
   }
 
+  console.log(query)
+
   if (query.isError) {
-    try {
-      console.log(JSON.parse(query.error.message));
-    } catch (error) {
-      console.log(query.error.message);
-    }
+    console.log(query.error.response?.data ?? query.error.message);
 
     return null;
   }
@@ -24,13 +23,7 @@ export const ConsumeQuery: React.FC<ConsumeQueryProps> = ({ query, children }) =
   return children;
 }
 
-export interface IQuery {
-  isLoading: boolean;
-  isError: boolean;
-  error: any;
-}
-
 export interface ConsumeQueryProps {
-  query: IQuery;
+  query: QueryResult;
   children?: any;
 }

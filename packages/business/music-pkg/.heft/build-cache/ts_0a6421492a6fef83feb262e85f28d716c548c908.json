@@ -1458,7 +1458,7 @@
         "affectsGlobalScope": false
       },
       "../../../../technical/database-pkg/lib/entities/user.entity.d.ts": {
-        "version": "ec39ee800f7880c97766dbba89b1b3df1d8d383a131bebe87c3913bd0721c0ea",
+        "version": "b45541533d1e8b21b071b6e516478f3f7d4aa12787c6e6dbd2e71ef3ad3da21c",
         "affectsGlobalScope": false
       },
       "../../../../technical/database-pkg/lib/entities/music.entity.d.ts": {
@@ -1514,7 +1514,7 @@
         "affectsGlobalScope": false
       },
       "../../src/Music.ts": {
-        "version": "f0798a866977635fb29cf27dd574b1df2d1ed10b97ba34bfc026061fe64c0505",
+        "version": "f4e64a9fb60f266c9c327041f558263d7737b771eca1c5d1310755f1a6d26320",
         "affectsGlobalScope": false
       },
       "../../src/index.ts": {

@@ -62,7 +62,8 @@
   "scripts": {
     "start": "ionic serve",
     "react-start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "",
+    "build-react": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

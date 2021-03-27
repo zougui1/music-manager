@@ -44,6 +44,10 @@ class User extends database_pkg_1.RepositoryAccessor {
         }
         return user;
     }
+    async signup(user) {
+        user = Object.assign(Object.assign({}, user), { password: await hash.hash(user.password) });
+        return await this.repo.create(user).save();
+    }
     async clear() {
         await this.repo.deleteAll();
     }

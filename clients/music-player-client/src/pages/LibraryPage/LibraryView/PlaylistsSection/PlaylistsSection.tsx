@@ -12,7 +12,7 @@ import { useQuery } from '../../../../hooks';
 import { useWithUserId } from '../../../../features/client';
 
 export const PlaylistsSection = () => {
-  const query = useQuery('playlists', '/playlists');
+  const query = useQuery('playlists', '/api/playlists');
   const [showDialog, setShowDialog] = useState(false);
   const withUserId = useWithUserId();
 
@@ -27,7 +27,7 @@ export const PlaylistsSection = () => {
     />, { autoClose: false });
 
     try {
-      await axios.post('/playlists', withUserId(data));
+      await axios.post('/api/playlists', withUserId(data));
     } catch (error) {
       console.error(error.response.data.stack)
     }
@@ -64,7 +64,10 @@ export const PlaylistsSection = () => {
       />
 
       <ConsumeQuery query={query}>
-        <PlaylistList playlists={query.data as any} />
+        <PlaylistList
+          playlists={query.data as any}
+          onOrderChange={query.refetch}
+        />
       </ConsumeQuery>
     </>
   );

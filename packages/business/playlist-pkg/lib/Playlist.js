@@ -9,20 +9,30 @@ class Playlist extends database_pkg_1.RepositoryAccessor {
         super(database_pkg_1.PlaylistRepository);
     }
     //#region public
-    async findMany() {
-        return this.repo.find();
+    async findMany(options) {
+        return this.repo.find({
+            where: { user: { id: options.user.id } },
+            relations: ['playlistToMusics', 'playlistToMusics.music'],
+            /*join: {
+              alias: 'playlist',
+              leftJoinAndSelect: {
+                playlistToMusics: 'playlist.playlistToMusics',
+                musics: 'playlistToMusics.music',
+              },
+            },*/
+        });
     }
     async findById(id) {
         return this.repo.findOne(id);
     }
-    async update(id, options) {
-        await this.updateManyOrder(options);
+    async update(target, options) {
+        await this.updateManyOrder(target, options);
     }
     async create(playlist) {
         var _a;
         const lastPlaylist = await this.repo.findOne({ order: { order: 'DESC' } });
         const lastOrder = (_a = lastPlaylist === null || lastPlaylist === void 0 ? void 0 : lastPlaylist.order) !== null && _a !== void 0 ? _a : 0;
-        const playlistData = Object.assign(Object.assign({}, playlist), { order: lastOrder + 1 });
+        const playlistData = Object.assign(Object.assign({}, playlist), { order: lastOrder + 1, userId: playlist.user.id });
         return await this.repo.create(playlistData).save();
     }
     async addMusic(playlistId, music) {
@@ -30,7 +40,11 @@ class Playlist extends database_pkg_1.RepositoryAccessor {
         if (!playlist) {
             throw new errors_1.PlaylistNotFoundError();
         }
-        const lastOrder = Math.max(...playlist.playlistToMusics.map(p => p.order));
+        const orders = playlist.playlistToMusics
+            .map(p => p.order)
+            // enforce 0 to be the default value if `playlistToMusics` is empty
+            .concat([0]);
+        const lastOrder = Math.max(...orders);
         const playlistToMusic = await database_pkg_1.PlaylistToMusicEntity
             .create({
             playlist,
@@ -42,23 +56,25 @@ class Playlist extends database_pkg_1.RepositoryAccessor {
         await playlist.save();
     }
     async clear() {
-        await this.getRepo(database_pkg_1.PlaylistToMusicRepository).deleteAll();
+        //await this.getRepo(PlaylistToMusicRepository).deleteAll();
         await this.repo.deleteAll();
     }
     //#endregion
     //#region private
     //#region update order
-    async updateManyOrder({ from, to }) {
-        const playlist = await this.findOneByOrder(from);
+    async updateManyOrder(target, { from, to }) {
+        const playlist = await this.repo.findOne({ id: target.id, user: { id: target.user.id } });
         if (!playlist) {
             throw new errors_1.PlaylistNotFoundError();
         }
         if (from < to) {
-            const playlists = await this.findManyByOrder(utils_pkg_1.range(from + 1, to));
+            const orders = utils_pkg_1.range(from + 1, to);
+            const playlists = await this.findManyByOrder(orders);
             await this.decrementOrders(playlists);
         }
         else {
-            const playlists = await this.findManyByOrder(utils_pkg_1.range(from + 1, to - 1));
+            const orders = utils_pkg_1.range(to, from);
+            const playlists = await this.findManyByOrder(orders);
             await this.incrementOrders(playlists);
         }
         await this.updateOrder(playlist.id, to);

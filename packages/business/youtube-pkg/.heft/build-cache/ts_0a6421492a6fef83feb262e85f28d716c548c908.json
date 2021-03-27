@@ -914,7 +914,7 @@
         "affectsGlobalScope": false
       },
       "../../../../technical/error-pkg/lib/ApiException.d.ts": {
-        "version": "298bccc75e076e0ad781d09721a08b92e2113126a9bb4676a185ee339e5cdedb",
+        "version": "3ef2c31bb955992ba565999447fcc7fc806efdf97e74b85f186f29fe27aa349f",
         "affectsGlobalScope": false
       },
       "../../../../technical/error-pkg/lib/createError.d.ts": {

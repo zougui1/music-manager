@@ -1,25 +1,29 @@
-import { controller, IAppController, Context, HttpResponse, Config, Hook } from '@foal/core';
+import { controller, IAppController, Context, HttpResponse, Config } from '@foal/core';
 import { createConnection } from 'database-pkg';
 import { ApiException, ApiErrorObject } from 'error-pkg';
 import { ObjectLiteral } from 'types-pkg';
 
 import { ApiController } from './api';
+import { AuthController } from './auth';
 import { FileController } from './file.controller';
 import { OpenApiController } from './openApi.controller';
 import { getMessage } from '../translations';
 import { PublicError } from '../types';
+import { convertErrorDescriptionToCode } from '../utils';
+import { HandleOptionsRequest, Cors, HandleBadRequestResponse } from '../hooks';
 
-@Hook(() => response => {
-  response.setHeader('Access-Control-Allow-Origin', '*');
-  response.setHeader('Access-Control-Allow-Methods', '*');
-  response.setHeader('Access-Control-Allow-Headers', '*');
-  console.log('app hook')
-})
+// it is important that Cors gets called
+// before HandleOptionsRequest since it
+// ends the request
+@Cors()
+@HandleOptionsRequest()
+@HandleBadRequestResponse()
 export class AppController implements IAppController {
   subControllers = [
     controller('/files', FileController),
     controller('/api', ApiController),
     controller('/swagger', OpenApiController),
+    controller('/auth', AuthController),
   ];
 
   private translationFailed = false;
@@ -45,13 +49,22 @@ export class AppController implements IAppController {
     }
 
     const data = { message: translation.message, path };
-    const publicError = this.getPublicError(error, data, sourceError);
+    const publicError = this.getPublicError(errorData, data, sourceError);
 
     return new Response(publicError);
   }
 
   //#region private
   private getInternalError(error: any, errorValues: ObjectLiteral): ApiErrorObject {
+    if (error instanceof HttpResponse) {
+      const body = error.body as { description: string };
+
+      error = <ApiErrorObject>{
+        ...convertErrorDescriptionToCode(body.description),
+        status: error.statusCode,
+      };
+    }
+
     const apiError = ApiException.from(error, errorValues);
     return apiError.toObject();
   }
@@ -81,7 +94,6 @@ export class AppController implements IAppController {
         throw originalError;
       }
 
-      console.log('Translation error:', error)
       this.translationFailed = true;
       return { error };
     }

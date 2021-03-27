@@ -7,8 +7,8 @@ class Music extends database_pkg_1.RepositoryAccessor {
         super(database_pkg_1.MusicRepository);
     }
     //#region public
-    async findMany() {
-        return this.repo.find();
+    async findMany(criteria) {
+        return this.repo.find({ where: { user: { id: criteria.user.id } } });
     }
     async findById(id) {
         return this.repo.findOne(id);

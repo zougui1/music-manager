@@ -12,12 +12,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserController = void 0;
 const core_1 = require("@foal/core");
 const user_pkg_1 = require("user-pkg");
-let UserController = class UserController {
+class UserController {
     async find(ctx) {
         const users = await this.user.findMany();
         return new core_1.HttpResponseOK(users);
     }
-};
+}
 __decorate([
     core_1.dependency,
     __metadata("design:type", user_pkg_1.User)
@@ -41,8 +41,5 @@ __decorate([
     __metadata("design:paramtypes", [core_1.Context]),
     __metadata("design:returntype", Promise)
 ], UserController.prototype, "find", null);
-UserController = __decorate([
-    core_1.Log('UseController', { body: true, params: true, query: true })
-], UserController);
 exports.UserController = UserController;
 //# sourceMappingURL=user.controller.js.map

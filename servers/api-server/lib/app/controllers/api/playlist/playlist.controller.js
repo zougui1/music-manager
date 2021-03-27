@@ -8,14 +8,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PlaylistController = void 0;
 const core_1 = require("@foal/core");
 const playlist_pkg_1 = require("playlist-pkg");
-let PlaylistController = class PlaylistController {
+class PlaylistController {
     async find(ctx) {
-        const playlists = await this.playlist.findMany();
+        const playlists = await this.playlist.findMany({ user: ctx.user });
         return new core_1.HttpResponseOK(playlists);
     }
     async findOne(ctx, { id }) {
@@ -27,19 +26,19 @@ let PlaylistController = class PlaylistController {
     }
     async add(ctx) {
         const playlist = ctx.request.body;
-        await this.playlist.create(playlist);
+        await this.playlist.create(Object.assign({ user: ctx.user }, playlist));
         return new core_1.HttpResponseOK(playlist);
     }
     async opt() { return new core_1.HttpResponseOK(); }
     async update(ctx, { id }, body) {
-        await this.playlist.update(id, body);
+        await this.playlist.update({ id, user: ctx.user }, body);
         return new core_1.HttpResponseOK();
     }
     async optById() { return new core_1.HttpResponseOK(); }
-};
+}
 __decorate([
     core_1.dependency,
-    __metadata("design:type", typeof (_a = typeof playlist_pkg_1.Playlist !== "undefined" && playlist_pkg_1.Playlist) === "function" ? _a : Object)
+    __metadata("design:type", playlist_pkg_1.Playlist)
 ], PlaylistController.prototype, "playlist", void 0);
 __decorate([
     core_1.Get('/'),
@@ -57,41 +56,38 @@ __decorate([
         }
     }),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [typeof (_b = typeof core_1.Context !== "undefined" && core_1.Context) === "function" ? _b : Object]),
-    __metadata("design:returntype", typeof (_c = typeof Promise !== "undefined" && Promise) === "function" ? _c : Object)
+    __metadata("design:paramtypes", [core_1.Context]),
+    __metadata("design:returntype", Promise)
 ], PlaylistController.prototype, "find", null);
 __decorate([
     core_1.Get('/:id'),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [typeof (_d = typeof core_1.Context !== "undefined" && core_1.Context) === "function" ? _d : Object, Object]),
-    __metadata("design:returntype", typeof (_e = typeof Promise !== "undefined" && Promise) === "function" ? _e : Object)
+    __metadata("design:paramtypes", [core_1.Context, Object]),
+    __metadata("design:returntype", Promise)
 ], PlaylistController.prototype, "findOne", null);
 __decorate([
     core_1.Post('/'),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [typeof (_f = typeof core_1.Context !== "undefined" && core_1.Context) === "function" ? _f : Object]),
-    __metadata("design:returntype", typeof (_g = typeof Promise !== "undefined" && Promise) === "function" ? _g : Object)
+    __metadata("design:paramtypes", [core_1.Context]),
+    __metadata("design:returntype", Promise)
 ], PlaylistController.prototype, "add", null);
 __decorate([
     core_1.Options('/'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
-    __metadata("design:returntype", typeof (_h = typeof Promise !== "undefined" && Promise) === "function" ? _h : Object)
+    __metadata("design:returntype", Promise)
 ], PlaylistController.prototype, "opt", null);
 __decorate([
     core_1.Patch('/:id'),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [typeof (_j = typeof core_1.Context !== "undefined" && core_1.Context) === "function" ? _j : Object, Object, typeof (_k = typeof playlist_pkg_1.UpdateOptions !== "undefined" && playlist_pkg_1.UpdateOptions) === "function" ? _k : Object]),
-    __metadata("design:returntype", typeof (_l = typeof Promise !== "undefined" && Promise) === "function" ? _l : Object)
+    __metadata("design:paramtypes", [core_1.Context, Object, Object]),
+    __metadata("design:returntype", Promise)
 ], PlaylistController.prototype, "update", null);
 __decorate([
     core_1.Options('/:id'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
-    __metadata("design:returntype", typeof (_m = typeof Promise !== "undefined" && Promise) === "function" ? _m : Object)
+    __metadata("design:returntype", Promise)
 ], PlaylistController.prototype, "optById", null);
-PlaylistController = __decorate([
-    core_1.Log('PlaylistController', { body: true, params: true, query: true })
-], PlaylistController);
 exports.PlaylistController = PlaylistController;
 //# sourceMappingURL=playlist.controller.js.map
