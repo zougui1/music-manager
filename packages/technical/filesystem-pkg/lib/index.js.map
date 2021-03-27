@@ -1,1 +1,0 @@
-{"version":3,"file":"index.js","sourceRoot":"","sources":["../src/index.ts"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;AAAA,wDAA0B;AAC1B,kDAAoC;AAEpC,kDACK,kBAAE,GACF,GAAG,EACN","sourcesContent":["import fs from 'fs-extra';\nimport * as fss from './filesystem';\n\nexport default {\n  ...fs,\n  ...fss,\n};\n"]}

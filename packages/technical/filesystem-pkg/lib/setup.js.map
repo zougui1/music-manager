@@ -1,1 +1,0 @@
-{"version":3,"file":"setup.js","sourceRoot":"","sources":["../src/setup.ts"],"names":[],"mappings":";;;;;AAAA,wDAA0B;AAE1B,+BAA0C;AAE1C,kBAAE,CAAC,SAAS,CAAC,cAAQ,CAAC,CAAC;AACvB,kBAAE,CAAC,SAAS,CAAC,aAAO,CAAC,CAAC","sourcesContent":["import fs from 'fs-extra';\n\nimport { APP_DIR, TEMP_DIR } from './env';\n\nfs.ensureDir(TEMP_DIR);\nfs.ensureDir(APP_DIR);\n"]}
