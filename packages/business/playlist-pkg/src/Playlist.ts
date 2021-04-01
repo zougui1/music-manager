@@ -1,5 +1,6 @@
-import { RepositoryAccessor, PlaylistEntity, PlaylistRepository, MusicEntity, PlaylistToMusicEntity } from 'database-pkg';
+import { RepositoryAccessor, PlaylistEntity, PlaylistRepository, MusicEntity, PlaylistToMusicEntity, PlaylistToMusicRepository } from 'database-pkg';
 import { range } from 'utils-pkg';
+import { MusicStatus } from 'types-pkg';
 
 import { PlaylistNotFoundError } from './errors';
 
@@ -13,19 +14,28 @@ export class Playlist extends RepositoryAccessor<PlaylistRepository> {
   public async findMany(options: IFindManyOptions): Promise<PlaylistEntity[]> {
     return this.repo.find({
       where: { user: { id: options.user.id } },
-      relations: ['playlistToMusics', 'playlistToMusics.music'],
-      /*join: {
-        alias: 'playlist',
-        leftJoinAndSelect: {
-          playlistToMusics: 'playlist.playlistToMusics',
-          musics: 'playlistToMusics.music',
-        },
-      },*/
     });
   }
 
   public async findById(id: number): Promise<PlaylistEntity | undefined> {
-    return this.repo.findOne(id);
+    // TODO merge those 2 queries
+    const playlist = await this.repo.findOne(id);
+    if (!playlist) {
+      return;
+    }
+
+    const playlistToMusics = await this
+      .getRepo(PlaylistToMusicRepository)
+      .createQueryBuilder('playlistToMusic')
+      .leftJoinAndSelect('playlistToMusic.music', 'music')
+      .where('playlistToMusic.playlistId = :playlistId', { playlistId: playlist.id })
+      .andWhere('playlistToMusic.deletedAt IS NULL')
+      .andWhere('music.deletedAt IS NULL')
+      .andWhere('music.status = :status', { status: MusicStatus.DOWNLOADED })
+      .getMany();
+
+    playlist.playlistToMusics = playlistToMusics;
+    return playlist;
   }
 
   public async update(target: IUpdateTarget, options: UpdateOptions): Promise<void> {

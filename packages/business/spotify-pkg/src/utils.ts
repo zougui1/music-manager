@@ -31,10 +31,12 @@ export const parseSpotifyUrl = (url: string): ParsedSpotifyUrl | undefined => {
 }
 
 export const getYoutubeLink = async (songName: string): Promise<string | undefined> => {
+  const search = new Youtube.Search();
+
   try {
-    return await Youtube.Search.findVideoLink(songName);
+    return await search.findVideoLink(songName);
   } catch (_) {
     const cleanName = songName.replace(reDash, ' ');
-    return await Youtube.Search.findVideoLink(cleanName);
+    return await search.findVideoLink(cleanName);
   }
 };

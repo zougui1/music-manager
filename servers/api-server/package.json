@@ -6,12 +6,12 @@
   "repository": {},
   "scripts": {
     "build": "concurrently \"heft build --clean\" \"tsc -p tsconfig.json --outDir build\"",
-    "build-watch": "heft build --watch",
+    "build-watch": "concurrently \"heft build --watch\" \"tsc -p tsconfig.json --outDir build\"",
     "start": "nodemon ./lib",
     "dev": "concurrently \"npm run build:watch\" \"npm start\"",
     "test": "heft jest",
-    "e2e": "npm run build:e2e && concurrently \"tsc -p tsconfig.e2e.json -w\" \"jest --file ./lib/e2e.js -w \\\"./lib/e2e/**/*.js\\\"\"",
-    "migrations:make": "foal rmdir lib && tsc -p tsconfig.app.json && npx typeorm migration:generate --name migration && tsc -p tsconfig.app.json",
+    "e2e": "npm run build:e2e && concurrently \"tsc -p tsconfig.json -w\" \"jest --file ./lib/e2e.js -w \\\"./lib/e2e/**/*.js\\\"\"",
+    "migrations:make": "foal rmdir lib && tsc -p tsconfig.json && npx typeorm migration:generate --name migration && tsc -p tsconfig.json",
     "migrations": "npx typeorm migration:run",
     "migration:revert": "npx typeorm migration:revert"
   },

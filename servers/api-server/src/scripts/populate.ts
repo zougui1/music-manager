@@ -3,6 +3,7 @@ import { createConnection } from 'database-pkg';
 import { Music } from 'music-pkg';
 import { Playlist } from 'playlist-pkg';
 import { User } from 'user-pkg';
+import { MusicStatus } from 'types-pkg';
 
 export async function main(args: any): Promise<void> {
   const connection = await createConnection();
@@ -35,11 +36,6 @@ const populateForUser = async (email: string, password: string): Promise<void> =
   const playlist = new Playlist();
   const userService = new User();
   const user = await userService.login(email, password);
-
-  if (!user) {
-    console.log(`user "${email}" not found`);
-    return;
-  }
 
   const playlistsData = [1, 2, 3, 4, 5].map(order => {
     return {
@@ -75,6 +71,7 @@ const createUserMusics = async (userId: number, playlistId: number): Promise<voi
     thumbnail: 'http://some.fo',
     title: 'Title',
     user: { id: userId },
+    status: MusicStatus.DOWNLOADED,
   });
 
   await playlist.addMusic(playlistId, _music);

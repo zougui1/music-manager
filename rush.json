@@ -31,6 +31,10 @@
       "packageName": "api-server",
       "projectFolder": "servers/api-server"
     },
+    {
+      "packageName": "notification-server",
+      "projectFolder": "servers/notification-server"
+    },
 
     {
       "packageName": "music-player-client",

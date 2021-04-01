@@ -4,7 +4,6 @@ import { fieldsData, formSchema } from './addSongFormDialogData';
 import { FormDialog } from '../../../components/FormDialog';
 
 export const AddSongFormDialog: React.FC<AddSongFormDialogProps> = ({ isOpen, onClose, onOk }) => {
-
   return (
     <FormDialog
       isOpen={isOpen}

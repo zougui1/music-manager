@@ -20,6 +20,15 @@
       "ignoreMissingScript": true,
       "incremental": true,
       "watchForChanges": true
+    },
+    {
+      "commandKind": "bulk",
+      "name": "build-watch",
+      "summary": "build each project.",
+      "description": "build each project.",
+      "enableParallelism": true,
+      "ignoreMissingScript": true,
+      "incremental": true
     }
     // {
     //   /**

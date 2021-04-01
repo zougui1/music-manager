@@ -1,24 +1,24 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
 import { env } from '../env';
+import { tryParseJson } from '../utils';
+import { State } from '../store';
 
-const tryParse = (data: any): any => {
-  try {
-    return JSON.parse(data);
-  } catch (err) {
-    return data;
-  }
-}
-
-export function useNotification<TMessage = any, TValue = TMessage>(options: UseNotificationOptionsWithDefault<TMessage, TValue>, dependencies?: any[]): TValue;
-export function useNotification<TMessage = any>(options: UseNotificationOptions<TMessage>, dependencies?: any[]): TMessage | undefined;
-export function useNotification<TMessage = any, TValue = TMessage>(options: UseNotificationOptions<TMessage>, dependencies: any[] = []): TValue | undefined {
-  const [message, setMessage] = useState<TValue>();
+export const useNotification = <TMessage = unknown, TState = unknown>(options: UseNotificationOptions<TMessage, TState> & { selector: (state: State) => TState }, dependencies: any[] = []): TState => {
+  const state = useSelector(options.selector);
+  const dispatch = useDispatch();
 
   useEffect(() => {
+    const topics = options.topics.filter(topic => topic) as string[];
+
+    if (!topics.length) {
+      return;
+    }
+
     const url = new URL(env.MERCURE_URL);
 
-    for (const topic of options.topics) {
+    for (const topic of topics) {
       url.searchParams.append('topic', topic);
     }
 
@@ -26,29 +26,23 @@ export function useNotification<TMessage = any, TValue = TMessage>(options: UseN
 
     eventSource.onopen = () => options.onOpen?.();
     eventSource.onerror = () => options.onError?.();
-    eventSource.onmessage = e => {
-      const data = tryParse(e.data);
-      const newMessage = options.onMessage
-        ? options.onMessage(data)
-        : data;
-      setMessage(newMessage);
-    };
+    eventSource.onmessage = (e) => {
+      const data = tryParseJson(e.data);
+      options.onMessage?.(data, { state, dispatch });
+    }
 
     return () => {
       eventSource.close();
     }
   }, dependencies);
 
-  return message;
+  return state;
 }
 
-export interface UseNotificationOptions<TMessage> {
-  topics: string[];
-  onOpen?: (() => void) | undefined | null;
-  onError?: (() => void) | undefined | null;
-  onMessage?: ((data: TMessage) => void) | undefined | null;
-}
-
-export interface UseNotificationOptionsWithDefault<TMessage, TValue> extends UseNotificationOptions<TMessage> {
-  defaultValue: TValue;
+export interface UseNotificationOptions<TMessage, TState> {
+  //selector: (state: State) => TState;
+  topics: (string | undefined)[];
+  onOpen?: (() => void) | undefined;
+  onMessage?: ((message: TMessage, store: { state: TState, dispatch: (value: any) => void }) => void) | undefined;
+  onError?: (() => void) | undefined;
 }

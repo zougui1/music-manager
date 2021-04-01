@@ -11,3 +11,5 @@ process.env.HASH_TIME_COST = Config.getOrThrow('hash.timeCost', 'number').toStri
 process.env.HASH_MEMORY_COST = Config.getOrThrow('hash.memoryCost', 'number').toString();
 process.env.HASH_PARALLELISM = Config.getOrThrow('hash.parallelism', 'number').toString();
 process.env.HASH_LENGTH = Config.getOrThrow('hash.hashLength', 'number').toString();
+
+process.env.RABBITMQ_SERVER_URL = Config.getOrThrow('rabbitmq.serverUrl', 'string');

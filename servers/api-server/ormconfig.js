@@ -1,5 +1,5 @@
 const { Config } = require('@foal/core');
-const { Music, PlayingMusic, Playlist, PlaylistToMusic, User } = require('database-pkg');
+const { MusicEntity, MusicPlayingEntity, PlaylistEntity, PlaylistToMusicEntity, UserEntity } = require('database-pkg');
 
 module.exports = {
   type: Config.getOrThrow('database.type', 'string'),
@@ -15,7 +15,7 @@ module.exports = {
   dropSchema: Config.get('database.dropSchema', 'boolean', false),
   synchronize: Config.get('database.synchronize', 'boolean', false),
 
-  entities: [Music, PlayingMusic, Playlist, PlaylistToMusic, User],
+  entities: [MusicEntity, MusicPlayingEntity, PlaylistEntity, PlaylistToMusicEntity, UserEntity],
   migrations: ['build/migrations/*.js'],
   cli: {
     migrationsDir: 'src/migrations'

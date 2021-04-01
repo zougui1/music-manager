@@ -12,8 +12,6 @@ export const ConsumeQuery: React.FC<ConsumeQueryProps> = ({ query, children }) =
     );
   }
 
-  console.log(query)
-
   if (query.isError) {
     console.log(query.error.response?.data ?? query.error.message);
 

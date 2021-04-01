@@ -1,0 +1,16 @@
+{
+  "port": "env(PORT)",
+  "settings": {
+    "loggerFormat": "tiny",
+    "session": {
+      "store": "@foal/typeorm"
+    }
+  },
+  "rabbitmq": {
+    "url": "env(RABBITMQ_SERVER_URL)"
+  },
+  "mercure": {
+    "url": "env(MERCURE_URL)",
+    "publisherJwt": "env(PUBLISHER_JWT)"
+  }
+}

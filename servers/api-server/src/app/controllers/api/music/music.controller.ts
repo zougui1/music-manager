@@ -70,14 +70,14 @@ export class MusicController {
 
     // TODO the downloading must be run in parallel
     const downloader = new Downloader(link);
-    const downloadeds = await downloader.downloadAudio();
+    const downloadeds = await downloader.downloadAudio({ userId: ctx.user.id, playlistId });
 
     //? since the downloading will run in parallel
     //? the musics cannot be created here
     //? should the API server subscribe the RabbitMQ
     //? to created them or should the process that
     //? will do the downloading, create the musics as well?
-    for (const downloaded of downloadeds) {
+    /*for (const downloaded of downloadeds) {
       const musicFileName = path.basename(downloaded.file);
       const thumbnailFileName = downloaded.cover
         ? path.basename(downloaded.cover)
@@ -94,12 +94,14 @@ export class MusicController {
           ? `http://localhost:3333/files/${thumbnailFileName}`
           : undefined,
         user: ctx.user,
+        tags: [],
+        approved: downloaded.approved,
       });
 
       if (playlistId) {
         await this.playlist.addMusic(playlistId, music);
       }
-    }
+    }*/
 
     return new HttpResponseOK();
   }

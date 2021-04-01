@@ -1,0 +1,94 @@
+{
+  "folders": [
+    {
+      "name": "music-manager",
+      "path": "../"
+    },
+
+    {
+      "path": "../clients/music-player-client"
+    },
+
+    {
+      "path": "../servers/api-server"
+    },
+    {
+      "path": "../servers/notification-server"
+    },
+
+    {
+      "path": "../packages/business/downloader-pkg"
+    },
+    {
+      "path": "../packages/business/validation-pkg"
+    },
+    {
+      "path": "../packages/business/user-pkg"
+    },
+    {
+      "path": "../packages/business/playlist-pkg"
+    },
+    {
+      "path": "../packages/business/music-pkg"
+    },
+    {
+      "path": "../packages/business/youtube-pkg"
+    },
+    {
+      "path": "../packages/business/spotify-pkg"
+    },
+    {
+      "path": "../packages/business/notification-pkg"
+    },
+
+    {
+      "path": "../packages/technical/database-pkg"
+    },
+    {
+      "path": "../packages/technical/hash-pkg"
+    },
+    {
+      "path": "../packages/technical/env-pkg"
+    },
+    {
+      "path": "../packages/technical/utils-pkg"
+    },
+    {
+      "path": "../packages/technical/types-pkg"
+    },
+    {
+      "path": "../packages/technical/error-pkg"
+    },
+    {
+      "path": "../packages/technical/mq-pkg"
+    },
+    {
+      "path": "../packages/technical/ffmpeg-pkg"
+    },
+    {
+      "path": "../packages/technical/hub-publish-pkg"
+    },
+    {
+      "path": "../packages/technical/music-metadata-pkg"
+    },
+    {
+      "path": "../packages/technical/filesystem-pkg"
+    },
+  ],
+  "settings": {
+    "files.exclude": {
+      "**/.git": true,
+      "**/.svn": true,
+      "**/.hg": true,
+      "**/CVS": true,
+      "**/.DS_Store": true,
+      "**/temp": true,
+      "**/.heft": true,
+      "**/.rush": true,
+      "**/node_modules": true,
+    },
+    "jest.autoEnable": false,
+    "jest.disabledWorkspaceFolders": ["music-manager", "types-pkg"],
+    "workbench.editor.labelFormat": "short"
+  }
+}

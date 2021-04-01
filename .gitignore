@@ -70,5 +70,8 @@ common/autoinstallers/*/.npmrc
 
 lib/
 build/
+**/*.build.log
 
 self-signed cert/
+
+/files/

@@ -69,8 +69,10 @@ export const Root: React.FC = () => {
 
               <ToastContainer
                 position="bottom-right"
-                newestOnTop={false}
+                newestOnTop={true}
                 pauseOnFocusLoss
+                closeOnClick={false}
+                autoClose={false}
               />
 
               <ReactQueryDevtools initialIsOpen={false} />

@@ -3,52 +3,38 @@ import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButtons, IonBa
 import { ItemReorderEventDetail } from '@ionic/core';
 import { RouteComponentProps } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
-import { toast } from 'react-toastify';
 
 import { PlaylistToolbar } from './PlaylistToolbar';
 import { AddSongFormDialog, AddSongFormData } from './AddSongFormDialog';
-import { DownloadingSongToast } from './DownloadingSongToast';
+import { useDownloadMusicMutation } from './useDownloadMusicMutation';
 import { ConsumeQuery } from '../../components/ConsumeQuery';
 import { TrackList } from '../../components/TrackList';
+import { useOnMusicListChange } from '../../features/downloading';
 import { useQuery } from '../../hooks';
-import { axios } from '../../utils';
 
 export const PlaylistPage: React.FC<PlaylistPageProps> = ({ match }) => {
   const [showAddSongDialog, setShowAddSongDialog] = useState(false);
   const playlist = useQuery<any>('playlist', `/api/playlists/${match.params.id}`);
+  const downloadMusic = useDownloadMusicMutation();
+
+  useOnMusicListChange(playlist.refetch);
 
   const handleReorder = (e: CustomEvent<ItemReorderEventDetail>) => {
     e.detail.complete();
   }
 
   const handleOk = async (data: AddSongFormData) => {
-    console.log(data);
-    const toastId = toast.info(<DownloadingSongToast />, { autoClose: false });
     setShowAddSongDialog(false);
-
-    try {
-      await axios.post('/api/musics', { playlistId: playlist.data?.id, video: data.link });
-    } catch (error) {
-      toast.update(toastId, {
-        type: toast.TYPE.ERROR,
-        render: <FormattedMessage
-          id="common.serverDownloadSongFailure"
-        />,
-        autoClose: 2000,
-      });
-      return;
-    }
-
-    playlist.refetch();
-
-    toast.update(toastId, {
-      type: toast.TYPE.SUCCESS,
-      render: <FormattedMessage
-        id="common.serverDownloadedSong"
-      />,
-      autoClose: 2000,
-    });
+    downloadMusic({ playlistId: playlist.data?.id, link: data.link });
   }
+
+  const playlistToMusics = playlist.data?.playlistToMusics ?? [];
+  const musics = playlistToMusics.map((ptm: any) => {
+    return {
+      ...ptm.music,
+      ...ptm,
+    };
+  });
 
   return (
     <IonPage>
@@ -73,11 +59,11 @@ export const PlaylistPage: React.FC<PlaylistPageProps> = ({ match }) => {
         <div className="content-wrapper">
           <ConsumeQuery query={playlist}>
             <PlaylistToolbar
-              tracks={playlist.data?.musics ?? []}
+              tracks={musics}
               onAddSong={() => setShowAddSongDialog(true)}
             />
 
-            <TrackList tracks={playlist.data?.musics ?? []} onReorder={handleReorder} />
+            <TrackList tracks={musics} onReorder={handleReorder} />
           </ConsumeQuery>
         </div>
       </IonContent>

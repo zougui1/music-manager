@@ -4,7 +4,7 @@ import { downloadOptions, getInfoOptions } from 'ytdl-core';
 import progress from 'progress-stream';
 import fs from 'filesystem-pkg';
 import { Readable } from 'stream';
-import { DownloadedAudio } from 'types-pkg';
+import { DownloadedAudio, TrackDownloadProgress, DownloadType } from 'types-pkg';
 
 import { YoutubeVideo } from './YoutubeVideo';
 
@@ -21,7 +21,7 @@ export class YoutubeDownloader extends EventEmitter {
 
     this.format = options.format;
     this.quality = options.quality ?? 'highest';
-    this.progressTimeout = options.progressTimeout ?? 100;
+    this.progressTimeout = options.progressTimeout ?? 80;
     this.requestOptions = options.requestOptions ?? { maxRedirects: 5 };
     this.allowWebm = options.allowWebm ?? false;
   }
@@ -41,7 +41,16 @@ export class YoutubeDownloader extends EventEmitter {
     });
 
     progressStream.on('progress', (progress) => {
-      this.emit('progress', { videoId, progress });
+      const progression: TrackDownloadProgress = {
+        type: DownloadType.track,
+        track: {
+          id: videoId,
+          title: info.title,
+          url: video.url,
+        },
+        progress,
+      };
+      this.emit('progress', progression);
     });
 
     await this.performDownload(stream.pipe(progressStream), {
@@ -63,6 +72,7 @@ export class YoutubeDownloader extends EventEmitter {
         youtube: video.url,
       },
       duration: info.duration,
+      approved: true,
     };
   }
   //#endregion
@@ -104,7 +114,7 @@ export class YoutubeDownloader extends EventEmitter {
 }
 
 export interface YoutubeDownloader {
-  on(event: 'progress', listener: (data: DownloadProgress) => void): this;
+  on(event: 'progress', listener: (data: TrackDownloadProgress) => void): this;
 }
 
 export interface DownloadedYoutube {
@@ -126,21 +136,6 @@ export interface IYoutubeDownloaderOptions {
   allowWebm?: boolean;
   requestOptions?: getInfoOptions['requestOptions'];
   outputOptions?: string[];
-}
-
-export interface DownloadProgress {
-  videoId: string;
-  // https://github.com/freeall/progress-stream#usage
-  progress: {
-    percentage: number;
-    transferred: number;
-    length: number;
-    remaining: number;
-    eta: number;
-    runtime: number;
-    delta: number;
-    speed: number;
-  };
 }
 
 interface DownloadOptions {

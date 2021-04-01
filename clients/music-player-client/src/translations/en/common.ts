@@ -35,8 +35,18 @@ export default {
   playlistName: 'Playlist name',
   cancel: 'Cancel',
   ok: 'OK',
-  serverDownloadingSong: 'The server is downloading the song...',
+  serverProcessingRequest: 'The server is processing the request...',
+  //serverDownloadingSong: 'The server is downloading song {downloadedCount}/{totalCount}...',
+  serverDownloadingSong: `The server is downloading {downloadingCount, plural,
+    one {a song}
+    other {{downloadingCount} songs}
+  } {totalCount, plural,
+    one {}
+    other{out of {totalCount} songs, {downloadedCount} downloaded}
+  }...`,
   serverDownloadedSong: 'The server has downloaded the song.',
+  serverDownloadFinish: 'The server has finished downloading the songs.',
+  songDownloaded: '{title} has been downloaded.',
   serverDownloadSongFailure: 'The server could not download the song.',
   newSong: 'New song',
   link: 'Link',

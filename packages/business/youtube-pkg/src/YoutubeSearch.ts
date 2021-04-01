@@ -10,7 +10,7 @@ const MINIMUM_VIDEO_CORRECTNESS = 50;
 export class YoutubeSearch {
 
   //#region public
-  static async findVideoLink(search: string | OptionsWithQuery | OptionsWithSearch): Promise<string | undefined> {
+  async findVideoLink(search: string | OptionsWithQuery | OptionsWithSearch): Promise<string | undefined> {
     const result = await youtubeSearch(search);
     const [topResult] = result.videos;
     const youtubeLink = this.buildUrl(topResult)
@@ -18,7 +18,7 @@ export class YoutubeSearch {
     return youtubeLink;
   }
 
-  static async findVideos(search: string | OptionsWithQuery | OptionsWithSearch): Promise<VideoSearchResult[]> {
+  async findVideos(search: string | OptionsWithQuery | OptionsWithSearch): Promise<VideoSearchResult[]> {
     const result = await youtubeSearch(search);
     const videos = result.videos.slice(0, 10).map(video => {
       video.url = this.buildUrl(video);
@@ -28,7 +28,7 @@ export class YoutubeSearch {
     return videos;
   }
 
-  static async findMostCorrectVideo(criterias: SearchCriterias): Promise<TestedYoutubeVideo | undefined> {
+  async findMostCorrectVideo(criterias: SearchCriterias): Promise<TestedYoutubeVideo | undefined> {
     let mostCorrectVideo: TestedYoutubeVideo | undefined = undefined;
 
     for (const artist of criterias.artists) {
@@ -59,7 +59,7 @@ export class YoutubeSearch {
   //#endregion
 
   //#region private
-  private static buildUrl(topResult: VideoSearchResult): string {
+  private buildUrl(topResult: VideoSearchResult): string {
     return topResult.url.includes(youtubeBaseUrl)
       ? topResult.url
       : youtubeBaseUrl + topResult.url;

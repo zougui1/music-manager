@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { State, initApp } from '../../store';
+import { getConnectionStatus } from '../../utils';
 
 export const clientSlice = createSlice({
   name: 'client',
@@ -8,7 +9,7 @@ export const clientSlice = createSlice({
     language: 'en',
     user: null,
     accessToken: null,
-    //user: {},
+    status: getConnectionStatus(),
   },
   extraReducers: builder => {
     builder
@@ -28,6 +29,9 @@ export const clientSlice = createSlice({
       state.user = null;
       state.accessToken = null;
     },
+    updateConnectionStatus: state => {
+      state.status = getConnectionStatus();
+    },
   },
 });
 
@@ -35,6 +39,7 @@ export const {
   authorizedRequestIntercepted,
   unauthorizedRequestIntercepted,
   login,
+  updateConnectionStatus,
 } = clientSlice.actions;
 
 export const clientReducer = clientSlice.reducer;

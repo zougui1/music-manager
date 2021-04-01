@@ -7,6 +7,7 @@
   "scripts": {
     "build": "heft build --clean",
     "build:watch": "heft build",
+    "build-watch": "heft build --watch",
     "start": "nodemon lib",
     "test": "heft test"
   },
@@ -20,10 +21,13 @@
     "@types/heft-jest": "~1.0.2",
     "@rushstack/eslint-config": "~2.3.2",
     "@rushstack/heft": "~0.25.3",
-    "eslint": "~7.22.0"
+    "eslint": "~7.22.0",
+    "@types/lodash": "^4.14.168"
   },
   "dependencies": {
     "rxjs": "~6.6.6",
-    "mq-pkg": "~1.0.0"
+    "mq-pkg": "~1.0.0",
+    "types-pkg": "~1.0.0",
+    "lodash": "^4.17.21"
   }
 }

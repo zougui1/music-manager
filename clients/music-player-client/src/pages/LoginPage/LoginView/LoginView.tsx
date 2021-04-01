@@ -40,6 +40,8 @@ export const LoginView: React.FC = () => {
       }
     }
 
+    setTimeout(login, 10);
+
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape' && e.shiftKey) {
         login();

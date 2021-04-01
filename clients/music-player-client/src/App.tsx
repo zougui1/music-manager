@@ -32,6 +32,8 @@ import { PlaylistPage } from './pages/PlaylistPage';
 
 import { ProtectedRoute } from './components/ProtectedRoute';
 import { initApp } from './store';
+import { updateConnectionStatus } from './features/client';
+import { useToastContainer } from './useToastContainer';
 
 const { PushNotifications } = Plugins;
 
@@ -39,6 +41,20 @@ export const App: React.FC<AppProps> = ({ language }) => {
   const dispatch = useDispatch();
 
   dispatch(initApp(language));
+
+  useEffect(() => {
+    const updateStatus = () => {
+      dispatch(updateConnectionStatus());
+    }
+
+    window.addEventListener('online', updateStatus);
+    window.addEventListener('offline', updateStatus);
+
+    return () => {
+      window.removeEventListener('online', updateStatus);
+      window.removeEventListener('offline', updateStatus);
+    }
+  }, []);
 
   useEffect(() => {
     if (!isPlatform('desktop')) {
@@ -54,17 +70,7 @@ export const App: React.FC<AppProps> = ({ language }) => {
     }
   }, []);
 
-  /*useEffect(() => {
-    const notificationServer = 'http://localhost:3334';
-    const url = new URL(env.MERCURE_URL);
-    url.searchParams.append('topic', `${notificationServer}/progress`);
-
-    const eventSource = new EventSource(url.toString());
-
-    eventSource.onopen = () => console.log('eventSource open');
-    eventSource.onerror = (err) => console.log('eventSource error:', err);
-    eventSource.onmessage = (e) => console.log('progress:', JSON.parse(e.data));
-  }, []);*/
+  useToastContainer();
 
   return (
     <IonReactRouter>

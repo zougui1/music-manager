@@ -7,7 +7,7 @@ export interface ObjectOf<T> {
 
 export type ObjectLiteral = ObjectOf<any>;
 
-export type MessageHandler = (message: Message) => any;
+export type MessageHandler<TBody = unknown> = (message: Message<TBody>) => any;
 export type ConnectionHandler = (connection: Connection) => any;
 export type DisconnectHandler = (connection: Connection) => any;
 
@@ -23,17 +23,17 @@ export interface QueueActions {
   on(listener: MessageHandler, forTypes?: string[] | undefined): QueueActions;
 }
 
-export interface Message {
-  body: any;
+export interface Message<TBody = unknown> {
+  body: TBody;
   headers: ObjectLiteral;
   ack: (allUpTo?: boolean | undefined) => void;
 }
 
-export type MessageObserver = Observable<Message>;
+export type MessageObserver<TBody = unknown> = Observable<Message<TBody>>;
 export type ConnectionObserver = Observable<Connection>;
-export type EventObserver = Observable<Message | Connection>;
+export type EventObserver<TBody = unknown> = Observable<Message<TBody> | Connection>;
 
-export interface ManyMessages {
+export interface ManyMessages<TBody = unknown> {
   ackAll: (allUpTo?: boolean | undefined) => void;
-  messages: Message[];
+  messages: Message<TBody>[];
 }

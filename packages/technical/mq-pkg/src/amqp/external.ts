@@ -16,38 +16,38 @@ export const forQueue = (queueName: string) => {
     await publish(queueName, content, headers);
   }
 
-  const getArgs = (eventNameOrListener: MessageHandler | '$connection' | '$disconnect', listenerOrTypes?: ConnectionHandler | DisconnectHandler | string[] | undefined): { queueName: string, listener: MessageHandler, types: string[] } => {
+  const getArgs = <TBody = unknown>(eventNameOrListener: MessageHandler<TBody> | '$connection' | '$disconnect', listenerOrTypes?: ConnectionHandler | DisconnectHandler | string[] | undefined): { queueName: string, listener: MessageHandler<TBody>, types: string[] } => {
     const queue = typeof eventNameOrListener === 'string'
       ? eventNameOrListener
       : queueName;
 
     const listener = typeof listenerOrTypes === 'function'
       ? listenerOrTypes
-      : eventNameOrListener as MessageHandler;
+      : eventNameOrListener as MessageHandler<TBody>;
 
     const types = Array.isArray(listenerOrTypes) ? listenerOrTypes : [];
 
     return {
       queueName: queue,
-      listener: listener as MessageHandler,
+      listener: listener as MessageHandler<TBody>,
       types,
     };
   }
 
   function onQueue(eventName: '$connection', listener: ConnectionHandler): QueueActions;
   function onQueue(eventName: '$disconnect', listener: DisconnectHandler): QueueActions;
-  function onQueue(listener: MessageHandler, forTypes?: string[]): QueueActions;
-  function onQueue(eventNameOrListener: MessageHandler | '$connection' | '$disconnect', listenerOrTypes?: ConnectionHandler | DisconnectHandler | string[] | undefined): QueueActions {
+  function onQueue<TBody = unknown>(listener: MessageHandler<TBody>, forTypes?: string[]): QueueActions;
+  function onQueue<TBody = unknown>(eventNameOrListener: MessageHandler<TBody> | '$connection' | '$disconnect', listenerOrTypes?: ConnectionHandler | DisconnectHandler | string[] | undefined): QueueActions {
     const { queueName, listener, types } = getArgs(eventNameOrListener, listenerOrTypes);
     on(queueName, listener, types)
 
     return queueActions;
   }
 
-  function observeQueue(eventName: '$connection'): ConnectionObserver;
-  function observeQueue(eventName: '$disconnect'): ConnectionObserver;
-  function observeQueue(forTypes?: string[]): MessageObserver;
-  function observeQueue(eventNameOrTypes?: string[] | '$connection' | '$disconnect'): EventObserver {
+  function observeQueue<TBody = unknown>(eventName: '$connection'): ConnectionObserver;
+  function observeQueue<TBody = unknown>(eventName: '$disconnect'): ConnectionObserver;
+  function observeQueue<TBody = unknown>(forTypes?: string[]): MessageObserver<TBody>;
+  function observeQueue<TBody = unknown>(eventNameOrTypes?: string[] | '$connection' | '$disconnect'): EventObserver<TBody> {
     if (Array.isArray(eventNameOrTypes)) {
       return observe(queueName, eventNameOrTypes);
     }

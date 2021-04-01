@@ -7,6 +7,7 @@
   "scripts": {
     "build": "heft build --clean",
     "build:watch": "heft build",
+    "build-watch": "heft build --watch",
     "start": "nodemon lib",
     "test": "heft test"
   },
@@ -25,6 +26,7 @@
   "dependencies": {
     "database-pkg": "~1.0.0",
     "utils-pkg": "~1.0.0",
-    "error-pkg": "~1.0.0"
+    "error-pkg": "~1.0.0",
+    "types-pkg": "~1.0.0"
   }
 }

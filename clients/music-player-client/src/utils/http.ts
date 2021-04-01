@@ -40,7 +40,7 @@ const interceptResponseSuccess = (response: AxiosResponse) => {
 }
 
 const interceptResponseFailure = async (error: AxiosError): Promise<void> => {
-  if (error) {
+  if (error.response?.data.code === 401) {
     store.dispatch(unauthorizedRequestIntercepted());
   }
 
