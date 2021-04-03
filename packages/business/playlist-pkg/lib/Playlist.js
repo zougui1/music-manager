@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Playlist = void 0;
 const database_pkg_1 = require("database-pkg");
 const utils_pkg_1 = require("utils-pkg");
+const types_pkg_1 = require("types-pkg");
 const errors_1 = require("./errors");
 class Playlist extends database_pkg_1.RepositoryAccessor {
     constructor() {
@@ -12,18 +13,22 @@ class Playlist extends database_pkg_1.RepositoryAccessor {
     async findMany(options) {
         return this.repo.find({
             where: { user: { id: options.user.id } },
-            relations: ['playlistToMusics', 'playlistToMusics.music'],
-            /*join: {
-              alias: 'playlist',
-              leftJoinAndSelect: {
-                playlistToMusics: 'playlist.playlistToMusics',
-                musics: 'playlistToMusics.music',
-              },
-            },*/
         });
     }
     async findById(id) {
-        return this.repo.findOne(id);
+        // TODO merge those 2 queries
+        const playlist = await this.repo.findOne(id);
+        if (!playlist) {
+            return;
+        }
+        const playlistToMusics = await this
+            .getRepo(database_pkg_1.PlaylistToMusicRepository)
+            .findManyByPlaylist({
+            playlist: { id: playlist.id },
+            music: { status: types_pkg_1.MusicStatus.DOWNLOADED },
+        });
+        playlist.playlistToMusics = playlistToMusics;
+        return playlist;
     }
     async update(target, options) {
         await this.updateManyOrder(target, options);

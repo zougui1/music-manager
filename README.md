@@ -20,7 +20,7 @@ In the directory of each client
 
 ## Mercure server
 
-In the directory of the Mercure server (/home/zougui/Downloads/mercure_0.11.0_Linux_x86_64/)
+In the directory of the Mercure server (/home/zougui/Downloads/mercure_0.11.0_Linux_x86_64)
 
 > sudo MERCURE_PUBLISHER_JWT_KEY='!ChangeMe!' MERCURE_SUBSCRIBER_JWT_KEY='!ChangeMe!' SERVER_NAME=':1572' ./mercure run -config Caddyfile.dev
 

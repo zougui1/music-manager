@@ -41,6 +41,7 @@ const apps = [
 const technicalPackages = [
   'ffmpeg', 'hub-publish', 'mq', 'types', 'filesystem',
   'error', 'music-metadata', 'utils', 'database', 'hash',
+  'env',
 ];
 const businessPackages = [
   'spotify', 'notification', 'youtube', 'downloader', 'music',

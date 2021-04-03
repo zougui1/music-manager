@@ -1,15 +1,24 @@
-import { AxiosError } from 'axios';
+import _axios, { AxiosError } from 'axios';
 import { useQuery as useReactQuery, UseQueryResult, UseQueryOptions } from 'react-query';
 
 import { axios } from '../utils';
 
 export const useQuery = <TQueryFnData = unknown, TData = TQueryFnData>(key: string, url: string, options?: IUseQueryOptions<TQueryFnData, AxiosError<IError>, TData>): QueryResult<TData> => {
-  const queryFunction = async () => {
-    const res = await axios.get(url);
+  // TODO register query
+  const queryFunction = async (): Promise<TQueryFnData> => {
+    const res = await axios.get<TQueryFnData>(url);
     return res.data;
   }
 
-  return useReactQuery(key, queryFunction, options);
+  const cancelableQuery = (): Promise<TQueryFnData> & { cancel: () => void } => {
+    const source = _axios.CancelToken.source();
+    const promise = queryFunction() as (Promise<TQueryFnData> & { cancel: () => void });
+    promise.cancel = () => source.cancel('Query was cancelled.');
+
+    return promise;
+  }
+
+  return useReactQuery(key, cancelableQuery, options);
 }
 
 interface IError {

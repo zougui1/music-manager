@@ -26,13 +26,10 @@ export class Playlist extends RepositoryAccessor<PlaylistRepository> {
 
     const playlistToMusics = await this
       .getRepo(PlaylistToMusicRepository)
-      .createQueryBuilder('playlistToMusic')
-      .leftJoinAndSelect('playlistToMusic.music', 'music')
-      .where('playlistToMusic.playlistId = :playlistId', { playlistId: playlist.id })
-      .andWhere('playlistToMusic.deletedAt IS NULL')
-      .andWhere('music.deletedAt IS NULL')
-      .andWhere('music.status = :status', { status: MusicStatus.DOWNLOADED })
-      .getMany();
+      .findManyByPlaylist({
+        playlist: { id: playlist.id },
+        music: { status: MusicStatus.DOWNLOADED },
+      });
 
     playlist.playlistToMusics = playlistToMusics;
     return playlist;

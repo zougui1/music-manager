@@ -2,19 +2,6 @@ import '../setup';
 import { createConnection } from 'database-pkg';
 import { User } from 'user-pkg';
 
-export async function main(args: any): Promise<void> {
-  const connection = await createConnection();
-
-  try {
-    await clearUsers();
-    await populateUsers();
-  } catch (error) {
-    console.error(error);
-  } finally {
-    await connection.close();
-  }
-}
-
 const clearUsers = async (): Promise<void> => {
   const user = new User();
 
@@ -36,4 +23,17 @@ const populateUsers = async (): Promise<void> => {
       password: 'John Duh',
     }),
   ]);
+}
+
+export async function main(args: any): Promise<void> {
+  const connection = await createConnection();
+
+  try {
+    await clearUsers();
+    await populateUsers();
+  } catch (error) {
+    console.error(error);
+  } finally {
+    await connection.close();
+  }
 }

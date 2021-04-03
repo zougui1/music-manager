@@ -50,7 +50,29 @@ export class ApiException extends Exception {
   private static fromError(value: any): ApiException {
     if (value.status || value.code) {
       if (value.code) {
-        value.message = convertMessage(value.code);
+        try {
+          value.message = convertMessage(value.code);
+        } catch (error) {
+          let convertionError: ApiErrorObject;
+
+          if (error instanceof ApiException) {
+            convertionError = error.toObject();
+          } else if (error instanceof Error) {
+            convertionError = new ApiException(error).toObject();
+          } else {
+            convertionError = {
+              message: 'errors.errorConvertion.unknown',
+              status: 500,
+              code: 'E_ERROR_CONVERTION_UNKNOWN',
+              values: {
+                thrown: error,
+              },
+            };
+          }
+
+          convertionError.values.originalError = new ApiException(value).toObject();
+          value = convertionError;
+        }
       }
 
       return new ApiException(value);

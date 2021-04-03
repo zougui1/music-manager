@@ -17,9 +17,9 @@ export class UnhandledErrorCodeError extends Exception {
     super(
       messageCode || errors.unhandledErrorCode.messageCode,
       errors.unhandledErrorCode.status,
-      errors.unhandledErrorCode.code,
     );
 
     this.values = values ?? {};
+    this.code = errors.unhandledErrorCode.code;
   }
 }

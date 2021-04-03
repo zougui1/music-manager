@@ -80,7 +80,8 @@ export class SpotifyPlaylist extends EventEmitter implements Downloader {
         tracks.push(downloadedTrack);
         this.emit('music-download-success', downloadedTrack);
       } catch (error) {
-        this.emit('music-download-error', source);
+        console.error('music-download-error', error);
+        this.emit('music-download-error', { source, error });
       }
     }
 

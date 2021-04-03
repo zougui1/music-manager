@@ -1,19 +1,20 @@
 import { useSelector } from 'react-redux';
+import { ObjectLiteral } from 'types-pkg';
 
 import { State } from '../store';
 import { env } from '../env';
-import { buildTopic } from '../utils';
+import { buildUrl } from '../utils';
 
-export const useTopic = (path: string, params: Record<string, string> = {}): string | undefined => {
+export const useTopic = (path: string, params: ObjectLiteral = {}): string | undefined => {
   const user = useSelector((state: State) => state.client.user);
 
   if (!user) {
     return;
   }
 
-  const topic = buildTopic(env.NOTIFICATION_SERVER_URL + path, {
+  const topic = buildUrl(env.NOTIFICATION_SERVER_URL + path, {
     ...params,
-    user: user.id.toString(),
+    user: user.id,
   });
 
   return topic;

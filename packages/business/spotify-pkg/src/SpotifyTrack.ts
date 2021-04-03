@@ -70,6 +70,7 @@ export class SpotifyTrack extends EventEmitter implements Downloader {
     try {
       downloaded = await youtube.downloadMostCorrectAudio(criterias, { withMetadata: false });
     } catch (error) {
+      console.error('track: download', error);
       this.emit('music-download-error', source);
       throw error;
     }

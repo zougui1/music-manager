@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "database-pkg": "~1.0.0",
-    "types-pkg": "~1.0.0"
+    "types-pkg": "~1.0.0",
+    "utils-pkg": "~1.0.0"
   }
 }

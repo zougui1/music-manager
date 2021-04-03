@@ -8,7 +8,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var _a, _b;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PlaylistController = void 0;
 const core_1 = require("@foal/core");
@@ -39,7 +38,7 @@ class PlaylistController {
 }
 __decorate([
     core_1.dependency,
-    __metadata("design:type", typeof (_a = typeof playlist_pkg_1.Playlist !== "undefined" && playlist_pkg_1.Playlist) === "function" ? _a : Object)
+    __metadata("design:type", playlist_pkg_1.Playlist)
 ], PlaylistController.prototype, "playlist", void 0);
 __decorate([
     core_1.Get('/'),
@@ -81,7 +80,7 @@ __decorate([
 __decorate([
     core_1.Patch('/:id'),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [core_1.Context, Object, typeof (_b = typeof playlist_pkg_1.UpdateOptions !== "undefined" && playlist_pkg_1.UpdateOptions) === "function" ? _b : Object]),
+    __metadata("design:paramtypes", [core_1.Context, Object, Object]),
     __metadata("design:returntype", Promise)
 ], PlaylistController.prototype, "update", null);
 __decorate([

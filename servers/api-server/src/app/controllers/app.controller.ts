@@ -12,6 +12,25 @@ import { PublicError } from '../types';
 import { convertErrorDescriptionToCode } from '../utils';
 import { HandleOptionsRequest, Cors, HandleErrorResponses } from '../hooks';
 
+type TranslateMessageResult = { message: string } | { error: any } | { error: ApiException; originalError: any; critical: true };
+
+class Response extends HttpResponse {
+
+  readonly statusCode: number;
+  readonly statusMessage: string;
+  readonly code: string;
+
+
+  constructor(data: { status: number; message: string; code: string }) {
+    super(data);
+
+    this.statusCode = data.status;
+    this.statusMessage = data.message;
+    this.code = data.code;
+  }
+}
+
+
 // it is important that Cors gets called
 // before HandleOptionsRequest since it
 // ends the request
@@ -34,7 +53,7 @@ export class AppController implements IAppController {
 
   handleError(error: any, ctx: Context, originalError?: ApiException): HttpResponse {
     console.error(error);
-    const { headers, path } = ctx.request as { path: string, headers: { [index: string]: string | undefined } };
+    const { headers, path } = ctx.request as { path: string; headers: { [index: string]: string | undefined } };
     const language = headers['content-language']?.split('-')[0];
     const errorValues = {
       route: path,
@@ -45,6 +64,31 @@ export class AppController implements IAppController {
     const translation = this.translateMessage(language, errorData, originalError);
 
     if ('error' in translation) {
+      if ('critical' in translation) {
+        let apiError: ApiErrorObject;
+
+        if (translation.originalError instanceof Error) {
+          apiError = {
+            message: translation.originalError.message,
+            status: 500,
+            code: 'E_UNKNOWN_ERROR',
+            values: {},
+          };
+        } else {
+          apiError = {
+            message: translation.originalError,
+            status: 500,
+            code: 'E_UNKNOWN_ERROR',
+            values: {},
+          };
+        }
+
+        const publicError = this.getPublicError(apiError, { path }, sourceError) as any;
+        const translationError = this.getPublicError(translation.error.toObject(), { path }, sourceError);
+        publicError.translationError = translationError;
+        return new Response(publicError);
+      }
+
       return this.handleError(translation.error, ctx, sourceError);
     }
 
@@ -69,8 +113,9 @@ export class AppController implements IAppController {
     return apiError.toObject();
   }
 
-  private getPublicError(errorData: ApiErrorObject, data: { message: string, path: string }, sourceError: any): PublicError {
+  private getPublicError(errorData: ApiErrorObject, data: { message?: string; path: string }, sourceError: any): PublicError {
     const publicError: PublicError = {
+      message: errorData.message,
       ...data,
       status: errorData.status,
       code: errorData.code,
@@ -91,7 +136,7 @@ export class AppController implements IAppController {
     } catch (error) {
       // prevents infinite loop if the translation fails everytime
       if (this.translationFailed) {
-        throw originalError;
+        return { error, originalError, critical: true };
       }
 
       this.translationFailed = true;
@@ -102,22 +147,4 @@ export class AppController implements IAppController {
     return { message };
   }
   //#endregion
-}
-
-type TranslateMessageResult = { message: string } | { error: any };
-
-class Response extends HttpResponse {
-
-  readonly statusCode: number;
-  readonly statusMessage: string;
-  readonly code: string;
-
-
-  constructor(data: { status: number, message: string, code: string }) {
-    super(data);
-
-    this.statusCode = data.status;
-    this.statusMessage = data.message;
-    this.code = data.code;
-  }
 }

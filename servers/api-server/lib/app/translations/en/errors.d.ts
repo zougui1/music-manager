@@ -14,6 +14,7 @@ declare const _default: {
     translations: {
         nonexistent: string;
     };
+    unhandledErrorCode: string;
 };
 export default _default;
 //# sourceMappingURL=errors.d.ts.map

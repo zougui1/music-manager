@@ -642,7 +642,7 @@
         "affectsGlobalScope": false
       },
       "../../src/setup.ts": {
-        "version": "e6dd2ee3fcce0bc66713c5fde0cf8a60ffa644950630e5930d721077037a980d",
+        "version": "67b9f18e968ff7a1d35d451897dc53ded236fb38c9168b4f64d84bcfb61daf64",
         "affectsGlobalScope": false
       },
       "../../../../common/temp/node_modules/.pnpm/typeorm@0.2.31/node_modules/typeorm/schema-builder/options/TableColumnOptions.d.ts": {
@@ -1954,7 +1954,7 @@
         "affectsGlobalScope": false
       },
       "../../../../packages/technical/types-pkg/lib/tables/Music.d.ts": {
-        "version": "8bcb6bf24f7d56e1f7c460a6595f9e0721fb11308919e0577ff3c066aec003cd",
+        "version": "31726446c06d561813d6b0a6d235637c77530b6986fa864fc5d0209e3e09695f",
         "affectsGlobalScope": false
       },
       "../../../../packages/technical/types-pkg/lib/tables/PlayingMusic.d.ts": {
@@ -1965,16 +1965,32 @@
         "version": "39a7f31d3916ad36542d4e7a8e03e3736e8bdfcffae88d9fab530bd4c38b1848",
         "affectsGlobalScope": false
       },
-      "../../../../packages/technical/types-pkg/lib/DownloadedAudio.d.ts": {
-        "version": "81af6597e86c7e146a8205df97fab8d6527b6e1a5a70e3fc10ad77aa6ffb761f",
+      "../../../../packages/technical/types-pkg/lib/downloading/DownloadedAudio.d.ts": {
+        "version": "85bf5c59e904e71da83689365a1c2f56126113d052b19012480d325c7733c874",
         "affectsGlobalScope": false
       },
-      "../../../../packages/technical/types-pkg/lib/Downloader.d.ts": {
-        "version": "0988c0f356f57072683d81fa756ead78fc756c6022d0090d59aba1880033dc02",
+      "../../../../packages/technical/types-pkg/lib/downloading/DownloadType.d.ts": {
+        "version": "04115c9a9d21125e5658a79128176c8b73b218451dd924154f28876d4b33e7c2",
+        "affectsGlobalScope": false
+      },
+      "../../../../packages/technical/types-pkg/lib/downloading/downloadInfo.d.ts": {
+        "version": "877d830db50d3c1b2ff0d01c591d37d548532c02bd44e3ff13cfe5d1e70de2e7",
+        "affectsGlobalScope": false
+      },
+      "../../../../packages/technical/types-pkg/lib/downloading/progress.d.ts": {
+        "version": "609e2fcb401b356a3b308c6a3c25b2752609d92b551ec142b6902b9a182bb8fe",
+        "affectsGlobalScope": false
+      },
+      "../../../../packages/technical/types-pkg/lib/downloading/Downloader.d.ts": {
+        "version": "e59a207c61f4c6ebe866d6c3fa23d3e05a700058b292c24ba94e4e80a91a2e4e",
+        "affectsGlobalScope": false
+      },
+      "../../../../packages/technical/types-pkg/lib/downloading/index.d.ts": {
+        "version": "8a9ea80fb2bfffdf945a1f03dd3620777eda1ff1c46d58fd4848a408236c7d6a",
         "affectsGlobalScope": false
       },
       "../../../../packages/technical/types-pkg/lib/index.d.ts": {
-        "version": "1ff68780198b69604dbb0356566a87e32d6fe88592809a7bad387a6e239483a2",
+        "version": "d0620418b70bb2b958db454f4c0206b924ffc1824e632c5458dd8d1ecc768594",
         "affectsGlobalScope": false
       },
       "../../../../packages/technical/database-pkg/lib/entities/playlist-to-music.entity.d.ts": {
@@ -1990,7 +2006,7 @@
         "affectsGlobalScope": false
       },
       "../../../../packages/technical/database-pkg/lib/entities/music.entity.d.ts": {
-        "version": "232ae9bad568d44a0b291e2c9590b985c03b0da254053ce09789bb7f9b282e16",
+        "version": "de5fac01e525e4d4b2147485ab786a019e6687a0e1b7ee902e6e608684e46119",
         "affectsGlobalScope": false
       },
       "../../../../packages/technical/database-pkg/lib/entities/music-playing.entity.d.ts": {
@@ -2010,7 +2026,7 @@
         "affectsGlobalScope": false
       },
       "../../../../packages/technical/database-pkg/lib/repositories/music.repository.d.ts": {
-        "version": "87e14318f1adebb4eb834f309e8a8040603b6868e6a9509706a14c752e1b3876",
+        "version": "0c9bc11f568fb32ce36e5b34ea4346fd546d3427a1d1b31fbd02efe3345d6c48",
         "affectsGlobalScope": false
       },
       "../../../../packages/technical/database-pkg/lib/repositories/playlist.repository.d.ts": {
@@ -2226,7 +2242,7 @@
         "affectsGlobalScope": false
       },
       "../../../../packages/business/music-pkg/lib/Music.d.ts": {
-        "version": "19cbd5cb3a97767d0038cd40f92fb95cd1b8f65d1495d5923af50ec4d6009c13",
+        "version": "b0840b847134cac3f1ce42048ecbd8fe9fe61c6d00921088728c210b2812cfaf",
         "affectsGlobalScope": false
       },
       "../../../../packages/business/music-pkg/lib/index.d.ts": {
@@ -2242,7 +2258,7 @@
         "affectsGlobalScope": false
       },
       "../../../../packages/business/downloader-pkg/lib/Downloader.d.ts": {
-        "version": "b4d761ff8b7d81ab8fc7ad9957225dd3f4f3e5ad1504d5c2f051c0ebc0b3b6d8",
+        "version": "c87bd25dd088f7c347d502c49d05bc4fdf15f66860d30387e62e1e941039bb77",
         "affectsGlobalScope": false
       },
       "../../../../packages/business/downloader-pkg/lib/index.d.ts": {
@@ -2810,7 +2826,7 @@
         "affectsGlobalScope": false
       },
       "../../src/app/controllers/api/music/music.controller.ts": {
-        "version": "3d3e625baf7604da5f52409081dca19aa479c5ea162ab56780c2c22099809464",
+        "version": "2ecfea5f71444b6ac21a98480c1875a73ca791c230d324a610cf6f4d89c3fe3f",
         "affectsGlobalScope": false
       },
       "../../src/app/controllers/api/music/index.ts": {
@@ -2854,7 +2870,7 @@
         "affectsGlobalScope": false
       },
       "../../src/app/utils/errors.ts": {
-        "version": "0c0e887b74f6cff81ff45b9ffe9bb7e8f1f3d9f1e510e55ca02887b4dcf2ade8",
+        "version": "6b7e6a6e3a0d053067d8d173bbc901d5d0514a195b7fc50f124cd664e61cb47d",
         "affectsGlobalScope": false
       },
       "../../src/app/utils/index.ts": {
@@ -2865,8 +2881,8 @@
         "version": "b18bddfff7dd03ca30e59edcaf75ec7af084c62adb6c5bab12510aa3495f45d1",
         "affectsGlobalScope": false
       },
-      "../../src/app/hooks/HandleBadRequestResponse.ts": {
-        "version": "f038e9e21a963da6feecc08242cd0b13c7f97e8bcc91450e62a4c7165af96742",
+      "../../src/app/hooks/HandleErrorResponses.ts": {
+        "version": "c888b4c964283b1f627c409b33db425c5e7f66c1f83b97f7a82410383afc8a49",
         "affectsGlobalScope": false
       },
       "../../src/app/hooks/HandleOptionsRequest.ts": {
@@ -2878,7 +2894,7 @@
         "affectsGlobalScope": false
       },
       "../../src/app/hooks/index.ts": {
-        "version": "61e85fac54c254f04e9834c3b786ba5c5d1fd47e547623ba0df2fb1081df6e19",
+        "version": "6d68c3f9b28f359ad92047cde236776ed90d3217f4304401f3bccc61557b4a95",
         "affectsGlobalScope": false
       },
       "../../src/app/controllers/api/api.controller.ts": {
@@ -2890,7 +2906,7 @@
         "affectsGlobalScope": false
       },
       "../../src/app/controllers/auth/auth.controller.ts": {
-        "version": "0c2c0d30b0d6853b1bf00c53ca85e8892aab4c6267c25b44bb7ed451eed28f56",
+        "version": "75f4afefb02c10e39573656837695ddd63a5d8ac8d653a4e8512c0297946744d",
         "affectsGlobalScope": false
       },
       "../../src/app/controllers/auth/index.ts": {
@@ -2938,7 +2954,7 @@
         "affectsGlobalScope": false
       },
       "../../src/app/translations/en/errors.ts": {
-        "version": "be714407e1ffa68c228f01e1d5e8e7c298f86b862b5ad196703f99878aa3d5f9",
+        "version": "ecd31fc0f791d497b4a475f8809229165907338627058bb61a5c6f175547421d",
         "affectsGlobalScope": false
       },
       "../../src/app/translations/en/index.ts": {
@@ -2954,7 +2970,7 @@
         "affectsGlobalScope": false
       },
       "../../src/app/controllers/app.controller.ts": {
-        "version": "5dfd31386041f7ebbe7b5cfb0d0c1ace95e3c704e191e455d7990523aa7be3a8",
+        "version": "989fcdb6a22ad494266cb2a06cd4eb2965c8df071c20da2d94d94e1c55304ae5",
         "affectsGlobalScope": false
       },
       "../../src/app/controllers/index.ts": {
@@ -2977,12 +2993,16 @@
         "version": "d07cb4681425f5b1f6bc3abe3884936de8da836c828f9cc497881032418994c4",
         "affectsGlobalScope": false
       },
+      "../../src/migrations/1617115992282-migration.ts": {
+        "version": "c3e670e5b87a314375f2d2b32bfecb0d41e8faaab66b98a13911fbd66492c0bd",
+        "affectsGlobalScope": false
+      },
       "../../src/scripts/create-user.ts": {
-        "version": "06dd6e8aabbca5cfbe2fb375da5b948638bbf419ee34dbbb443719c0c853bf7c",
+        "version": "3d3966997d8736fbdd11ba0b0ee87ad097a0576e3f68de56a721013fa68b67cd",
         "affectsGlobalScope": false
       },
       "../../src/scripts/populate.ts": {
-        "version": "4dd7e6707c1aad55ddb2b822b6ad85fd85d824e0e654bea2c313512ea70814e7",
+        "version": "658928d88e72dd72f5ed709864634fb15559d7fe5c40bebfaa3d46efd619247f",
         "affectsGlobalScope": false
       },
       "../../../../common/temp/node_modules/.pnpm/@types/heft-jest@1.0.2/node_modules/@types/heft-jest/mocked.d.ts": {
@@ -5667,13 +5687,16 @@
         "../../../../common/temp/node_modules/.pnpm/typeorm@0.2.31/node_modules/typeorm/query-runner/QueryRunner.d.ts"
       ],
       "../../../../packages/business/downloader-pkg/lib/Downloader.d.ts": [
+        "../../../../common/temp/node_modules/.pnpm/@types/node@14.14.35/node_modules/@types/node/events.d.ts",
+        "../../../../common/temp/node_modules/.pnpm/@types/node@14.14.35/node_modules/@types/node/index.d.ts",
         "../../../../packages/technical/types-pkg/lib/index.d.ts"
       ],
       "../../../../packages/business/downloader-pkg/lib/index.d.ts": [
         "../../../../packages/business/downloader-pkg/lib/Downloader.d.ts"
       ],
       "../../../../packages/business/music-pkg/lib/Music.d.ts": [
-        "../../../../packages/technical/database-pkg/lib/index.d.ts"
+        "../../../../packages/technical/database-pkg/lib/index.d.ts",
+        "../../../../packages/technical/types-pkg/lib/index.d.ts"
       ],
       "../../../../packages/business/music-pkg/lib/index.d.ts": [
         "../../../../packages/business/music-pkg/lib/Music.d.ts"
@@ -5757,7 +5780,8 @@
       ],
       "../../../../packages/technical/database-pkg/lib/repositories/music.repository.d.ts": [
         "../../../../packages/technical/database-pkg/lib/entities/index.d.ts",
-        "../../../../packages/technical/database-pkg/lib/repositories/base.repository.d.ts"
+        "../../../../packages/technical/database-pkg/lib/repositories/base.repository.d.ts",
+        "../../../../packages/technical/types-pkg/lib/index.d.ts"
       ],
       "../../../../packages/technical/database-pkg/lib/repositories/playlist-to-music.repository.d.ts": [
         "../../../../packages/technical/database-pkg/lib/entities/index.d.ts",
@@ -5788,13 +5812,31 @@
         "../../../../packages/technical/error-pkg/lib/ApiException.d.ts",
         "../../../../packages/technical/error-pkg/lib/createError.d.ts"
       ],
-      "../../../../packages/technical/types-pkg/lib/Downloader.d.ts": [
-        "../../../../packages/technical/types-pkg/lib/DownloadedAudio.d.ts"
+      "../../../../packages/technical/types-pkg/lib/downloading/Downloader.d.ts": [
+        "../../../../common/temp/node_modules/.pnpm/@types/node@14.14.35/node_modules/@types/node/events.d.ts",
+        "../../../../common/temp/node_modules/.pnpm/@types/node@14.14.35/node_modules/@types/node/index.d.ts",
+        "../../../../packages/technical/types-pkg/lib/downloading/DownloadedAudio.d.ts",
+        "../../../../packages/technical/types-pkg/lib/downloading/downloadInfo.d.ts",
+        "../../../../packages/technical/types-pkg/lib/downloading/progress.d.ts",
+        "../../../../packages/technical/types-pkg/lib/tables/index.d.ts"
+      ],
+      "../../../../packages/technical/types-pkg/lib/downloading/downloadInfo.d.ts": [
+        "../../../../packages/technical/types-pkg/lib/downloading/DownloadType.d.ts",
+        "../../../../packages/technical/types-pkg/lib/downloading/DownloadedAudio.d.ts"
+      ],
+      "../../../../packages/technical/types-pkg/lib/downloading/index.d.ts": [
+        "../../../../packages/technical/types-pkg/lib/downloading/DownloadType.d.ts",
+        "../../../../packages/technical/types-pkg/lib/downloading/DownloadedAudio.d.ts",
+        "../../../../packages/technical/types-pkg/lib/downloading/Downloader.d.ts",
+        "../../../../packages/technical/types-pkg/lib/downloading/downloadInfo.d.ts",
+        "../../../../packages/technical/types-pkg/lib/downloading/progress.d.ts"
+      ],
+      "../../../../packages/technical/types-pkg/lib/downloading/progress.d.ts": [
+        "../../../../packages/technical/types-pkg/lib/downloading/DownloadType.d.ts"
       ],
       "../../../../packages/technical/types-pkg/lib/index.d.ts": [
-        "../../../../packages/technical/types-pkg/lib/DownloadedAudio.d.ts",
-        "../../../../packages/technical/types-pkg/lib/Downloader.d.ts",
         "../../../../packages/technical/types-pkg/lib/Order.d.ts",
+        "../../../../packages/technical/types-pkg/lib/downloading/index.d.ts",
         "../../../../packages/technical/types-pkg/lib/object.d.ts",
         "../../../../packages/technical/types-pkg/lib/tables/index.d.ts"
       ],
@@ -5825,7 +5867,6 @@
       ],
       "../../src/app/controllers/api/music/music.controller.ts": [
         "../../../../common/temp/node_modules/.pnpm/@foal/core@2.2.0/node_modules/@foal/core/lib/index.d.ts",
-        "../../../../common/temp/node_modules/.pnpm/@types/node@14.14.35/node_modules/@types/node/path.d.ts",
         "../../../../packages/business/downloader-pkg/lib/index.d.ts",
         "../../../../packages/business/music-pkg/lib/index.d.ts",
         "../../../../packages/business/playlist-pkg/lib/index.d.ts",
@@ -5889,7 +5930,7 @@
         "../../../../common/temp/node_modules/.pnpm/@foal/core@2.2.0/node_modules/@foal/core/lib/index.d.ts",
         "../../src/app/utils/index.ts"
       ],
-      "../../src/app/hooks/HandleBadRequestResponse.ts": [
+      "../../src/app/hooks/HandleErrorResponses.ts": [
         "../../../../common/temp/node_modules/.pnpm/@foal/core@2.2.0/node_modules/@foal/core/lib/index.d.ts"
       ],
       "../../src/app/hooks/HandleOptionsRequest.ts": [
@@ -5902,7 +5943,7 @@
       ],
       "../../src/app/hooks/index.ts": [
         "../../src/app/hooks/Cors.ts",
-        "../../src/app/hooks/HandleBadRequestResponse.ts",
+        "../../src/app/hooks/HandleErrorResponses.ts",
         "../../src/app/hooks/HandleOptionsRequest.ts",
         "../../src/app/hooks/RefreshJWT.ts"
       ],
@@ -5948,6 +5989,9 @@
       "../../src/migrations/1616264614250-migration.ts": [
         "../../../../common/temp/node_modules/.pnpm/typeorm@0.2.31/node_modules/typeorm/index.d.ts"
       ],
+      "../../src/migrations/1617115992282-migration.ts": [
+        "../../../../common/temp/node_modules/.pnpm/typeorm@0.2.31/node_modules/typeorm/index.d.ts"
+      ],
       "../../src/scripts/create-user.ts": [
         "../../../../packages/business/user-pkg/lib/index.d.ts",
         "../../../../packages/technical/database-pkg/lib/index.d.ts",
@@ -5958,6 +6002,7 @@
         "../../../../packages/business/playlist-pkg/lib/index.d.ts",
         "../../../../packages/business/user-pkg/lib/index.d.ts",
         "../../../../packages/technical/database-pkg/lib/index.d.ts",
+        "../../../../packages/technical/types-pkg/lib/index.d.ts",
         "../../src/setup.ts"
       ],
       "../../src/setup.ts": [

@@ -27,16 +27,17 @@ export const useDownloadingSongToastContainer = () => {
 
       case DownloadingStatus.idle:
         toast.dismiss(toastId);
-        dispatch(downloadComplete());
         setToastId(undefined);
         break;
 
       case DownloadingStatus.success:
         showServerDownloadFinishToast(toastId);
+        dispatch(downloadComplete());
         break;
 
       case DownloadingStatus.error:
         showServerDownloadErrorToast(toastId);
+        dispatch(downloadComplete());
         break;
     }
   }, [status]);

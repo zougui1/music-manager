@@ -10,7 +10,7 @@ export class AuthController {
   user!: User;
 
   @Post('/login')
-  async login(ctx: Context, params: Record<string, unknown>, { email, password }: { email: string, password: string }): Promise<HttpResponse> {
+  async login(ctx: Context, params: Record<string, unknown>, { email, password }: { email: string; password: string }): Promise<HttpResponse> {
     const user = await this.user.login(email, password);
     const token = generateToken(user);
     const response = new HttpResponseOK({ user, token });

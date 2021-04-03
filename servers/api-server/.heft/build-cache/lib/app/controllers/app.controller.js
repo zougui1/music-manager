@@ -17,6 +17,14 @@ const openApi_controller_1 = require("./openApi.controller");
 const translations_1 = require("../translations");
 const utils_1 = require("../utils");
 const hooks_1 = require("../hooks");
+class Response extends core_1.HttpResponse {
+    constructor(data) {
+        super(data);
+        this.statusCode = data.status;
+        this.statusMessage = data.message;
+        this.code = data.code;
+    }
+}
 // it is important that Cors gets called
 // before HandleOptionsRequest since it
 // ends the request
@@ -89,15 +97,7 @@ let AppController = class AppController {
 AppController = __decorate([
     hooks_1.Cors(),
     hooks_1.HandleOptionsRequest(),
-    hooks_1.HandleBadRequestResponse()
+    hooks_1.HandleErrorResponses()
 ], AppController);
 exports.AppController = AppController;
-class Response extends core_1.HttpResponse {
-    constructor(data) {
-        super(data);
-        this.statusCode = data.status;
-        this.statusMessage = data.message;
-        this.code = data.code;
-    }
-}
 //# sourceMappingURL=app.controller.js.map

@@ -14,4 +14,5 @@ export default {
   translations: {
     nonexistent: 'There is no translation for the key \'{translationKey}\'.',
   },
+  unhandledErrorCode: 'The error code "{code}" has not been handled.',
 };

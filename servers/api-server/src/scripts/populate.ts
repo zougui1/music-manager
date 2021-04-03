@@ -5,31 +5,26 @@ import { Playlist } from 'playlist-pkg';
 import { User } from 'user-pkg';
 import { MusicStatus } from 'types-pkg';
 
-export async function main(args: any): Promise<void> {
-  const connection = await createConnection();
-
-  try {
-    await clearDatabase();
-    await populateDatabase();
-  } catch (error) {
-    console.error(error);
-  } finally {
-    await connection.close();
-  }
-}
-
-const clearDatabase = async (): Promise<void> => {
+const createUserMusics = async (userId: number, playlistId: number): Promise<void> => {
   const music = new Music();
   const playlist = new Playlist();
 
-  await music.clear();
-  await playlist.clear();
-}
+  const _music = await music.create({
+    album: 'album',
+    approved: false,
+    artists: ['dArtagnan'],
+    correctness: 45,
+    duration: 45,
+    link: 'http://some.fo',
+    source: {},
+    tags: [],
+    thumbnail: 'http://some.fo',
+    title: 'Title',
+    user: { id: userId },
+    status: MusicStatus.DOWNLOADED,
+  });
 
-const populateDatabase = async (): Promise<void> => {
-  await Promise.all([
-    populateForUser('zougui@gmail.com', 'nopassword'),
-  ]);
+  await playlist.addMusic(playlistId, _music);
 }
 
 const populateForUser = async (email: string, password: string): Promise<void> => {
@@ -55,24 +50,29 @@ const populateForUser = async (email: string, password: string): Promise<void> =
   ]);
 }
 
-const createUserMusics = async (userId: number, playlistId: number): Promise<void> => {
+const clearDatabase = async (): Promise<void> => {
   const music = new Music();
   const playlist = new Playlist();
 
-  const _music = await music.create({
-    album: 'album',
-    approved: false,
-    artists: ['dArtagnan'],
-    correctness: 45,
-    duration: 45,
-    link: 'http://some.fo',
-    source: {},
-    tags: [],
-    thumbnail: 'http://some.fo',
-    title: 'Title',
-    user: { id: userId },
-    status: MusicStatus.DOWNLOADED,
-  });
+  await music.clear();
+  await playlist.clear();
+}
 
-  await playlist.addMusic(playlistId, _music);
+const populateDatabase = async (): Promise<void> => {
+  await Promise.all([
+    populateForUser('zougui@gmail.com', 'nopassword'),
+  ]);
+}
+
+export async function main(args: any): Promise<void> {
+  const connection = await createConnection();
+
+  try {
+    await clearDatabase();
+    await populateDatabase();
+  } catch (error) {
+    console.error(error);
+  } finally {
+    await connection.close();
+  }
 }

@@ -4,6 +4,7 @@
   "description": "description of the application",
   "license": "MIT",
   "repository": {},
+  "main": "build",
   "scripts": {
     "build": "concurrently \"heft build --clean\" \"tsc -p tsconfig.json --outDir build\"",
     "build-watch": "concurrently \"heft build --watch\" \"tsc -p tsconfig.json --outDir build\"",

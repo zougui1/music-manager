@@ -1,6 +1,6 @@
 import { ObjectLiteral } from 'types-pkg';
 
-import { ConnectionStatus } from '../types';
+import { ConnectionStatus, Query } from '../types';
 import { DownloadingStatus } from '../statuses';
 
 export interface State {
@@ -18,5 +18,8 @@ export interface State {
       percent: number,
       downloadingCount: number,
     },
+  };
+  http: {
+    queries: Record<string, Query>,
   };
 }

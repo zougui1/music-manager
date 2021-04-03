@@ -6,6 +6,7 @@ import {
   TrackDownloadProgress,
   MusicDownloadInit,
   MusicDownloadComplete,
+  Music,
 } from 'types-pkg';
 
 import { YoutubeVideo } from './YoutubeVideo';
@@ -70,6 +71,7 @@ export class Youtube extends EventEmitter implements Downloader {
         quality: 'highestaudio'
       });
     } catch (error) {
+      console.error('youtube-download-error', error);
       this.emit('music-download-error', source);
       throw error;
     }
@@ -83,7 +85,9 @@ export class Youtube extends EventEmitter implements Downloader {
           releaseDate: downloaded.publishDate,
           coverUrl: downloaded.thumbnail,
         });
-      } catch (e) {}
+      } catch (e) {
+        console.error('youtube-merge-metadata-error', e);
+      }
     }
 
     this.emit('music-download-success', downloaded);
@@ -112,9 +116,18 @@ export class Youtube extends EventEmitter implements Downloader {
 }
 
 export interface Youtube {
+  /*on(event: 'progress', listener: (data: TrackDownloadProgress) => void): this;
+  on(event: 'downloaded', listener: (data: DownloadedAudio) => void): this;
+  on(event: 'download-init', listener: (data: MusicDownloadInit) => void): this;
+  on(event: 'download-complete', listener: (data: MusicDownloadComplete) => void): this;*/
+
   on(event: 'progress', listener: (data: TrackDownloadProgress) => void): this;
   on(event: 'downloaded', listener: (data: DownloadedAudio) => void): this;
   on(event: 'download-init', listener: (data: MusicDownloadInit) => void): this;
+  on(event: 'music-init', listener: (data: Music['source'] | Music['source'][]) => void): this;
+  on(event: 'music-download-start', listener: (data: Music['source']) => void): this;
+  on(event: 'music-download-success', listener: (data: DownloadedAudio) => void): this;
+  on(event: 'music-download-error', listener: (data: Music['source']) => void): this;
   on(event: 'download-complete', listener: (data: MusicDownloadComplete) => void): this;
 }
 

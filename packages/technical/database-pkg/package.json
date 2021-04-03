@@ -22,7 +22,8 @@
     "@rushstack/eslint-config": "~2.3.2",
     "@rushstack/heft": "~0.25.3",
     "eslint": "~7.22.0",
-    "@types/fs-extra": "~9.0.8"
+    "@types/fs-extra": "~9.0.8",
+    "@types/lodash": "^4.14.168"
   },
   "dependencies": {
     "typeorm": "^0.2.31",
@@ -31,6 +32,8 @@
     "hash-pkg": "~1.0.0",
     "types-pkg": "~1.0.0",
     "mysql": "^2.18.1",
-    "fs-extra": "~9.1.0"
+    "fs-extra": "~9.1.0",
+    "sql-formatter": "~4.0.2",
+    "lodash": "^4.17.21"
   }
 }

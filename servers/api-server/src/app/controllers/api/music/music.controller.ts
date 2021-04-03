@@ -2,7 +2,6 @@ import { Context, dependency, Get, Post, Options, HttpResponse, HttpResponseOK, 
 import { Music } from 'music-pkg';
 import { Playlist } from 'playlist-pkg';
 import { Downloader } from 'downloader-pkg';
-import path from 'path';
 
 import { addMusicBodySchema } from './music.dto';
 import { UserContext } from '../../../types';
@@ -29,7 +28,16 @@ export class MusicController {
     }
   })
   async find(ctx: Context<UserContext>): Promise<HttpResponse> {
-    const musics = await this.music.findMany({ user: { id: ctx.user.id } });
+    const { query } = ctx.request;
+
+    const status = query.status?.split(',');
+
+    const musics = await this.music.findMany({
+      status,
+      user: {
+        id: ctx.user.id,
+      },
+    });
     return new HttpResponseOK(musics);
   }
 
@@ -70,7 +78,7 @@ export class MusicController {
 
     // TODO the downloading must be run in parallel
     const downloader = new Downloader(link);
-    const downloadeds = await downloader.downloadAudio({ userId: ctx.user.id, playlistId });
+    await downloader.downloadAudio({ userId: ctx.user.id, playlistId });
 
     //? since the downloading will run in parallel
     //? the musics cannot be created here

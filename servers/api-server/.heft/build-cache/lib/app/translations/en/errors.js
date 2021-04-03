@@ -10,6 +10,9 @@ exports.default = {
             incorrect: 'Incorrect credentials.',
         },
     },
+    token: {
+        expired: 'JWT expired.',
+    },
     translations: {
         nonexistent: 'There is no translation for the key \'{translationKey}\'.',
     },

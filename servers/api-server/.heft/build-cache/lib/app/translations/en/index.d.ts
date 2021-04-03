@@ -9,6 +9,9 @@ declare const _default: {
                 incorrect: string;
             };
         };
+        token: {
+            expired: string;
+        };
         translations: {
             nonexistent: string;
         };

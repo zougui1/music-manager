@@ -11,7 +11,7 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./Cors"), exports);
-__exportStar(require("./HandleBadRequestResponse"), exports);
+__exportStar(require("./HandleErrorResponses"), exports);
 __exportStar(require("./HandleOptionsRequest"), exports);
 __exportStar(require("./RefreshJWT"), exports);
 //# sourceMappingURL=index.js.map

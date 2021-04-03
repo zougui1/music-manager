@@ -6,6 +6,7 @@ import {
   PushNotificationToken,
   PushNotificationActionPerformed,
 } from '@capacitor/core';
+import { MusicStatus } from 'types-pkg';
 
 import { Route } from 'react-router-dom';
 import {
@@ -32,29 +33,48 @@ import { PlaylistPage } from './pages/PlaylistPage';
 
 import { ProtectedRoute } from './components/ProtectedRoute';
 import { initApp } from './store';
-import { updateConnectionStatus } from './features/client';
+import { buildUrl } from './utils';
+import { useQuery, useEvent } from './hooks';
+import { updateConnectionStatus, useOnUserChange } from './features/client';
+import { downloadStillOnGoing } from './features/downloading';
 import { useToastContainer } from './useToastContainer';
 
 const { PushNotifications } = Plugins;
+const downloadingMusicsUrl = buildUrl('/api/musics', {
+  status: [MusicStatus.TO_DOWNLOAD, MusicStatus.DOWNLOADING],
+});
 
 export const App: React.FC<AppProps> = ({ language }) => {
   const dispatch = useDispatch();
+  const musics = useQuery<any[]>('downloading-musics', downloadingMusicsUrl, {
+    enabled: false,
+  });
 
-  dispatch(initApp(language));
+  musics.remove()
+  useEffect(() => {
+    dispatch(initApp(language));
+  }, []);
+
+  useOnUserChange(() => {
+    musics.refetch();
+  }, [musics.refetch]);
 
   useEffect(() => {
-    const updateStatus = () => {
-      dispatch(updateConnectionStatus());
-    }
+    if (musics.data) {
+      const downloadings = musics.data.filter(music => music.status === MusicStatus.DOWNLOADING);
 
-    window.addEventListener('online', updateStatus);
-    window.addEventListener('offline', updateStatus);
-
-    return () => {
-      window.removeEventListener('online', updateStatus);
-      window.removeEventListener('offline', updateStatus);
+      if (musics.data.length) {
+        dispatch(downloadStillOnGoing({
+          totalCount: musics.data.length,
+          downloadingCount: downloadings.length,
+        }));
+      }
     }
-  }, []);
+  }, [musics.data]);
+
+  useEvent(['online', 'offline'], () => {
+    dispatch(updateConnectionStatus());
+  });
 
   useEffect(() => {
     if (!isPlatform('desktop')) {

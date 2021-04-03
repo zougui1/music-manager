@@ -19,7 +19,7 @@ export class BaseEntity extends TypeOrmBaseEntity {
   public updatedAt!: Date;
 
   @DeleteDateColumn()
-  public deletedAt!: Date | undefined;
+  public deletedAt!: Date | undefined | null;
 
   @VersionColumn()
   public version!: number;

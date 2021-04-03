@@ -31,6 +31,12 @@ const downloadingSlice = createSlice({
     },
     downloadedMusic: (state) => {
       state.downloadedCount++;
+
+      // TODO handle error cases with a report to tell the user
+      // TODO which music could not be downloaded
+      if (state.downloadedCount === state.totalCount) {
+        state.status = DownloadingStatus.success;
+      }
     },
     downloadProgress: (state, action: PayloadAction<{ percent: number, downloadingCount: number }>) => {
       state.progress.percent = action.payload.percent;
@@ -38,6 +44,11 @@ const downloadingSlice = createSlice({
     },
     downloadComplete: () => {
       return downloadingDefaultState;
+    },
+    downloadStillOnGoing: (state, action: PayloadAction<DownloadStillOnGoingPayload>) => {
+      state.status = DownloadingStatus.downloading;
+      state.progress.downloadingCount = action.payload.downloadingCount;
+      state.totalCount = action.payload.totalCount;
     },
   },
 });
@@ -50,6 +61,12 @@ export const {
   downloadedMusic,
   downloadProgress,
   downloadComplete,
+  downloadStillOnGoing,
 } = downloadingSlice.actions;
 
 export const downloadingReducer = downloadingSlice.reducer;
+
+export interface DownloadStillOnGoingPayload {
+  downloadingCount: number;
+  totalCount: number;
+}

@@ -17,6 +17,14 @@ const openApi_controller_1 = require("./openApi.controller");
 const translations_1 = require("../translations");
 const utils_1 = require("../utils");
 const hooks_1 = require("../hooks");
+class Response extends core_1.HttpResponse {
+    constructor(data) {
+        super(data);
+        this.statusCode = data.status;
+        this.statusMessage = data.message;
+        this.code = data.code;
+    }
+}
 // it is important that Cors gets called
 // before HandleOptionsRequest since it
 // ends the request
@@ -46,6 +54,29 @@ let AppController = class AppController {
         const errorData = this.getInternalError(error, errorValues);
         const translation = this.translateMessage(language, errorData, originalError);
         if ('error' in translation) {
+            if ('critical' in translation) {
+                let apiError;
+                if (translation.originalError instanceof Error) {
+                    apiError = {
+                        message: translation.originalError.message,
+                        status: 500,
+                        code: 'E_UNKNOWN_ERROR',
+                        values: {},
+                    };
+                }
+                else {
+                    apiError = {
+                        message: translation.originalError,
+                        status: 500,
+                        code: 'E_UNKNOWN_ERROR',
+                        values: {},
+                    };
+                }
+                const publicError = this.getPublicError(apiError, { path }, sourceError);
+                const translationError = this.getPublicError(translation.error.toObject(), { path }, sourceError);
+                publicError.translationError = translationError;
+                return new Response(publicError);
+            }
             return this.handleError(translation.error, ctx, sourceError);
         }
         const data = { message: translation.message, path };
@@ -63,7 +94,7 @@ let AppController = class AppController {
     }
     getPublicError(errorData, data, sourceError) {
         var _a;
-        const publicError = Object.assign(Object.assign({}, data), { status: errorData.status, code: errorData.code });
+        const publicError = Object.assign(Object.assign({ message: errorData.message }, data), { status: errorData.status, code: errorData.code });
         if (core_1.Config.get('settings.debug', 'boolean') && sourceError instanceof Error) {
             publicError.stack = (_a = sourceError.stack) === null || _a === void 0 ? void 0 : _a.split('\n');
         }
@@ -77,7 +108,7 @@ let AppController = class AppController {
         catch (error) {
             // prevents infinite loop if the translation fails everytime
             if (this.translationFailed) {
-                throw originalError;
+                return { error, originalError, critical: true };
             }
             this.translationFailed = true;
             return { error };
@@ -92,12 +123,4 @@ AppController = __decorate([
     hooks_1.HandleErrorResponses()
 ], AppController);
 exports.AppController = AppController;
-class Response extends core_1.HttpResponse {
-    constructor(data) {
-        super(data);
-        this.statusCode = data.status;
-        this.statusMessage = data.message;
-        this.code = data.code;
-    }
-}
 //# sourceMappingURL=app.controller.js.map

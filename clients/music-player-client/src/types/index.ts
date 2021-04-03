@@ -3,3 +3,4 @@ export * from './ObjectLiteral';
 export * from './date';
 export * from './form';
 export * from './ConnectionStatus';
+export * from './Query';
